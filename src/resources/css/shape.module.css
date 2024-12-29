@@ -1,0 +1,60 @@
+@font-face{
+    src:url('../fonts/Nunito-Regular.ttf');
+    font-family:Title;
+}
+@font-face{
+    src:url('../fonts/Roboto-Regular.ttf');
+    font-family:Form;
+}
+.sheet{
+    border-radius: 5px;
+}
+.sheetOuter{
+    padding: 10px;
+}
+.sheetInner{
+    padding-top: 10px;
+    padding-left: 30px;
+    padding-right: 10px;
+}
+.container{
+    padding-top: 15px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+    padding-left: 15px
+}
+.title{
+    font-family: Title;
+    padding-top: 15px;
+    font-size: 20px;
+}
+.formFieldOuterLableOnLeft{
+    font-family: Form;
+    font-size: 12px;
+    padding-right: 30px !important;
+    padding-left: 0px !important;
+}
+.formFieldOuterLableOnTop{
+    font-family: Form;
+    font-size: 12px;
+    padding-right: 30px !important;
+}
+.lableContainer
+{
+    font-family: Form;
+    font-size: 81.25%;;
+    padding-top: 18px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+.topLableContainer
+{
+    font-family: Form;
+    font-size: 13px;
+    padding-bottom: 5px;
+}
+.formField{
+    font-family: Form;
+    font-size: 14px;
+    width: 100%;
+}

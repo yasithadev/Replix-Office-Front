@@ -1,0 +1,69 @@
+.layoutBackground{
+    position: fixed;
+}
+.left{
+    position: fixed;
+    width:250px;
+    height: 100%;
+    left:0;
+}
+.leftContent{
+    position: absolute;
+    overflow-y: auto;
+    top:48px;
+    bottom: 0;
+    /* height :100%;*/
+    width:calc(100% - 5px);
+    right:5px;
+    user-select: none;
+    -webkit-user-select: none; /* Safari 3.1+ */
+    -moz-user-select: none; /* Firefox 2+ */
+    -ms-user-select: none; /* IE 10+ */
+    user-select: none; /* Standard syntax */
+} 
+.right{
+    position: absolute;
+    padding-top:48px;
+    margin-left : 250px;
+    right:0;
+    left:0;
+    overflow-x: hidden;
+    min-height: 100%;
+    user-select: none;
+    -webkit-user-select: none; /* Safari 3.1+ */
+    -moz-user-select: none; /* Firefox 2+ */
+    -ms-user-select: none; /* IE 10+ */
+    user-select: none; /* Standard syntax */
+}
+.rightContainer{
+    position: absolute;
+    overflow-y: auto;
+    top:48px;
+    bottom: 0;
+    height :calc(100% - 48px);
+    width:100%;
+}
+.rightContent{
+    position: absolute;
+    min-height: 100%;
+    width:100%;
+}
+.ResizerRight {
+    width: 5px;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    cursor: col-resize;
+    top:48px;
+}
+.menubar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 48px;
+    z-index:10000;
+} 
+
+

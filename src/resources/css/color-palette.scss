@@ -1,0 +1,51 @@
+//////////////////////light theam///////////////////////
+
+//Primary Colors                                //Typogrphy
+$primary-lt :rgba(255,255,255,0.8);           $on-primary-lt :blue;
+$primary-light-lt :rgba(255,255,255,0.5);     $on-primary-light-lt :blue;
+$primary-dark-lt :blue;                       $on-primary-dark-lt :blue;
+
+//Accent Colors
+$secondary-lt :rgb(0, 0, 0);         $on-secondary-lt :blue;
+$secondary-light-lt :rgb(0, 0, 0);   $on-secondary-light-lt :blue;
+$secondary-daker-lt :rgb(0, 0, 0);   $on-secondary-daker-lt :blue;
+
+//Neutral Colors
+$background-lt :rgba(255, 255, 255,0);        $on-background-lt :blue;
+$serface-lt :rgba(255, 255, 255,0.82);        $on-serface-lt :gray;
+
+//Semantic Colors
+$success-lt :rgb(255, 255, 255);           $on-success-lt :blue;
+$info-lt :rgb(255, 255, 255);              $on-info-lt :blue;
+$warning-lt :rgb(255, 255, 255);           $on-warning-lt :blue;
+$error-lt :rgb(255, 0, 0);             $on-error-lt :blue;
+
+//////////////////////Dark theam////////////////////////
+
+//Primary Colors               //Typogrphy
+$primary-dt : rgba(0, 0, 0, 0.4);     $on-primary-dt :blue;
+$primary-light-dt :blue;     $on-primary-light-dt :blue;
+$primary-dark-dt :blue;      $on-primary-dark-dt :blue;
+
+//Accent Colors
+$secondary-dt :rgba(255, 255, 255, 0.3);         $on-secondary-dt :blue;
+$secondary-light-dt :blue;   $on-secondary-light-dt :blue;
+$secondary-daker-dt :rgba(255, 255, 255, 0.2);   $on-secondary-daker-dt :blue;
+
+//Neutral Colors
+$background-dt :rgba(0, 0, 0, 0);        $on-background-dt :blue;
+$serface-dt :rgb(0, 0, 0);           $on-serface-dt :blue;
+
+//Semantic Colors
+$success-dt :blue;           $on-success-dt :blue;
+$info-lt :blue;              $on-info-dt :blue;
+$warning-dt :blue;           $on-warning-dt :blue;
+$error-dt :blue;             $on-error-dt :blue;
+
+////////////////////// Charts ////////////////////////
+
+//Categorical
+
+//Sequential
+
+//Polarize
