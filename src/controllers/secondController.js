@@ -15,6 +15,18 @@ class SecondController{
         return jsonEdit;
     }
 */
+    constructor(){
+        this.loginStatus = false;
+    }
+    
+    getLoginStatus(){
+        return this.loginStatus;
+    }
+
+    setLoginStatus(status){
+        this.loginStatus = status;
+    }
+
     getLeftMenuData(){
         return sideMenuContent;
     }
