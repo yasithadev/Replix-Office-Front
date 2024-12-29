@@ -12,12 +12,6 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/login" element={<Login />}></Route>
-        <Route path="/layout" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="blogs" element={<Blogs />} />
-          <Route path="contact" element={<Contact />} />
-          <Route path="*" element={<NoPage />} />
-        </Route>
         <Route path="/" element={<AppLayout/>}>
         <Route index element={<Home />} />
           <Route path="blogs" element={<Blogs />} />

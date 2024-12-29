@@ -6,7 +6,7 @@ class CollapsibleMenu extends React.Component
     constructor(props) {
         super(props);
         this.clicked = this.clicked.bind(this);
-        this.heightChangedCallBack = this.heightChangedCallBack.bind(this);
+        this.heightchangedcallback = this.heightchangedcallback.bind(this);
         //this.render = this.render.bind(this);
         this.state = {conentHeight: "0px",};
         this.iconClass = SheetStyle.rta;
@@ -30,8 +30,8 @@ class CollapsibleMenu extends React.Component
                 let heightString = height.toString() + "px";
                 //console.log("--------------------heightString" , heightString);
                 this.setState({conentHeight: heightString});
-                if(this.props.heightChangedCallBack){
-                    this.props.heightChangedCallBack(height);
+                if(this.props.heightchangedcallback){
+                    this.props.heightchangedcallback(height);
                 }
                 this.open = true;
             }
@@ -47,14 +47,14 @@ class CollapsibleMenu extends React.Component
                 else{
                     height = (this.itemHeight * (-1)) ;
                 }
-                if(this.props.heightChangedCallBack){
-                    this.props.heightChangedCallBack(height);
+                if(this.props.heightchangedcallback){
+                    this.props.heightchangedcallback(height);
                 }
             }
             this.open = false;
         }
     }
-    heightChangedCallBack(childChangedHeight){
+    heightchangedcallback(childChangedHeight){
         console.log("--------------------lengthChangedCallBack",childChangedHeight);
         this.contentHeightOfChildren = this.contentHeightOfChildren + childChangedHeight;
 
@@ -69,8 +69,8 @@ class CollapsibleMenu extends React.Component
         let heightString = height.toString() + "px";
         //console.log("--------------------heightString" , heightString);
         this.setState({conentHeight: heightString});
-        if(this.props.heightChangedCallBack){
-            this.props.heightChangedCallBack(childChangedHeight);
+        if(this.props.heightchangedcallback){
+            this.props.heightchangedcallback(childChangedHeight);
         }
     }
     render(){
@@ -79,8 +79,10 @@ class CollapsibleMenu extends React.Component
         //let elementsToRender = [];
         const childrenWithProps = React.Children.map(this.props.children, child => {
             // checking isValidElement is the safe way and avoids a typescript error too
-            if (React.isValidElement(child)) {
-              return React.cloneElement(child, { heightChangedCallBack: this.heightChangedCallBack,sheetChangeRequest:this.props.sheetChangeRequest});
+            if (React.isValidElement(child) && child.type.name =="CollapsibleMenu" ) {
+                //here we allow child component instance to call parent method.we bind parent methods in to childsnew cloned instance.
+             //console.log("child ---------",child.type.name)
+              return React.cloneElement(child, { heightchangedcallback: this.heightchangedcallback});
             }
             return child;
           });
