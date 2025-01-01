@@ -1,0 +1,155 @@
+.bodyDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    /* Make body full viewport height */
+    margin: 0;
+}
+        .centeredSquare {
+            width: 600px;
+            height: 400px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            display: flex;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            border-color: darkgrey;
+            border-width: 1px;
+        }
+
+        .leftHalf,
+        .rightHalf {
+            width: 50%;
+            height: 100%;
+
+        }
+        .leftHalf {
+            border-radius: 10px 0 0 10px;
+            /*background-image: url('login-bg.jpeg');*/
+            /* Replace with your image URL */
+            background-size: cover;
+            /* Adjust background size as needed */
+            background-position: center;
+            /* Adjust background position as needed*/
+        }
+        .rightHalf {
+            border-radius: 0 10px 10px 0;
+            background-color: #ffffff;
+        }
+
+        .innerSquareLeft {
+            margin: 20px;
+            width: calc(100% - 40px);
+            /* Adjust width to account for margins */
+            height: calc(100% - 40px);
+            /* Adjust height to account for margins */
+            /* frosted glass iffect for firefox
+            background: inherit;
+            box-shadow: inset 0 0 0 400px rgba(0, 0, 0, 0.2);
+                filter: blur(4px);
+            */
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 16px;
+            /*box-shadow: 0 4px 30px rgba(0, 0, 0, 0.8);*/
+            backdrop-filter: blur(3px);
+            -webkit-backdrop-filter: blur(3px);
+            
+            position: relative;/*this is required for footer positioning*/
+        }
+
+        .innerSquareRight {
+            margin: 40px;
+            width: calc(100% - 80px);
+            /* Adjust width to account for margins */
+            height: calc(100% - 80px);
+            /* Adjust height to account for margins */
+            background: rgba(255, 255, 255, 0.2);
+        }
+        .logo {
+            /*width: 100px;*/
+            /* Image scales proportionally */
+            height: 110px;
+            /* Image scales proportionally */
+            /* Optional: Set maximum width/height if needed */
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            padding-top: 20px;
+            opacity: 0.8;
+        }
+        .heading1 {
+            color: rgba(255, 255, 255, 0.8);
+            text-align: center;
+            width: 100%;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 20px;
+            margin-top: 5px;
+        }
+        .heading2 {
+            color: rgba(255, 255, 255, 0.8);
+            text-align: center;
+            width: 100%;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 15px;
+        }
+        .footer {
+            color: rgba(255, 255, 255, 0.8);
+            text-align: center;
+            width: 100%;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 10px;
+            bottom: 0;
+
+            position: absolute;
+            margin-bottom: 10px;
+            float: right
+        }
+        .logo2 {
+            width: 30px;
+            /* Image scales proportionally */
+            height: 12px;
+            /* Image scales proportionally */
+            /* Optional: Set maximum width/height if needed */
+            margin: -2px;
+            margin-right: 2px;
+            margin-left: 2px;
+        }
+        .heading1Right{
+            color: rgba(0, 0, 0, 0.8);
+            text-align: center;
+            width: 100%;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+        .heading2Right {
+            color: rgba(0, 0, 0, 0.8);
+            text-align:left;
+            width: 100%;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12px;
+        }
+        .input{
+            width:100%;
+  padding: 10px 20px;
+  margin: 5px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+        }
+
+        .submitButton {
+            width: 100%;
+            background-color: #00448c;
+            color: white;
+            padding: 10px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+          }
+
+        .submitButton:hover {
+            background-color: #013266;
+          }
