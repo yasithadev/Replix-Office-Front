@@ -1,10 +1,13 @@
 import {color,clientLogo,manufacturerLogo} from '../comp.properties.js';
 import login from './login.module.css';
+import { useRef } from "react";
 
 const BasicLogin = (props) => {
+  const username = useRef();
+  const password = useRef();
   const loginAction = () => {
     console.log("----------------loginAction-----------------")
-    props.onLoginButtonClicked();
+    props.onLoginButtonClicked(username.current.value,password.current.value);
   }
     
     return (
@@ -25,9 +28,9 @@ const BasicLogin = (props) => {
             <div>
               <div className={login.heading1Right}>Login</div>
               <div className={login.heading2Right}>UserName</div>
-              <input className={login.inputField} type="text" id="fname" name="fname" /><br /><br />
+              <input className={login.inputField} type="text" ref={username} id="fname" name="fname" /><br /><br />
               <div className={login.heading2Right}>Password</div>
-              <input className={login.inputField} type="text" id="lname" name="lname" /><br /><br />
+              <input className={login.inputField} type="text" ref={password} id="lname" name="lname" /><br /><br />
               <input onClick={loginAction} type="submit" class={login.submitButton} value="Login" />
             </div>
           </div>
