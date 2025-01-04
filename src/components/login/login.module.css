@@ -7,7 +7,7 @@
     margin: 0;
 }
         .centeredSquare {
-            width: 600px;
+            /*width: 600px;*/
             height: 400px;
             background-color: #ffffff;
             border-radius: 10px;
@@ -19,11 +19,11 @@
 
         .leftHalf,
         .rightHalf {
-            width: 50%;
             height: 100%;
 
         }
         .leftHalf {
+           /* width: 55%;*/
             border-radius: 10px 0 0 10px;
             /*background-image: url('login-bg.jpeg');*/
             /* Replace with your image URL */
@@ -33,15 +33,16 @@
             /* Adjust background position as needed*/
         }
         .rightHalf {
+            width: 45%;
             border-radius: 0 10px 10px 0;
             background-color: #ffffff;
         }
 
         .innerSquareLeft {
-            margin: 20px;
-            width: calc(100% - 40px);
+            margin: 30px;
+           /* width: calc(100% - 40px);*/
             /* Adjust width to account for margins */
-            height: calc(100% - 40px);
+            height: calc(100% - 60px);
             /* Adjust height to account for margins */
             /* frosted glass iffect for firefox
             background: inherit;
@@ -49,7 +50,7 @@
                 filter: blur(4px);
             */
             background: rgba(0, 0, 0, 0.2);
-            border-radius: 16px;
+            /*border-radius: 16px;*/
             /*box-shadow: 0 4px 30px rgba(0, 0, 0, 0.8);*/
             backdrop-filter: blur(3px);
             -webkit-backdrop-filter: blur(3px);
@@ -58,12 +59,16 @@
         }
 
         .innerSquareRight {
-            margin: 40px;
-            width: calc(100% - 80px);
+            margin-left: 30px;
+            margin-right: 30px;
+            margin-top:75px;
+           /* width: calc(100% - 80px);*/
             /* Adjust width to account for margins */
             height: calc(100% - 80px);
             /* Adjust height to account for margins */
             background: rgba(255, 255, 255, 0.2);
+
+
         }
         .logo {
             /*width: 100px;*/
@@ -88,9 +93,11 @@
         .heading2 {
             color: rgba(255, 255, 255, 0.8);
             text-align: center;
-            width: 100%;
+           /* width: 100%;*/
             font-family: Arial, Helvetica, sans-serif;
             font-size: 15px;
+            margin-left:30px;
+            margin-right:30px;
         }
         .footer {
             color: rgba(255, 255, 255, 0.8);
@@ -129,9 +136,9 @@
             font-family: Arial, Helvetica, sans-serif;
             font-size: 12px;
         }
-        .input{
+        .inputField{
             width:100%;
-  padding: 10px 20px;
+  padding: 10px;
   margin: 5px 0;
   display: inline-block;
   border: 1px solid #ccc;

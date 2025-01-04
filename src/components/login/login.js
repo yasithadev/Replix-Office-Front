@@ -15,7 +15,7 @@ const BasicLogin = (props) => {
               
               <img className={login.logo} src={clientLogo} alt="Your Image"/>
               <div className={login.heading1}>Sri Lanka Railways</div>
-              <div className={login.heading2}>Inventory Management System</div>
+              <div className={login.heading2}>Inventory&nbsp;Management&nbsp;System</div>
                 <div className={login.footer}>© 2024 | <img className={login.logo2} src={manufacturerLogo} alt="Your Image"/> Software Technologies
                     (Pvt) Ltd</div>
             </div>  
@@ -25,9 +25,9 @@ const BasicLogin = (props) => {
             <div>
               <div className={login.heading1Right}>Login</div>
               <div className={login.heading2Right}>UserName</div>
-              <input className={login.input} type="text" id="fname" name="fname" /><br /><br />
+              <input className={login.inputField} type="text" id="fname" name="fname" /><br /><br />
               <div className={login.heading2Right}>Password</div>
-              <input className={login.input} type="text" id="lname" name="lname" /><br /><br />
+              <input className={login.inputField} type="text" id="lname" name="lname" /><br /><br />
               <input onClick={loginAction} type="submit" class={login.submitButton} value="Login" />
             </div>
           </div>
