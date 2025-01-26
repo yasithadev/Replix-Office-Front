@@ -1,13 +1,21 @@
 import {color,clientLogo,manufacturerLogo} from '../comp.properties.js';
 import login from './login.module.css';
 import { useRef } from "react";
+import InvalidCredentialException from './InvalidCredentialException';
 
 const BasicLogin = (props) => {
   const username = useRef();
   const password = useRef();
-  const loginAction = () => {
+  const loginAction = async() => {
     console.log("----------------loginAction-----------------")
-    props.onLoginButtonClicked(username.current.value,password.current.value);
+    try{
+      await props.onLoginButtonClicked(username.current.value,password.current.value);
+    }
+    catch(e){
+      if (e instanceof InvalidCredentialException) {
+        console.log("----------------Invalid Username or Password-----------------");
+      }
+    }
   }
     
     return (

@@ -1,5 +1,6 @@
 import {authRepository} from "../repositry/authRepository";
 import Authentication from '../models/Authentication';
+
 class AuthService{
     async doBasicAuthentication(username,password){
         try{
@@ -13,8 +14,8 @@ class AuthService{
             console.log("auth Jwt ",auth.getJwt()); //TODO:add debug log
             console.log(auth.getPermissions()); //TODO:add debug log
             return;
-        }catch(error){
-            throw error
+        }catch(e){
+            throw e;
         }
     }
 }

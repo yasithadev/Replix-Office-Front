@@ -8,14 +8,24 @@ import Button from '@mui/material/Button';
 import {Link} from "react-router-dom";
 import BasicLogin from "../components/login/login";
 import { useNavigate } from "react-router-dom";
+import InvalidCredentialException from '../components/login/InvalidCredentialException';
+import UnauthorizedException from '../exception/UnauthorizedException';
 
 const Login = () => {
   let navigate = useNavigate();
   const shoot = async (username,password) => {
     console.log("----------------shoot-----------------")
-    secondController.setLoginStatus(true);
-    await authService.doBasicAuthentication(username,password)
-    navigate("/");
+    //secondController.setLoginStatus(true);
+    try{
+        await authService.doBasicAuthentication(username,password)
+        navigate("/");
+    }
+    catch(e){
+      if (e instanceof UnauthorizedException) {
+        throw new InvalidCredentialException();
+      }
+    }
+
   }
   
   return (
