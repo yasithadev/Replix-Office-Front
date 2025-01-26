@@ -8,10 +8,15 @@ class Authentication {
         this.#permissions = permissions;
         Authentication.instance = this;
       }
-  
       return Authentication.instance;
     }
-  
+    // Static method to get the singleton instance
+    static getInstance(jwt = '', permissions = []) {
+      if (!Authentication.instance) {
+        Authentication.instance = new Authentication(jwt, permissions);
+      }
+      return Authentication.instance;
+    }
     // Getter for jwt
     getJwt() {
       return this.#jwt;

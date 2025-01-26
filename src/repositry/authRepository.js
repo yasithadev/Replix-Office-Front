@@ -4,26 +4,24 @@ class AuthRepository{
     constructor(){
         this.loginStatus = false;
     }
-    
 
-    doBasicAuthentication(username,password){
-        console.log(username,"xxxxxxxx");
-        console.log(password);
+    async doBasicAuthentication(username,password){
+        console.log(username,"xxxxxxxxvvvvv");//TODO:add debug log
+        console.log(password);//TODO:add debug log
         let url = 'http://localhost:8080/api/test/signin';
-        axios.post(url,{
-            username: username,
-            password: password
-          })
-          .then(function (response) {
-            console.log(response);
-          })
-          .catch(function (error) {
+        try{
+            const response = await axios.post(url,{
+                email: username,
+                password: password
+            });
+            //console.log("----------------",response,"-----------");//TODO:add debug log
+            return response;
+        }
+        catch(error)
+        {
             console.log(error);
-          })
-          .finally(function () {
-            // always executed
-          });
-        return null;
+            throw error;
+        }
     }
 }
 export let authRepository = new AuthRepository();
