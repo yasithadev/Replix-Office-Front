@@ -34,12 +34,12 @@ const BasicLogin = (props) => {
         <div className={login.rightHalf}>
           <div class={login.innerSquareRight}>
             <div>
-              <div className={login.heading1Right}>Login</div>
-              <div className={login.heading2Right}>UserName</div>
+              <div className={login.heading1Right}>Sign in</div>
+              <div className={login.heading2Right}>Email</div>
               <input className={login.inputField} type="text" ref={username} id="fname" name="fname" /><br /><br />
               <div className={login.heading2Right}>Password</div>
               <input className={login.inputField} type="text" ref={password} id="lname" name="lname" /><br /><br />
-              <input onClick={loginAction} type="submit" class={login.submitButton} value="Login" />
+              <input onClick={loginAction} type="submit" class={login.submitButton} value="Sign in" />
             </div>
           </div>
         </div>
