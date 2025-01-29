@@ -73,7 +73,7 @@
         .innerSquareRight {
             margin-left: 30px;
             margin-right: 30px;
-            margin-top:75px;
+            margin-top:65px;
            /* width: calc(100% - 80px);*/
             /* Adjust width to account for margins */
             height: calc(100% - 80px);
@@ -139,7 +139,7 @@
             width: 100%;
             font-family: Form;
             font-size: 20px;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
         .heading2Right {
             color: rgba(0, 0, 0, 0.8);
@@ -172,4 +172,25 @@
 
         .submitButton:hover {
             background-color: #011140;
+          }
+          .validation{
+            color:red;
+            font-family: Form;
+            font-size: 13px;
+        height: 15px;
+          }
+          .showPassword{
+            color:gray;
+            font-family: Form;
+            font-size: 13px;
+        height: 15px;
+          }
+
+          .link{
+            color:blue;
+            font-family: Form;
+            font-size: 11px;
+        height: 15px;
+        text-decoration: underline;
+        float: right;
           }

@@ -38,8 +38,11 @@ const BasicLogin = (props) => {
               <div className={login.heading2Right}>Email</div>
               <input className={login.inputField} type="text" ref={username} id="fname" name="fname" /><br /><br />
               <div className={login.heading2Right}>Password</div>
-              <input className={login.inputField} type="text" ref={password} id="lname" name="lname" /><br /><br />
+              <input className={login.inputField} type="text" ref={password} id="lname" name="lname" />
+              <div className={login.showPassword}>show password</div>
+              <div className={login.validation}></div>
               <input onClick={loginAction} type="submit" class={login.submitButton} value="Sign in" />
+              <a className={login.link}>Forgot password</a>
             </div>
           </div>
         </div>
