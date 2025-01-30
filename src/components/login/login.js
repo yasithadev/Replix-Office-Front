@@ -1,11 +1,12 @@
 import {color,clientLogo,manufacturerLogo} from '../comp.properties.js';
 import login from './login.module.css';
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import InvalidCredentialException from './InvalidCredentialException';
 
 const BasicLogin = (props) => {
   const username = useRef();
   const password = useRef();
+  const [validationMessage,setValidationMessage] = useState();
   const loginAction = async() => {
     console.log("----------------loginAction-----------------")
     try{
@@ -14,6 +15,7 @@ const BasicLogin = (props) => {
     catch(e){
       if (e instanceof InvalidCredentialException) {
         console.log("----------------Invalid Username or Password-----------------");
+        setValidationMessage('Invalid Username or Password');
       }
     }
   }
@@ -40,7 +42,7 @@ const BasicLogin = (props) => {
               <div className={login.heading2Right}>Password</div>
               <input className={login.inputField} type="text" ref={password} id="lname" name="lname" />
               <div className={login.showPassword}>show password</div>
-              <div className={login.validation}></div>
+              <div className={login.validation}>{validationMessage}</div>
               <input onClick={loginAction} type="submit" class={login.submitButton} value="Sign in" />
               <a className={login.link}>Forgot password</a>
             </div>
