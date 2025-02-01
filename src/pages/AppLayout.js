@@ -5,6 +5,7 @@ import {secondController} from "../controllers/secondController";
 import { useNavigate } from "react-router-dom";
 import React, {useState,useRef, useEffect } from 'react';
 import Authentication from '../models/Authentication';
+import logger from '../util/log/logger';
 
 //import console = require("console");
 const AppLayout = () => {
@@ -12,7 +13,7 @@ const AppLayout = () => {
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
   if(!Authentication.getInstance().getJwt()){
-    console.log("--------------------Authentication.getInstance().getJwt()--------------------" ,Authentication.getInstance().getJwt());
+    logger.debug("--------------------Authentication.getInstance().getJwt()--------------------" ,Authentication.getInstance().getJwt());
 
     // Somewhere in your code, e.g. inside a handler:
     navigate("/login");
