@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { AxiosError } from "axios";
 import UnauthorizedException from '../exception/UnauthorizedException';
+import logger from '../util/log/logger';
 
 class AuthRepository{
 
@@ -11,6 +12,7 @@ class AuthRepository{
     async doBasicAuthentication(username,password){
         console.log(username,"xxxxxxxxvvvvv");//TODO:add debug log
         console.log(password);//TODO:add debug log
+        logger.trace("console","hello");
         let url = 'http://localhost:8080/api/test/signin';
         try{
             const response = await axios.post(url,{

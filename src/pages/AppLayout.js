@@ -9,21 +9,27 @@ import Authentication from '../models/Authentication';
 //import console = require("console");
 const AppLayout = () => {
   let navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
   if(!Authentication.getInstance().getJwt()){
     console.log("--------------------Authentication.getInstance().getJwt()--------------------" ,Authentication.getInstance().getJwt());
 
     // Somewhere in your code, e.g. inside a handler:
-    navigate("/login"); 
+    navigate("/login");
     return;
   }
+  setIsLoading(false); 
 }, []);
-  
-  return (
-    <>
-        <OfficeLayout getLeftMenuContent={secondController.getLeftMenuData}>hi</OfficeLayout>
-    </>
-  )
+  if (isLoading) {
+    return <div>Loading...</div>; // Optionally show a loading spinner or message
+  }
+  else{
+    return (
+      <>
+          <OfficeLayout getLeftMenuContent={secondController.getLeftMenuData}>hi</OfficeLayout>
+      </>
+    );
+  }
 };
 
 export default AppLayout;
