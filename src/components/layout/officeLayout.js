@@ -1,5 +1,5 @@
 import SysLayoutStyle from './syslayout.module.css';
-import {color} from '../comp.properties.js';
+import {layoutColor} from '../comp.properties.js';
 import Footer from '../footer/footer';
 import { Outlet} from "react-router-dom";
 import { withRouter } from 'react-router';
@@ -64,18 +64,18 @@ export default function OfficeLayout(props) {
   }
     return (
       <>
-        <div className={SysLayoutStyle.layoutBackground + " " + color.layoutBackground}></div>
+        <div className={SysLayoutStyle.layoutBackground + " " + layoutColor.layoutBackground}></div>
           <div ref={leftContainer} className={SysLayoutStyle.left } style={{width: leftwidth}}>
-            <div className={SysLayoutStyle.leftContent + " " + color.leftContent}>
+            <div className={SysLayoutStyle.leftContent + " " + layoutColor.leftContent}>
             {sideMenuContent}
             </div>
-          <div ref={resizer} onMouseDown={initDrag} className={SysLayoutStyle.ResizerRight + " " + color.ResizerRight}></div>
+          <div ref={resizer} onMouseDown={initDrag} className={SysLayoutStyle.ResizerRight + " " + layoutColor.ResizerRight}></div>
         </div>
-        <div ref={rightContainer} className={SysLayoutStyle.right + " " + color.right} style={{left:leftOfRight}}> 
+        <div ref={rightContainer} className={SysLayoutStyle.right + " " + layoutColor.right} style={{left:leftOfRight}}> 
           <Outlet/> 
           <Footer></Footer>
         </div>
-        <div className={SysLayoutStyle.menubar + " " + color.menubar}></div>
+        <div className={SysLayoutStyle.menubar + " " + layoutColor.menubar}></div>
       </>
     );
   }
