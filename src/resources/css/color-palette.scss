@@ -8,7 +8,12 @@ $primary-dark-lt :blue;                       $on-primary-dark-lt :blue;
 //Accent Colors
 $secondary-lt :rgb(0, 0, 0);         $on-secondary-lt :blue;
 $secondary-light-lt :rgb(0, 0, 0);   $on-secondary-light-lt :blue;
-$secondary-daker-lt :rgb(0, 0, 0);   $on-secondary-daker-lt :blue;
+$secondary-daker-lt :rgb(0, 0, 0);   $on-secondary-daker-lt :blue;//TODO:dark
+
+//Tertiary Colors
+$tertiary-lt :rgb(0, 0, 0);         $on-tertiary-lt :blue;
+$tertiary-light-lt :rgb(0, 0, 0);   $on-tertiary-light-lt :blue;
+$tertiary-dark-lt :rgb(0, 0, 0);    $on-tertiary-dark-lt :blue;
 
 //Neutral Colors
 $background-lt :rgba(255, 255, 255,0);        $on-background-lt :blue;
@@ -29,8 +34,13 @@ $primary-dark-dt :blue;      $on-primary-dark-dt :blue;
 
 //Accent Colors
 $secondary-dt :rgba(255, 255, 255, 0.3);         $on-secondary-dt :blue;
-$secondary-light-dt :blue;   $on-secondary-light-dt :blue;
-$secondary-daker-dt :rgba(255, 255, 255, 0.2);   $on-secondary-daker-dt :blue;
+$secondary-light-dt :blue;                       $on-secondary-light-dt :blue;
+$secondary-daker-dt :rgba(255, 255, 255, 0.2);   $on-secondary-daker-dt :blue;//TODO:dark
+
+//tertiary Colors
+$tertiary-dt :rgba(255, 255, 255, 0.3);         $on-tertiary-dt :blue;
+$tertiary-light-dt :blue;                       $on-tertiary-light-dt :blue;
+$tertiary-dark-dt :rgba(255, 255, 255, 0.2);   $on-tertiary-dark-dt :blue;
 
 //Neutral Colors
 $background-dt :rgba(0, 0, 0, 0);        $on-background-dt :blue;

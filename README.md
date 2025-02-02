@@ -107,3 +107,19 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+<h1>Development rules</h1>
+
+<h2>Logs</h2>
+<ol>
+    <li>whthin the component code ,before every line that call controller instances , there sholud be trace logs</li>
+    <li>logs shoud containe data about calle(controller method) and the parameters values that area passing</li>
+    <li>end of each log line ,there should be a comment as "//Trace".
+    i.e.
+
+    logger.trace("props.getPageData------",this.props.getPageData);//Trace
+
+
+  <p>  It will be removable from the production build but available at dev mode.using those logs consumer developer can findout which controller method was called.</p>
+    </li>
+</ol>
