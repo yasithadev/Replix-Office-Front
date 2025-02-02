@@ -38,6 +38,7 @@
     -ms-user-select: none; /* IE 10+ */
     user-select: none; /* Standard syntax */
 }
+/*TODO:check wether this class(rightContainer) can comment or remove*/ 
 .rightContainer{
     position: absolute;
     overflow-y: visible;
