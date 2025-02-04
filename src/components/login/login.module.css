@@ -160,8 +160,6 @@
 
         .submitButton {
             width: 100%;
-            background-color: #2A438C;
-            color: white;
             font-family: FieldHeading;
             padding: 10px 20px;
             margin: 4px 0;
@@ -170,11 +168,9 @@
             cursor: pointer;
           }
 
-        .submitButton:hover {
-            background-color: #011140;
-          }
+
           .validation{
-            color:red;
+            color:#dc3545;
             font-family: Form;
             font-size: 13px;
             height: 15px;
@@ -188,7 +184,7 @@
           }
 
           .link{
-            color:blue;
+            color:#5a9bd3;
             font-family: Form;
             font-size: 11px;
         height: 15px;

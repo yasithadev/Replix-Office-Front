@@ -7,7 +7,8 @@ export {
     clientLogo,
     manufacturerLogo,
     layoutColor,
-    sheetColor
+    sheetColor,
+    loginColor
 } from '../resources/replix.properties.js';
 //export const appLogo=logo;
 //as a library in replix project

@@ -1,9 +1,9 @@
 //////////////////////light theam///////////////////////
 
-//Primary Colors                                //Typogrphy
-$primary-lt :rgba(255,255,255,0.8);           $on-primary-lt :blue;
-$primary-light-lt :rgba(255,255,255,0.5);     $on-primary-light-lt :blue;
-$primary-dark-lt :blue;                       $on-primary-dark-lt :blue;
+//Primary Colors                                        //Typogrphy
+$primary-lt :rgba(255,255,255,0.8);/*#454c83*/      $on-primary-lt :blue;
+$primary-light-lt :rgba(255,255,255,0.5);/*#5b5d75*/$on-primary-light-lt :blue;
+$primary-dark-lt :blue;                             $on-primary-dark-lt :blue;
 
 //Accent Colors
 $secondary-lt :rgb(0, 0, 0);         $on-secondary-lt :blue;
@@ -20,10 +20,10 @@ $background-lt :rgba(255, 255, 255,0);        $on-background-lt :blue;
 $serface-lt :rgba(255, 255, 255,0.82);        $on-serface-lt :gray;
 
 //Semantic Colors
-$success-lt :rgb(255, 255, 255);           $on-success-lt :blue;
-$info-lt :rgb(255, 255, 255);              $on-info-lt :blue;
-$warning-lt :rgb(255, 255, 255);           $on-warning-lt :blue;
-$error-lt :rgb(255, 0, 0);             $on-error-lt :blue;
+$success-lt :#28a745;/*#17A2B8*/$on-success-lt :blue;
+$info-lt :#5a9bd3;              $on-info-lt :blue;
+$warning-lt :#ffc107;           $on-warning-lt :blue;
+$error-lt :#dc3545;                 $on-error-lt :blue;
 
 //////////////////////Dark theam////////////////////////
 
@@ -59,3 +59,7 @@ $error-dt :blue;             $on-error-dt :blue;
 //Sequential
 
 //Polarize
+
+/*
+drag and drop your background color here  
+ */

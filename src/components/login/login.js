@@ -1,4 +1,4 @@
-import {color,clientLogo,manufacturerLogo} from '../comp.properties.js';
+import {loginColor,clientLogo,manufacturerLogo} from '../comp.properties.js';
 import login from './login.module.css';
 import { useRef, useState } from "react";
 import InvalidCredentialException from './InvalidCredentialException';
@@ -23,7 +23,7 @@ const BasicLogin = (props) => {
     return (
       <div className={login.bodyDiv}>
         <div className={login.centeredSquare}>
-          <div className={login.leftHalf +  " " + color.basicLoginLeftBackGround}>
+          <div className={login.leftHalf +  " " + loginColor.leftHalf}>
             <div className={login.innerSquareLeft} >
               
               <img className={login.logo} src={clientLogo} alt="Your Image"/>
@@ -43,7 +43,7 @@ const BasicLogin = (props) => {
               <input className={login.inputField} type="text" ref={password} id="lname" name="lname" />
               <div className={login.showPassword}>show password</div>
               <div className={login.validation}>{validationMessage}</div>
-              <input onClick={loginAction} type="submit" class={login.submitButton} value="Sign in" />
+              <input onClick={loginAction} type="submit" class={login.submitButton+  " " + loginColor.submitButton} value="Sign in" />
               <a className={login.link}>Forgot password</a>
             </div>
           </div>
