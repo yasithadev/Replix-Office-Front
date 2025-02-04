@@ -45,9 +45,9 @@
             /* Adjust background position as needed*/
         }
         .rightHalf {
-            width: 45%;
+            width: 275px;
             border-radius: 0 10px 10px 0;
-            background-color: #ffffff;
+            background-color: rgb(255, 255, 255);
         }
 
         .innerSquareLeft {
@@ -153,7 +153,7 @@
   padding: 10px;
   margin: 5px 0;
   display: inline-block;
-  border: 1px solid #ccc;
+  border: 2px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
         }

@@ -6,4 +6,6 @@ margin-left:30px;
 margin-right:30px;
 in current sample designe heading2 is the longest.
 
-As right-side width:45%; becarefull when you have thin left-side content.Because right side content can be too small.if that the case increase 45% to higher.but it will not affect the right side as outer(parent) and left-side divs do not have "width" property defined.
+As right-side width:275px; you can change itindependent from the right side.
+        .rightHalf {
+            width: 275px;

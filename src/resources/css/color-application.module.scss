@@ -1,7 +1,7 @@
 
 @import "color-palette";
 $color: rgba(6, 250, 99, 0.4);
-/*
+/* moved to color-layout.module.scss
 .layoutBackground{
 
     //background-image: url('https://get.pxhere.com/photo/car-wheel-vehicle-motorcycle-metal-modern-engine-rim-technique-high-tech-auto-part-know-how-automobile-make-luxury-vehicle-aircraft-engine-automotive-engine-part-1057593.jpg');
@@ -65,10 +65,12 @@ $color: rgba(6, 250, 99, 0.4);
     background-color: rgba(0, 0, 0, .4);
 } 
 */
+/*moved to color-sheet.module.scss
 .sheet{
     background-color: rgba(255, 255, 255, 0.82); 
     
 }
+*/
 body::-webkit-scrollbar-track {
       
     background-image: url('../images/technology-3423680_1920.jpg');

@@ -1,10 +1,10 @@
-@import "../color-palette.scss";
+@import "../../color-palette.scss";
 $color: rgba(6, 250, 99, 0.4);
 .layoutBackground{
 
     /*background-image: url('https://get.pxhere.com/photo/car-wheel-vehicle-motorcycle-metal-modern-engine-rim-technique-high-tech-auto-part-know-how-automobile-make-luxury-vehicle-aircraft-engine-automotive-engine-part-1057593.jpg');
     background-image: url('http://afd-fraktion-brandenburg.de/wp-content/uploads/2015/02/Digitalisierung.jpg');*/
-    background-image: url('../../images/technology-3423680_1920.jpg');
+    background-image: url('../../../images/technology-3423680_1920.jpg');
     background-repeat: no-repeat;
     background-size:cover;
     min-height: 100%;

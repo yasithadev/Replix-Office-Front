@@ -6,7 +6,8 @@ export {
     bootstrapGrid,
     clientLogo,
     manufacturerLogo,
-    layoutColor
+    layoutColor,
+    sheetColor
 } from '../resources/replix.properties.js';
 //export const appLogo=logo;
 //as a library in replix project
