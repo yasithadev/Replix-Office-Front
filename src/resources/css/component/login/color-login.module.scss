@@ -1,11 +1,18 @@
+@import "../../color-palette.scss";
 //------------------------basic login--------------------------//
 .leftHalf {
     background-image: url('../../../images/technology-login.jpg');
 }
 .submitButton{
-    background-color: #3b4279;
-    color: white;
+    background-color: $primary-lt;
+    color: $on-primary-lt;
 }
 .submitButton:hover {
-    background-color: #252a4d;
+    background-color: $primary-dark-lt;
+  }
+  .link{
+    color:$info-lt;
+  }
+  .validation{
+    color:$error-lt;
   }

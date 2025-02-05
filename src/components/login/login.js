@@ -42,9 +42,9 @@ const BasicLogin = (props) => {
               <div className={login.heading2Right}>Password</div>
               <input className={login.inputField} type="text" ref={password} id="lname" name="lname" />
               <div className={login.showPassword}>show password</div>
-              <div className={login.validation}>{validationMessage}</div>
+              <div className={login.validation +  " " + loginColor.validation}>{validationMessage}</div>
               <input onClick={loginAction} type="submit" class={login.submitButton+  " " + loginColor.submitButton} value="Sign in" />
-              <a className={login.link}>Forgot password</a>
+              <a className={login.link +  " " + loginColor.link}>Forgot password</a>
             </div>
           </div>
         </div>
