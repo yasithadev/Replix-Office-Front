@@ -19,7 +19,7 @@ const BasicLogin = (props) => {
       }
     }
   }
-    
+  document.addEventListener("keypress", loginAction, false);
     return (
       <div className={login.bodyDiv}>
         <div className={login.centeredSquare}>
@@ -40,7 +40,7 @@ const BasicLogin = (props) => {
               <div className={login.heading2Right}>Email</div>
               <input className={login.inputField} type="text" ref={username} id="fname" name="fname" /><br /><br />
               <div className={login.heading2Right}>Password</div>
-              <input className={login.inputField} type="text" ref={password} id="lname" name="lname" />
+              <input className={login.inputField} type="password" ref={password} id="lname" name="lname" />
               <div className={login.showPassword}>show password</div>
               <div className={login.validation +  " " + loginColor.validation}>{validationMessage}</div>
               <input onClick={loginAction} type="submit" class={login.submitButton+  " " + loginColor.submitButton} value="Sign in" />
