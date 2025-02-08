@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 //import Layout from "./pages/Layout";
 import Home from "./pages/Home";
 import Blogs from "./pages/Blogs";
+import CreateUser from "./pages/CreateUser";
 import Contact from "./pages/Contact";
 import NoPage from "./pages/NoPage";
 import Login from "./pages/login";
@@ -17,6 +18,7 @@ function App() {
           <Route path="blogs" element={<Blogs />} />
           <Route path="contact" element={<Contact />} />
           <Route path="*" element={<NoPage />} />
+          <Route path="CreateUser" element={<CreateUser />} />
         </Route>
       </Routes>
     </BrowserRouter>
