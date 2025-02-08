@@ -7,6 +7,7 @@ const BasicLogin = (props) => {
   const username = useRef();
   const password = useRef();
   const [validationMessage,setValidationMessage] = useState();
+  const [passwordFieldType,setpasswordFieldType] = useState("password");
   const loginAction = async() => {
     console.log("----------------loginAction-----------------")
     try{
@@ -19,7 +20,22 @@ const BasicLogin = (props) => {
       }
     }
   }
-  document.addEventListener("keypress", loginAction, false);
+  const showPassword = (event) => {
+    console.log("----------------showPassword-----------------");
+    if(event.target.checked){
+      setpasswordFieldType("text");
+    }
+    else{
+      setpasswordFieldType("password");
+    }
+  }
+  const loginActionManager = (event) =>{
+    console.log("----------------loginActionManager event.key -----------------",event.key );
+    if (event.key === "Enter") {
+      loginAction();
+    }
+  }
+  document.addEventListener("keypress", loginActionManager, false);
     return (
       <div className={login.bodyDiv}>
         <div className={login.centeredSquare}>
@@ -40,8 +56,8 @@ const BasicLogin = (props) => {
               <div className={login.heading2Right}>Email</div>
               <input className={login.inputField} type="text" ref={username} id="fname" name="fname" /><br /><br />
               <div className={login.heading2Right}>Password</div>
-              <input className={login.inputField} type="password" ref={password} id="lname" name="lname" />
-              <div className={login.showPassword}>show password</div>
+              <input className={login.inputField} type={passwordFieldType} ref={password} id="lname" name="lname" />
+              <div className={login.showPassword}><input type="checkbox" name="" value=""  onChange={showPassword} />show password</div>
               <div className={login.validation +  " " + loginColor.validation}>{validationMessage}</div>
               <input onClick={loginAction} type="submit" class={login.submitButton+  " " + loginColor.submitButton} value="Sign in" />
               <a className={login.link +  " " + loginColor.link}>Forgot password</a>
