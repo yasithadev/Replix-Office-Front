@@ -8,11 +8,13 @@ class Sheet extends React.Component
     render()
     { 
         return <div className={ shape.sheetOuter }>
-            <div className={ bootstrapGrid['container-fluid'] + " " + SheetStyle.main + " " + sheetColor.sheet + " " + shape.sheet }>
-            <div className={ shape.sheetInner}>
-            {this.props.children} 
+            <div className={ bootstrapGrid['container-fluid'] + " " + sheetColor.sheet + " " + shape.sheet }>
+            {this.props.children}      
+            </div>
+        </div>
+    }
 
-{/*
+/*
                 <div className={ bootstrapGrid.row}>
                     <div className={ bootstrapGrid.col + " " + shape.container}>
                     <input type="text" id="fname" name="fname"/>
@@ -132,10 +134,6 @@ class Sheet extends React.Component
                     <input  type="text" id="fname" name="fname"/>
                     </div>
                 </div>
-*/}           
-                </div>
-            </div>
-        </div>
-    }
+*/
 }
 export default Sheet;

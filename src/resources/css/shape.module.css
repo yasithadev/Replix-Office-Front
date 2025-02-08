@@ -8,15 +8,14 @@
 }
 .sheet{
     border-radius: 5px;
+    padding-top: 40px !important;
+    padding-left: 40px !important;
+    padding-right: 40px !important;
 }
 .sheetOuter{
     padding: 10px;
 }
-.sheetInner{
-    padding-top: 10px;
-    padding-left: 30px;
-    padding-right: 10px;
-}
+
 .container{
     padding-top: 15px;
     padding-right: 15px;
@@ -31,13 +30,14 @@
 .formFieldOuterLableOnLeft{
     font-family: Form;
     font-size: 12px;
-    padding-right: 30px !important;
-    padding-left: 0px !important;
+    padding-right: 15px !important;
+    padding-left: 15px !important;
 }
 .formFieldOuterLableOnTop{
     font-family: Form;
     font-size: 12px;
-    padding-right: 30px !important;
+    padding-right: 15px !important;
+    padding-left: 15px !important;
 }
 .lableContainer
 {
