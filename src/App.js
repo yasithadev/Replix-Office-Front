@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Blogs from "./pages/Blogs";
 import CreateUser from "./pages/CreateUser";
+import InputPage from "./pages/component/input";
 import Contact from "./pages/Contact";
 import NoPage from "./pages/NoPage";
 import Login from "./pages/login";
@@ -14,11 +15,12 @@ function App() {
       <Routes>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/" element={<AppLayout/>}>
-        <Route index element={<Home />} />
+          <Route index element={<Home />} />
           <Route path="blogs" element={<Blogs />} />
           <Route path="contact" element={<Contact />} />
           <Route path="*" element={<NoPage />} />
           <Route path="CreateUser" element={<CreateUser />} />
+          <Route path="input" element={<InputPage/>} />
         </Route>
       </Routes>
     </BrowserRouter>

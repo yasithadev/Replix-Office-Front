@@ -9,6 +9,7 @@ export const sideMenuContent = [
 <Link to="/contact"><MenuItem  key={"1231123"}>🥅 &#xFE0E; Goals</MenuItem></Link>,
 <CollapsibleMenu name="🛠 Components">
     <Link to="/login"><MenuItem>👤 login</MenuItem></Link>
+    <Link to="/input"><MenuItem>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;input</MenuItem></Link>
     <CollapsibleMenu name="🗀 Sample Collapsible Menu">
         <MenuItem >Example Menu Itemmmmm</MenuItem>
         <CollapsibleMenu name="✔Sample Collapsible Menu">
