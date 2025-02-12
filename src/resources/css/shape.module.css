@@ -43,9 +43,18 @@
 {
     font-family: Form;
     font-size: 81.25%;;
-    padding-top: 18px;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-top: 18px;/*common util "container" defind 15px,and this will overight with 18 inorder to aligne lable with user entered form field value*/
+    /*text-align: right;*//*uncomment this line if your theam needs right aligned lables*/ 
+}
+@media screen and (min-width:576px){
+    .lableContainer
+    {
+        font-family: Form;
+        font-size: 81.25%;;
+        padding-top: 18px;/*common util "container" defind 15px,and this will overight with 18 inorder to aligne lable with user entered form field value*/
+        padding-bottom: 0px;
+        text-align: left;/*if any one decide to go with right aligned left side labels this line will ensure correct behaviour for smalller screens(when resposive)*/ 
+    }
 }
 .topLableContainer
 {

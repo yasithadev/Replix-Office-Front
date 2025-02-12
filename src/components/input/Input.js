@@ -52,17 +52,17 @@ const Input = (props) => {
         }
     }
     const createlabelOnTop = (cols)=>{
-        return [<div className={ bootstrapGrid['col-' + cols] + " " + shape.container+ " " + shape.formFieldOuterLableOnTop}>
+        return [<div className={ bootstrapGrid['col-md-' + cols] +" " + bootstrapGrid['col-sm-12'] + " " + shape.container+ " " + shape.formFieldOuterLableOnTop}>
                     <div className={ shape.topLableContainer}>{props.label}</div>
                     <input type="text" className={ color.formField+ " " + shape.formField} id="fname"  name="fname"/> 
                 </div>
                 ];
     }
     const createlabelOnLeft =(colsForLabel,colsForfield)=>{
-        return [<div onClick={()=>props.callTo()} className={ bootstrapGrid['col-' + colsForLabel] + " " + shape.container+ " " + shape.lableContainer}>
+        return [<div onClick={()=>props.callTo()} className={ bootstrapGrid['col-md-' + colsForLabel] + " " + bootstrapGrid['col-sm-12']+ " " + shape.container+ " " + shape.lableContainer}>
                     {props.label}
                 </div>,
-                <div className={ bootstrapGrid['col-' + colsForfield] + " " + shape.container+ " " + shape.formFieldOuterLableOnLeft}>
+                <div className={ bootstrapGrid['col-md-' + colsForfield] + " " + bootstrapGrid['col-sm-12'] + " " + shape.container+ " " + shape.formFieldOuterLableOnLeft}>
                     <input type="text" className={ color.formField+ " " + shape.formField} id="fname"  name="fname"/> 
                 </div>
                 ];

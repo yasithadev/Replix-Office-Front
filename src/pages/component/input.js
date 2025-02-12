@@ -8,6 +8,10 @@ const InputPage = (props) => {
         <Input labelOnTop="true" col="2" type="tel" label="Tel (Office)"/>
     <Raw><Input labelOnTop="true" col="2" type="tel" label="Tel (Office)"/></Raw>
     <Raw><Input labelOnTop="false" col="2" type="tel" label="Tel (Office)"/></Raw>
+    <Raw>
+        <Input labelOnTop="false" col="2" type="tel" label="Address"/>
+        <Input labelOnTop="false" col="2" type="tel" label="Email"/>
+    </Raw>
 </Sheet>;
 }
 export default InputPage;
