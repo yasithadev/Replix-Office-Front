@@ -3,51 +3,50 @@ import {shape} from '../comp.properties.js';
 import {bootstrapGrid} from '../comp.properties.js';
 
 const Input = (props) => {    
-    const createStyledField = (labelOnTop,col)=>{
+    const createStyledField = (labelOnLeft,col)=>{
         if(col && col == "1"){
-            if(labelOnTop&& labelOnTop == "true"){
-                return createlabelOnTop(12);
-            }
-            else{
+            if(labelOnLeft && labelOnLeft == "true"){
                 if(props.longLabels && props.longLabels == "true"){
                     return createlabelOnLeft(3,9);
                 }
                 else{
                     return createlabelOnLeft(2,10);
                 }
-                
+            }
+            else{
+                return createlabelOnTop(12);
             }
         }
         else if(col && col == "2"){
-            if(labelOnTop && labelOnTop == "true"){
-                return createlabelOnTop(6);
+            if(labelOnLeft && labelOnLeft == "true"){
+                return createlabelOnLeft(2,4)
             }
             else{
-                return createlabelOnLeft(2,4)
+                return createlabelOnTop(6);
             }
         }
         else if(col && col == "3"){
-            if(labelOnTop && labelOnTop == "true"){
-                return createlabelOnTop(4);
+            if(labelOnLeft && labelOnLeft == "true"){
+                return createlabelOnLeft(1,3)
             }
             else{
-                return createlabelOnLeft(1,3)
+                return createlabelOnTop(4);
             }
         }
         else if(col && col == "4"){
-            if(labelOnTop && labelOnTop == "true"){
-                return createlabelOnTop(3);
+            if(labelOnLeft && labelOnLeft == "true"){
+                return createlabelOnLeft(1,2);
             }
             else{
-                return createlabelOnLeft(1,2)
+                return createlabelOnTop(3);
             }
         }
         else{
-            if(labelOnTop && labelOnTop == "true"){
-                return createlabelOnTop(12);
+            if(labelOnLeft && labelOnLeft == "true"){
+                return createlabelOnLeft(2,10)
             }
             else{
-                return createlabelOnLeft(2,10)
+                return createlabelOnTop(12);
             }
         }
     }
@@ -67,6 +66,6 @@ const Input = (props) => {
                 </div>
                 ];
     }
-    return createStyledField(props.labelOnTop,props.col);
+    return createStyledField(props.labelOnLeft,props.col);
 }
 export default Input;
