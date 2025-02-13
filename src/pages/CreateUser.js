@@ -4,9 +4,11 @@ import Stack from '@mui/material/Stack';
 import Title from '../components/title/Title'
 import Input from '../components/formfield/formfield';
 import Raw from '../components/raw/raw';
+import H1 from '../components/typo/H1'
 import FormSection from '../components/form-section/formSection';
 const CreateUser = () => {
     return <Sheet>
+        <H1>Create User</H1>
         <Title>Create User</Title>
         <Raw><Input></Input></Raw>
         <FormSection labelOnTop="true" col="2">

@@ -8,7 +8,8 @@ export {
     manufacturerLogo,
     layoutColor,
     sheetColor,
-    loginColor
+    loginColor,
+    typo
 } from '../resources/replix.properties.js';
 //export const appLogo=logo;
 //as a library in replix project
