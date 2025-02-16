@@ -1,8 +1,8 @@
 import {typo} from '../comp.properties.js';
-function H1() {
+function H1(props) {
     return (
       <div>
-        <h1 className={typo.h1}>This is a heading</h1>
+        <h1 className={typo.h1}>{props.children}</h1>
       </div>
     );
   }

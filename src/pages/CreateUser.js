@@ -5,10 +5,20 @@ import Title from '../components/title/Title'
 import Input from '../components/formfield/formfield';
 import Raw from '../components/raw/raw';
 import H1 from '../components/typo/H1'
+import H3 from '../components/typo/H3'
+import H4 from '../components/typo/H4'
+import H5 from '../components/typo/H5'
+import H6 from '../components/typo/H6'
+import Sub1 from '../components/typo/Sub1'
 import FormSection from '../components/form-section/formSection';
 const CreateUser = () => {
     return <Sheet>
         <H1>Create User</H1>
+        <H3>Create User</H3>
+        <H4>Create User</H4>
+        <H5>Create User</H5>
+        <H6>Create User</H6>
+        <Sub1>Create User</Sub1>
         <Title>Create User</Title>
         <Raw><Input></Input></Raw>
         <FormSection labelOnTop="true" col="2">

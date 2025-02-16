@@ -1,8 +1,46 @@
 @import "../../typo.module.scss";
+@import "../../color-palette.scss";
 //------------------------basic login--------------------------//
 
 .h1{
+    font-family: Plain !important;
+    font-size: 96px;
+    font-weight: 300;/*light*/
+    color:$on-serface-lt;
+    /*font color on-serface or on-primary*/
+}
+.h3{
+    font-family: Plain;
+    font-size: 48px;
+    font-weight: 400;/*Regulur*/
+    color:$on-serface-lt;
+    /*font color on-serface or on-primary*/
+}
+.h4{
+    font-family: Plain;
+    font-size: 34px;
+    font-weight: 400;/*Regulur*/
+    color:$on-serface-lt;
+    /*font color on-serface or on-primary*/
+}
+.h5{
+    font-family: Plain;
+    font-size: 24px;
+    font-weight: 400;/*Regulur*/
+    color:$on-serface-lt;
+    /*font color on-serface or on-primary*/
+}
+.h6{
     font-family: Plain;
     font-size: 20px;
+    color:$on-serface-lt;
+    font-weight: 500;/*light*/
+    /*font color on-serface or on-primary*/
+}
+.sub1{
+    font-family: Plain;
+    font-size: 16px;
+    color:$on-serface-lt;
+    font-weight: 400;/*light*/
     /*font color on-serface or on-primary*/
 }

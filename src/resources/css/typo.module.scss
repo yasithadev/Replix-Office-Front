@@ -1,16 +1,33 @@
+/*
 @font-face{
-    src:url('../../resources/fonts/Roboto-VariableFont_wdth\,wght.ttf');
+    src:url('../../resources/fonts/Roboto-VariableFont.ttf')format("truetype");
     font-family:Plain;
 }
+*/
 @font-face{
-    src:url('../../resources/fonts/Roboto-Italic-VariableFont_wdth\,wght.ttf');
+    src:url('../../resources/fonts/Roboto-Light.ttf');
+    font-family:Plain;
+    font-weight: 300;/*Extra light*/
+}
+@font-face{
+    src:url('../../resources/fonts/Roboto-Regular.ttf');
+    font-family:Plain;
+    font-weight: 400;
+}
+@font-face{
+    src:url('../../resources/fonts/Roboto-Medium.ttf');
+    font-family:Plain;
+    font-weight: 500;
+}
+@font-face{
+    src:url('../../resources/fonts/Roboto-Italic-VariableFont.ttf');
     font-family:Plain-Italic;
 }
 @font-face{
-    src:url('../../resources/fonts/Roboto-VariableFont_wdth\,wght.ttf');
+    src:url('../../resources/fonts/Roboto-VariableFont.ttf');
     font-family:Brand;
 }
 @font-face{
-    src:url('../../resources/fonts/Roboto-Italic-VariableFont_wdth\,wght.ttf');
+    src:url('../../resources/fonts/Roboto-Italic-VariableFont.ttf');
     font-family:Brand-Italic;
 }
