@@ -8,9 +8,10 @@
 }
 .sheet{
     border-radius: 5px;
-    padding-top: 40px !important;
-    padding-left: 40px !important;
-    padding-right: 40px !important;
+    padding-top: 30px !important;
+    padding-left: 30px !important;
+    padding-right: 30px !important;
+    padding-bottom: 30px !important;
 }
 .sheetOuter{
     padding: 10px;

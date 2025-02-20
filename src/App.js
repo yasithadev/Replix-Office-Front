@@ -5,10 +5,12 @@ import Home from "./pages/Home";
 import Blogs from "./pages/Blogs";
 import CreateUser from "./pages/CreateUser";
 import InputPage from "./pages/component/input";
+import CodePage from "./pages/component/code";
 import Contact from "./pages/Contact";
 import NoPage from "./pages/NoPage";
 import Login from "./pages/login";
 import AppLayout from "./pages/AppLayout";
+
 function App() {
   return (
     <BrowserRouter>
@@ -21,6 +23,7 @@ function App() {
           <Route path="*" element={<NoPage />} />
           <Route path="CreateUser" element={<CreateUser />} />
           <Route path="input" element={<InputPage/>} />
+          <Route path="code" element={<CodePage/>} />
         </Route>
       </Routes>
     </BrowserRouter>

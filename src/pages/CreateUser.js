@@ -11,14 +11,33 @@ import H5 from '../components/typo/H5'
 import H6 from '../components/typo/H6'
 import Sub1 from '../components/typo/Sub1'
 import FormSection from '../components/form-section/formSection';
+import Code from '../components/code/Code'
 const CreateUser = () => {
+    const code=             `<div>
+    <p>This is a paragraph
+    with newlines</p>
+    <h3>This is a heading</h3>
+  </div>`
+;
     return <Sheet>
-        <H1>Create User</H1>
-        <H3>Create User</H3>
-        <H4>Create User</H4>
-        <H5>Create User</H5>
-        <H6>Create User</H6>
-        <Sub1>Create User</Sub1>
+
+<Code>
+    {
+        `<H1>Heading 1</H1>`
+    }
+</Code>
+        <H1>Heading 1</H1>
+        <pre>
+            <code>
+                {code}
+        </code>
+    </pre>
+        <pre>{'<H1>Heading 1</H1>'}</pre>
+        <H3>Heading 3</H3>
+        <H4>Heading 4</H4>
+        <H5>Heading 5</H5>
+        <H6>Heading 6</H6>
+        <Sub1>Subtitle 1</Sub1>
         <Title>Create User</Title>
         <Raw><Input></Input></Raw>
         <FormSection labelOnTop="true" col="2">

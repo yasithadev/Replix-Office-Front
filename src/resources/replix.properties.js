@@ -7,5 +7,6 @@ export { default as layoutColor } from './css/component/layout/color-layout.modu
 export { default as sheetColor} from './css/component/sheet/color-sheet.module.scss';
 export { default as loginColor} from './css/component/login/color-login.module.scss';
 export { default as typo} from './css/component/typo/typo.module.scss';
+export { default as codeColor} from './css/component/code/color-code.module.scss';
 export const clientLogo = railwaylogo;
 export const manufacturerLogo = dmsLogo;

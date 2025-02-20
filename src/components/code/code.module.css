@@ -1,0 +1,7 @@
+.codeDisplay {
+    user-select: all; /* Make the code selectable */
+    /* Add any other desired styles for the <pre> tag here */
+    overflow-x: auto; /* Optional: Add horizontal scroll if code overflows */
+    white-space: pre-wrap; /* Optional: Allow code to wrap */
+    margin: 15px;
+  }

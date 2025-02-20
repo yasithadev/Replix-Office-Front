@@ -7,6 +7,15 @@
     font-size: 96px;
     font-weight: 300;/*light*/
     color:$on-serface-lt;
+    letter-spacing: -1.5px;
+    /*font color on-serface or on-primary*/
+}
+.h2{
+    font-family: Plain !important;
+    font-size: 60px;
+    font-weight: 300;/*light*/
+    color:$on-serface-lt;
+    letter-spacing: -0.5px;
     /*font color on-serface or on-primary*/
 }
 .h3{
@@ -14,6 +23,7 @@
     font-size: 48px;
     font-weight: 400;/*Regulur*/
     color:$on-serface-lt;
+    letter-spacing: 0px;
     /*font color on-serface or on-primary*/
 }
 .h4{
@@ -21,6 +31,7 @@
     font-size: 34px;
     font-weight: 400;/*Regulur*/
     color:$on-serface-lt;
+    letter-spacing: 0.25px;
     /*font color on-serface or on-primary*/
 }
 .h5{
@@ -28,6 +39,7 @@
     font-size: 24px;
     font-weight: 400;/*Regulur*/
     color:$on-serface-lt;
+    letter-spacing: 0px;
     /*font color on-serface or on-primary*/
 }
 .h6{
@@ -35,6 +47,7 @@
     font-size: 20px;
     color:$on-serface-lt;
     font-weight: 500;/*light*/
+    letter-spacing: 0.15px;
     /*font color on-serface or on-primary*/
 }
 .sub1{
@@ -42,5 +55,6 @@
     font-size: 16px;
     color:$on-serface-lt;
     font-weight: 400;/*light*/
+    letter-spacing: 0.15px;
     /*font color on-serface or on-primary*/
 }

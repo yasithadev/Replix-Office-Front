@@ -9,6 +9,7 @@ export {
     layoutColor,
     sheetColor,
     loginColor,
+    codeColor,
     typo
 } from '../resources/replix.properties.js';
 //export const appLogo=logo;
