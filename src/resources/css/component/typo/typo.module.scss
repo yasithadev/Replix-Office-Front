@@ -1,13 +1,16 @@
 @import "../../typo.module.scss";
 @import "../../color-palette.scss";
 //------------------------basic login--------------------------//
-
+$paddingLeft:15px;
+$paddingRight:15px;
 .h1{
     font-family: Plain !important;
     font-size: 96px;
     font-weight: 300;/*light*/
     color:$on-serface-lt;
     letter-spacing: -1.5px;
+    padding-left: $paddingLeft;
+    padding-right: $paddingRight;
     /*font color on-serface or on-primary*/
 }
 .h2{
@@ -16,6 +19,8 @@
     font-weight: 300;/*light*/
     color:$on-serface-lt;
     letter-spacing: -0.5px;
+    padding-left: $paddingLeft;
+    padding-right: $paddingRight;
     /*font color on-serface or on-primary*/
 }
 .h3{
@@ -24,6 +29,8 @@
     font-weight: 400;/*Regulur*/
     color:$on-serface-lt;
     letter-spacing: 0px;
+    padding-left: $paddingLeft;
+    padding-right: $paddingRight;
     /*font color on-serface or on-primary*/
 }
 .h4{
@@ -32,6 +39,8 @@
     font-weight: 400;/*Regulur*/
     color:$on-serface-lt;
     letter-spacing: 0.25px;
+    padding-left: $paddingLeft;
+    padding-right: $paddingRight;
     /*font color on-serface or on-primary*/
 }
 .h5{
@@ -40,6 +49,8 @@
     font-weight: 400;/*Regulur*/
     color:$on-serface-lt;
     letter-spacing: 0px;
+    padding-left: $paddingLeft;
+    padding-right: $paddingRight;
     /*font color on-serface or on-primary*/
 }
 .h6{
@@ -48,6 +59,8 @@
     color:$on-serface-lt;
     font-weight: 500;/*light*/
     letter-spacing: 0.15px;
+    padding-left: $paddingLeft;
+    padding-right: $paddingRight;
     /*font color on-serface or on-primary*/
 }
 .sub1{
@@ -56,5 +69,7 @@
     color:$on-serface-lt;
     font-weight: 400;/*light*/
     letter-spacing: 0.15px;
+    padding-left: $paddingLeft;
+    padding-right: $paddingRight;
     /*font color on-serface or on-primary*/
 }
