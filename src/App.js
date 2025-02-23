@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Blogs from "./pages/Blogs";
 import CreateUser from "./pages/CreateUser";
+import TypoPage from "./pages/component/typoPage";
 import InputPage from "./pages/component/input";
 import CodePage from "./pages/component/code";
 import Contact from "./pages/Contact";
@@ -22,6 +23,8 @@ function App() {
           <Route path="contact" element={<Contact />} />
           <Route path="*" element={<NoPage />} />
           <Route path="CreateUser" element={<CreateUser />} />
+
+          <Route path="typo" element={<TypoPage/>} />
           <Route path="input" element={<InputPage/>} />
           <Route path="code" element={<CodePage/>} />
         </Route>

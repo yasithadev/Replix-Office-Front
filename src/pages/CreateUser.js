@@ -6,39 +6,14 @@ import Input from '../components/formfield/formfield';
 import Raw from '../components/raw/raw';
 import H1 from '../components/typo/H1'
 import H3 from '../components/typo/H3'
-import H4 from '../components/typo/H4'
+import H4 from '../components/typo/H4';
 import H5 from '../components/typo/H5'
 import H6 from '../components/typo/H6'
 import Sub1 from '../components/typo/Sub1'
 import FormSection from '../components/form-section/formSection';
 import Code from '../components/code/Code'
 const CreateUser = () => {
-    const code=             `<div>
-    <p>This is a paragraph
-    with newlines</p>
-    <h3>This is a heading</h3>
-  </div>`
-;
     return <Sheet>
-
-<Code>
-    {
-        `<H1>Heading 1</H1>`
-    }
-</Code>
-        <H1>Heading 1</H1>
-        <pre>
-            <code>
-                {code}
-        </code>
-    </pre>
-        <pre>{'<H1>Heading 1</H1>'}</pre>
-        <H3>Heading 3</H3>
-        <H4>Heading 4</H4>
-        <H5>Heading 5</H5>
-        <H6>Heading 6</H6>
-        <Sub1>Subtitle 1</Sub1>
-        <Title>Create User</Title>
         <Raw><Input></Input></Raw>
         <FormSection labelOnTop="true" col="2">
             <Input type="tel" label="Tel (Office)"/>
