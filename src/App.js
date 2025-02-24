@@ -6,6 +6,7 @@ import Blogs from "./pages/Blogs";
 import CreateUser from "./pages/CreateUser";
 import TypoPage from "./pages/component/typoPage";
 import InputPage from "./pages/component/input";
+import FormSectionPage from "./pages/component/formSectionPage";
 import CodePage from "./pages/component/code";
 import Contact from "./pages/Contact";
 import NoPage from "./pages/NoPage";
@@ -26,6 +27,7 @@ function App() {
 
           <Route path="typo" element={<TypoPage/>} />
           <Route path="input" element={<InputPage/>} />
+          <Route path="formSection" element={<FormSectionPage/>} />
           <Route path="code" element={<CodePage/>} />
         </Route>
       </Routes>
