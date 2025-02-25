@@ -69,4 +69,23 @@
     height: 48px;
     z-index:10000;
 }
-
+.notificationContainer{
+    height:auto;
+    width:300px;
+    background-color: rgb(255, 136, 0);
+    position: fixed;
+    top: 50px;
+    right: 20px;
+    z-index:10000;
+}
+.notification{
+    width:250px;
+    height:50px;
+    background-color: rgba(209, 40, 40, 0.904);
+    margin:10px;
+    transition: width 2s, height 0.25s;
+    transition-timing-function: ease-in-out;
+}
+.notification:hover {
+    height: 100px;
+  }

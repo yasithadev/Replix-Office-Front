@@ -1,0 +1,52 @@
+
+.tableContainer{
+    width:100%;
+    overflow-x: auto;
+}
+.theTable{
+    table-layout: auto;
+}
+.tableInfo{
+    grid-area: tableInfo;
+}
+.pageLength{
+  position: absolute;
+    grid-area: tableInfo;
+    position: absolute;
+    /*z-index: 99;*//*commented in order to fix the bug top table page length selecting drop down go under the bottom table page length selecting Rselect*/
+}
+.pagination{
+    grid-area: pagination;
+    
+}
+.tableFooter {
+    overflow-x: auto;
+    display: grid;
+    grid-template-areas:
+      'tableInfo pagination';
+      padding-bottom: 10px;
+  }
+  .headerIcon{
+    width:15px;
+  }
+
+  .searchFieldInnerContainer{
+    float:right;
+    display:flex;
+  }
+  .searchField{
+    
+    max-width: 200px;
+  }
+  .searchField::-webkit-input-placeholder {
+    text-align: right;
+  }
+  .searchField:-moz-placeholder {
+    text-align: right;
+  }
+  .searchField::-moz-placeholder {
+    text-align: right;
+  }
+  .searchField:-ms-input-placeholder {
+    text-align: right;
+  }
