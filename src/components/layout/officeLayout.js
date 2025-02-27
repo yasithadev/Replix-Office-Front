@@ -3,6 +3,7 @@ import {layoutColor} from '../comp.properties.js';
 import Footer from '../footer/footer';
 import { Outlet} from "react-router-dom";
 import { withRouter } from 'react-router';
+import Notification from '../notification/notification';
 import React, {useState,useRef, useEffect } from 'react';
 
 
@@ -19,12 +20,15 @@ export default function OfficeLayout(props) {
   const [leftwidth, setLeftwidth] = useState("");
   const [leftOfRight, setLeftOfRight] = useState("");
   const [sideMenuContent, setSideMenuContent] = useState("");
-
+  const [notifications, setNotifications] = useState(["Error"]);
+  
   useEffect(() => {
     console.log("props--- ",props);
     let sideMenuCntnt = props.getLeftMenuContent();
     setSideMenuContent(sideMenuCntnt);
     console.log("sideMenuCntnt--- ",sideMenuCntnt);
+
+    document.addEventListener('notify', notyfy, false);
     /*
     childrenWithProps = React.Children.map(sideMenuContent, child => {
       // checking isValidElement is the safe way and avoids a typescript error too
@@ -39,7 +43,11 @@ export default function OfficeLayout(props) {
     */
   }, [props]);
 
-
+  const notyfy=(e)=> {  
+    console.log("<----------------------- notify =============================>");
+    setNotifications(["warning","Error"])
+    //document.dispatchEvent(new Event("notify"));
+  }
   const initDrag=(e)=> {  
     //console.log("this.leftContainer",this.leftContainer.current.offsetWidth);
     //console.log("e",e );
@@ -77,10 +85,7 @@ export default function OfficeLayout(props) {
         </div>
         <div className={SysLayoutStyle.menubar + " " + layoutColor.menubar}></div>
         <div className={SysLayoutStyle.notificationContainer + " " + layoutColor.notificationContainer}>
-        <div className={SysLayoutStyle.notification + " " + layoutColor.notification}></div>
-        <div className={SysLayoutStyle.notification + " " + layoutColor.notification}></div>
-        <div className={SysLayoutStyle.notification + " " + layoutColor.notification}></div>
-        <div className={SysLayoutStyle.notification + " " + layoutColor.notification}></div>
+        {notifications.map(notification=>(<Notification key={notification}>{notification}</Notification>))}
         </div>
       </>
     );

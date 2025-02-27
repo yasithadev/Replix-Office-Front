@@ -1,0 +1,16 @@
+.notification{
+    width:250px;
+    height:250px;
+    background-color: rgba(209, 40, 40, 0.904);
+    margin:10px;
+    transition: width 2s, height 0.25s;
+    transition-timing-function: ease-in-out;
+    animation: fadein 2s;
+}
+@keyframes fadein {
+    from { height: 0}
+    to   { height: 250px}
+  }
+.notification:hover {
+    height: 100px;
+  }
