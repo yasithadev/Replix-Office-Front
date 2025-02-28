@@ -11,6 +11,3 @@
     from { height: 0}
     to   { height: 250px}
   }
-.notification:hover {
-    height: 100px;
-  }

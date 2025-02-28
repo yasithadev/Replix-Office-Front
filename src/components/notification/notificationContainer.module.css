@@ -1,0 +1,9 @@
+.notificationContainer{
+  height:auto;
+  width:300px;
+  background-color: rgb(255, 136, 0);
+  position: fixed;
+  top: 50px;
+  right: 20px;
+  z-index:10000;
+}
