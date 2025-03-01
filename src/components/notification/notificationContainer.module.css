@@ -1,7 +1,7 @@
 .notificationContainer{
   height:auto;
   width:300px;
-  background-color: rgb(255, 136, 0);
+  background-color: rgba(255, 136, 0, 0);
   position: fixed;
   top: 50px;
   right: 20px;
