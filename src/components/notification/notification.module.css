@@ -1,13 +1,14 @@
 .notification{
-    width:250px;
-    height:250px;
-    background-color: rgba(209, 40, 40, 0.904);
+    width:300px;
+    height:100px;
+    background-color: rgba(0, 0, 0, 0.541);
     margin:10px;
     transition: width 2s, opacity 0.25s;
     transition-timing-function: ease-in-out;
-    animation: fadein 2s;
+    animation: fadein 0.5s;
+    border-radius: 5px;
 }
 @keyframes fadein {
     from { height: 0}
-    to   { height: 250px}
+    to   { height: 100px}
   }

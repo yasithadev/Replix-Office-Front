@@ -2,8 +2,12 @@ import Sheet from '../../components/sheet/sheet';
 import Code from '../../components/code/Code';
 import H5 from '../../components/typo/H5'
 
-const CodePage = (props) => {    
+const CodePage = (props) => {   
+    const selfRemove = () =>{
+        document.dispatchEvent(new Event("notify"));
+    } 
     return <Sheet>
+        <button onClick={selfRemove}>event</button>
         <H5>Code Component</H5>
             <Code>
                 {
