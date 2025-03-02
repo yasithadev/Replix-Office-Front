@@ -11,14 +11,15 @@ const NotificationContainer = (props) => {
     let firstUseEffect = true;
     const notyfyListner=(e)=> {  
         e.stopImmediatePropagation();
-        notyfy();
+        console.log("e." ,e.detail.message);
+        notyfy(e.detail.type,e.detail.message);
     }
-    const notyfy=()=> {  
+    const notyfy=(type,message)=> {  
         console.log("<----------------------- notify =============================>");
         let id = uuidv4();
         console.log(id)
-        let notificationModel = new NotificationModel(id,"Error","9475 - Shis is a big Problem. let notificationModel = new NotificationModel Shis is a big Problem. let notificationModel = new NotificationModel");
-                notificationsWorkingCopy.set(id,notificationModel);
+        let notificationModel = new NotificationModel(id,type,message);
+        notificationsWorkingCopy.set(id,notificationModel);
         console.log(notificationsWorkingCopy)
         //notificationsWorkingCopy=["warning","Error"];
         setNotifications(notificationsWorkingCopy);
@@ -28,7 +29,6 @@ const NotificationContainer = (props) => {
     useEffect(() => {
         if(firstUseEffect){
             console.log("<----------------------- firstUseEffect =============================>");
-            
             firstUseEffect = false;
             document.addEventListener('notify', notyfyListner, false); 
         }
