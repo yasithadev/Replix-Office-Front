@@ -3,6 +3,8 @@ import Code from '../../components/code/Code';
 import H5 from '../../components/typo/H5'; 
 import Notifier from '../../components/notification/Notifier';
 
+import Modal from '../../components/modal/modal'
+
 const NotificatoinPage = (props) => {   
     const errorNotifier = () =>{
         //document.dispatchEvent(new Event("notify"));
@@ -15,6 +17,7 @@ const NotificatoinPage = (props) => {
     return <Sheet>
         <button onClick={errorNotifier}>Error</button>
         <button onClick={infoNotifier}>Info</button>
+        <Modal></Modal>
     </Sheet>;
 }
 export default NotificatoinPage;
