@@ -10,6 +10,7 @@ export const sideMenuContent = [
 <CollapsibleMenu name="🛠 Components">
     <Link to="/login"><MenuItem>👤 login</MenuItem></Link>
     <Link to="/typo"><MenuItem>¶&nbsp;&nbsp;&nbsp;Typo</MenuItem></Link>
+    <Link to="/notifier"><MenuItem>🗨 &nbsp; ✉ &nbsp; notifier</MenuItem></Link>
     <Link to="/input"><MenuItem>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;input</MenuItem></Link>
     <Link to="/formSection"><MenuItem>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;form Section</MenuItem></Link>
     <Link to="/code"><MenuItem>{"</> " + "code"}</MenuItem></Link>
