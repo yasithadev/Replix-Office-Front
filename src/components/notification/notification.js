@@ -6,7 +6,7 @@ const Notification = (props) => {
     const [opacity,setOpacity] = useState(1);
     useEffect(() => {
         if(firstUseEffect){
-            setTimeout(selfRemove, 10000);
+            setTimeout(selfRemove, 7500);
         }
         firstUseEffect = false;
     }, [props]);
