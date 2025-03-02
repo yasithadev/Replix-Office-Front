@@ -1,6 +1,6 @@
 .notification{
     width:300px;
-    min-height:80px;
+    height:80px;
     padding-left:20px;
     padding-right:10px;
     padding-top:4px;
@@ -16,7 +16,7 @@
     to   { height: 80px}
   }
 
-  .notification > .closebtn {
+.closebtn {
     color: rgba(255, 255, 255, 0.601);
     /*font-weight: bold;*/
     float: right;
@@ -30,14 +30,14 @@
     from { font-size: 0}
     to   { font-size: 16px}
   }
- .content{
+  .content{
         margin-top:20px;
         font-size: 12px;
         opacity: 0.8;
-        color: rgba(255, 255, 255, 0.801);
+        color: rgba(255, 255, 255);
         user-select: all; 
-        animation-delay: 0.5s;
-        animation: fadeOut 2s;
+       animation: fadeOut 2s;
+
   }
   
   @keyframes fadeOut {
