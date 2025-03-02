@@ -17,8 +17,8 @@ const NotificationContainer = (props) => {
         console.log("<----------------------- notify =============================>");
         let id = uuidv4();
         console.log(id)
-        let notificationModel = new NotificationModel(id,"Error","9475-Shis is a big Problem.");
-        notificationsWorkingCopy.set(id,notificationModel);
+        let notificationModel = new NotificationModel(id,"Error","9475 - Shis is a big Problem.");
+                notificationsWorkingCopy.set(id,notificationModel);
         console.log(notificationsWorkingCopy)
         //notificationsWorkingCopy=["warning","Error"];
         setNotifications(notificationsWorkingCopy);

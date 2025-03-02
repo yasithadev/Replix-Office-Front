@@ -6,7 +6,7 @@ const Notification = (props) => {
     const [opacity,setOpacity] = useState(1);
     useEffect(() => {
         if(firstUseEffect){
-            setTimeout(selfRemove, 5000);
+            setTimeout(selfRemove, 10000);
         }
         firstUseEffect = false;
     }, [props]);
@@ -17,6 +17,9 @@ const Notification = (props) => {
             props.remove(props.id);
         }, 300);
     }
-    return (<div className={NotificationStyle.notification} style={{opacity: opacity}}>{props.children}</div>);
+    return (<div className={NotificationStyle.notification} style={{opacity: opacity}}>
+        <span className={NotificationStyle.closebtn} onClick={selfRemove}>&times;</span> 
+        <div className={NotificationStyle.content}>{props.children}</div>
+        </div>);
 }
 export default Notification;

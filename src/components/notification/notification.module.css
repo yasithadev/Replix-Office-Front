@@ -1,6 +1,9 @@
 .notification{
     width:300px;
-    height:100px;
+    min-height:80px;
+    padding-left:20px;
+    padding-right:10px;
+    padding-top:4px;
     background-color: rgba(0, 0, 0, 0.541);
     margin:10px;
     transition: width 2s, opacity 0.25s;
@@ -10,5 +13,34 @@
 }
 @keyframes fadein {
     from { height: 0}
-    to   { height: 100px}
+    to   { height: 80px}
+  }
+
+  .notification > .closebtn {
+    color: rgba(255, 255, 255, 0.601);
+    /*font-weight: bold;*/
+    float: right;
+    font-size: 16px;
+    line-height: 16px;
+    cursor: pointer;
+    transition: 0.25s;
+    animation: slide 0.5s;
+  }
+  @keyframes slide {
+    from { font-size: 0}
+    to   { font-size: 16px}
+  }
+ .content{
+        margin-top:20px;
+        font-size: 12px;
+        opacity: 0.8;
+        color: rgba(255, 255, 255, 0.801);
+        user-select: all; 
+        animation-delay: 0.5s;
+        animation: fadeOut 2s;
+  }
+  
+  @keyframes fadeOut {
+    from { opacity: 0}
+    to   { opacity: 0.8}
   }
