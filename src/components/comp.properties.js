@@ -10,7 +10,10 @@ export {
     sheetColor,
     loginColor,
     codeColor,
-    typo
+    typo,
+    inputShape,
+    inputTypo,
+    inputColor
 } from '../resources/replix.properties.js';
 //export const appLogo=logo;
 //as a library in replix project

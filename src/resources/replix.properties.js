@@ -8,5 +8,8 @@ export { default as sheetColor} from './css/component/sheet/color-sheet.module.s
 export { default as loginColor} from './css/component/login/color-login.module.scss';
 export { default as typo} from './css/component/typo/typo.module.scss';
 export { default as codeColor} from './css/component/code/color-code.module.scss';
+export { default as inputShape} from './css/component/input/shape-input.module.scss';
+export { default as inputTypo} from './css/component/input/typo-input.module.scss';
+export { default as inputColor} from './css/component/input/color-input.module.scss';
 export const clientLogo = railwaylogo;
 export const manufacturerLogo = dmsLogo;

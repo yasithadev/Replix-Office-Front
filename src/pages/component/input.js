@@ -5,8 +5,13 @@ import H4 from '../../components/typo/H4';
 import H5 from '../../components/typo/H5';
 import H6 from '../../components/typo/H6';
 import Sub1 from '../../components/typo/Sub1';
+import React, {useState,useRef, useEffect,useImperativeHandle} from 'react';
 
-const InputPage = (props) => {    
+const InputPage = (props) => { 
+    const myRef = useRef();   
+    const onClickFunction = () => {
+        myRef.current?.changeValidationMessage();
+    }
     return <Sheet>
         <H5>Single column Form</H5>
         <Sub1>Lable on Top</Sub1>
@@ -23,8 +28,9 @@ const InputPage = (props) => {
         <Raw><Input labelOnLeft="true" longLabels="true" col="1" label="Address (Home)"/></Raw> 
         <H5>Two columns Form</H5>
         <Sub1>Lable on Top</Sub1>
+        <button onClick={onClickFunction}>validate</button>
         <Raw>
-            <Input labelOnLeft="false" col="2" type="tel" label="Tel (Office)"/> 
+            <Input ref={myRef} labelOnLeft="false" col="2" type="tel" label="Tel (Office)"/> 
             <Input labelOnLeft="false" col="2" type="tel" label="Tel (Office)"/>
         </Raw>
         <Raw>
