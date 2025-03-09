@@ -27,7 +27,6 @@ export default function OfficeLayout(props) {
     setSideMenuContent(sideMenuCntnt);
     console.log("sideMenuCntnt--- ",sideMenuCntnt);
 
-
     /*
     childrenWithProps = React.Children.map(sideMenuContent, child => {
       // checking isValidElement is the safe way and avoids a typescript error too
@@ -79,7 +78,6 @@ export default function OfficeLayout(props) {
           <Footer></Footer>
         </div>
         <div className={SysLayoutStyle.menubar + " " + layoutColor.menubar}></div>
-        
       </>
     );
   }

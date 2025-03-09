@@ -9,6 +9,7 @@ import NotificatoinPage from "./pages/component/notificatoinPage";
 import InputPage from "./pages/component/input";
 import FormSectionPage from "./pages/component/formSectionPage";
 import CodePage from "./pages/component/code";
+import FormFieldPage from "./pages/component/formFieldPage";
 import Contact from "./pages/Contact";
 import NoPage from "./pages/NoPage";
 import Login from "./pages/login";
@@ -33,6 +34,7 @@ function App() {
           <Route path="formSection" element={<FormSectionPage/>} />
           <Route path="code" element={<CodePage/>} />
           <Route path="notifier" element={<NotificatoinPage/>} />
+          <Route path="form-field" element={<FormFieldPage/>} />
         </Route>
       </Routes>
     </BrowserRouter>
