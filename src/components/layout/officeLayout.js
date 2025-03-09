@@ -79,7 +79,7 @@ export default function OfficeLayout(props) {
           <Footer></Footer>
         </div>
         <div className={SysLayoutStyle.menubar + " " + layoutColor.menubar}></div>
-        <NotificationContainer/>
+        
       </>
     );
   }

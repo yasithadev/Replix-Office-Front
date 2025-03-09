@@ -3,11 +3,11 @@ import {color} from '../comp.properties.js';
 import {shape} from '../comp.properties.js';
 import {bootstrapGrid} from '../comp.properties.js';
 import Raw from '../raw/raw';
-import Tel from '../tel/tel';
+///import Tel from '../tel/tel';
 class FormSection extends React.Component
 {
     render()
-    { 
+    { /*
         var i=0,colCount=0,rawCount=0;
         var fieldList=[] ;
         var rawList=[] ;
@@ -38,6 +38,8 @@ class FormSection extends React.Component
         }
         return rawList ;
 
-    }
+ */
+return;//dummyreturn
+}
 }
 export default FormSection;

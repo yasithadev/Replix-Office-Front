@@ -13,9 +13,11 @@ import Contact from "./pages/Contact";
 import NoPage from "./pages/NoPage";
 import Login from "./pages/login";
 import AppLayout from "./pages/AppLayout";
+import NotificationContainer from './components/notification/notificationContainer';
 
 function App() {
   return (
+    <>
     <BrowserRouter>
       <Routes>
         <Route path="/login" element={<Login />}></Route>
@@ -34,6 +36,8 @@ function App() {
         </Route>
       </Routes>
     </BrowserRouter>
+    <NotificationContainer/>
+    </>
   );
 }
 
