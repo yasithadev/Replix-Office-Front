@@ -6,11 +6,17 @@ import H5 from '../../components/typo/H5';
 import H6 from '../../components/typo/H6';
 import Sub1 from '../../components/typo/Sub1';
 import React, {useState,useRef, useEffect,useImperativeHandle} from 'react';
+import Notifier from '../../components/notification/Notifier';
 
 const InputPage = (props) => { 
-    const myRef = useRef();   
+    const myRef = useRef();  
     const onClickFunction = () => {
         myRef.current?.changeValidationMessage();
+    }
+    const showValue = () => {
+        let val = myRef.current?.getValue();
+        Notifier.notify("Error","🛈 " + val);
+        //console.log(val);
     }
     return <Sheet>
         <H5>Single column Form</H5>
@@ -29,6 +35,7 @@ const InputPage = (props) => {
         <H5>Two columns Form</H5>
         <Sub1>Lable on Top</Sub1>
         <button onClick={onClickFunction}>validate</button>
+        <button onClick={showValue}>value</button>
         <Raw>
             <Input ref={myRef} labelOnLeft="false" col="2" type="tel" label="Tel (Office)"/> 
             <Input labelOnLeft="false" col="2" type="tel" label="Tel (Office)"/>
