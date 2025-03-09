@@ -11,8 +11,17 @@ import H5 from '../../components/typo/H5'
 import H6 from '../../components/typo/H6'
 import Sub1 from '../../components/typo/Sub1'
 import FormSection from '../../components/form-section/formSection';
-import Code from '../../components/code/Code'
+import Name from '../../components/formfield/Name';
+import Code from '../../components/code/Code';
+import React, {useState,useRef, useEffect,useImperativeHandle} from 'react';
+import Notifier from '../../components/notification/Notifier';
 const FormFieldPage = () => {
+    const nameFieldRef = useRef(); 
+    const validateName = () => {
+        let val = nameFieldRef.current?.validate();
+        Notifier.notify("Error","🛈 name field return :" + val);
+        //console.log(val);
+    } 
     return <Sheet>
         {/*
         <Raw><Input></Input></Raw>
@@ -53,6 +62,9 @@ const FormFieldPage = () => {
         </FormSection>
         
         <Stack spacing={2} direction="row"><Input></Input> </Stack>*/}
+       
+        <Name ref={nameFieldRef} label="Full Name"/>
+        <button onClick={validateName}>validate</button>
     <Stack spacing={2} direction="row">
       <Button variant="text">Text</Button>
       <Button variant="contained">Contained</Button>

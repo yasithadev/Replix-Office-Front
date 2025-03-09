@@ -10,17 +10,15 @@ import React, {useState,useRef, useEffect,useImperativeHandle} from 'react';
 const Input = React.forwardRef((props,ref) => {   
     const [validationMessage, setValidationMessage] = useState(""); 
     const [inputValue, setInputValue] = useState(""); 
-    const changeValidationMessage = () => {
-        setValidationMessage("new validation message");
+    const changeValidationMessage = (msg) => {
+        setValidationMessage(msg);
     }    
     const getValue = () => {
         return inputValue;
     }
+
     useImperativeHandle(ref, () => ({
-        changeValidationMessage
-    }));
-    useImperativeHandle(ref, () => ({
-        getValue
+        getValue,changeValidationMessage
     }));
     const createStyledField = (labelOnLeft,col)=>{
         if(col && col == "1"){

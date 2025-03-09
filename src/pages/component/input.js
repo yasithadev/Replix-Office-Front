@@ -11,7 +11,7 @@ import Notifier from '../../components/notification/Notifier';
 const InputPage = (props) => { 
     const myRef = useRef();  
     const onClickFunction = () => {
-        myRef.current?.changeValidationMessage();
+        myRef.current?.changeValidationMessage("This is new validation message");
     }
     const showValue = () => {
         let val = myRef.current?.getValue();
