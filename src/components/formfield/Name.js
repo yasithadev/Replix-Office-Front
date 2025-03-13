@@ -18,8 +18,11 @@ const Name = React.forwardRef((props,ref) => {
     const getValue = () => {
         return inputRef.current?.getValue();
     }
+    const getLabel = () => {
+        return props.label;
+    }
     useImperativeHandle(ref, () => ({
-        getValue,validate
+        getValue,validate,getLabel
     }));
     return(
         <Input ref={inputRef} label={props.label} ></Input>

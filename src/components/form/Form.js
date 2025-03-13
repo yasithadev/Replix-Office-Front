@@ -1,14 +1,36 @@
 import React, {useState,useRef,Children, useEffect,useImperativeHandle,cloneElement} from 'react';
+import Notifier from '../../components/notification/Notifier';
 //import console = require('console');
 const Form = (props) => {
   const childRefs = useRef([]);
   const callChildMethods = () => {
+    let valid =true;
+    let formData={};
     childRefs.current.forEach((ref, index) => {
       if (ref && ref.validate) {
       // console.log("if (ref && ref.validate) ");
-        ref.validate();
+        if(!ref.validate()){
+          valid = false;
+        }
       }
     });
+    if(!valid){
+      Notifier.notify("Error","WU0001 -Form contain Invalid Data.Please correct them before Submit");
+    }
+    else{
+      childRefs.current.forEach((ref, index) => {
+        if (ref && ref.getValue) {
+          let propertyName = ref.getLabel().replace(/\s/g, '');
+          if(!formData.hasOwnProperty(propertyName)){
+            formData[propertyName] = ref.getValue();
+          }
+          else{
+            Notifier.notify("Error","WD0001 -Duplicated Field lable : " + ref.getLabel()+". " + "This will overigth some values in your output json.Inorder to prevent this add name property to your fields." );//ToDo Error Log
+          }
+        }
+      });
+      console.log("formData ",formData);
+    }
   };
   return (
     <>

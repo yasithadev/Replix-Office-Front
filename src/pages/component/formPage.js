@@ -23,6 +23,8 @@ const FormPage = (props) => {
     }
     return <Sheet>
         <Form>
+        <Name label="First Name"/>
+        <Name label="Last Name"/>
         <Name label="Full Name"/>
         <Name label="Full Name"/>
         </Form>
