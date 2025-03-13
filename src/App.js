@@ -7,6 +7,7 @@ import CreateUser from "./pages/CreateUser";
 import TypoPage from "./pages/component/typoPage";
 import NotificatoinPage from "./pages/component/notificatoinPage";
 import InputPage from "./pages/component/input";
+import FormPage from "./pages/component/formPage";
 import FormSectionPage from "./pages/component/formSectionPage";
 import CodePage from "./pages/component/code";
 import FormFieldPage from "./pages/component/formFieldPage";
@@ -15,6 +16,7 @@ import NoPage from "./pages/NoPage";
 import Login from "./pages/login";
 import AppLayout from "./pages/AppLayout";
 import NotificationContainer from './components/notification/notificationContainer';
+
 
 function App() {
   return (
@@ -35,6 +37,7 @@ function App() {
           <Route path="code" element={<CodePage/>} />
           <Route path="notifier" element={<NotificatoinPage/>} />
           <Route path="form-field" element={<FormFieldPage/>} />
+          <Route path="form" element={<FormPage/>} />
         </Route>
       </Routes>
     </BrowserRouter>

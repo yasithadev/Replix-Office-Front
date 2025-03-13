@@ -1,3 +1,32 @@
+import React, {useState,useRef,Children, useEffect,useImperativeHandle,cloneElement} from 'react';
+//import console = require('console');
+const Form = (props) => {
+  const childRefs = useRef([]);
+  const callChildMethods = () => {
+    childRefs.current.forEach((ref, index) => {
+      if (ref && ref.validate) {
+      // console.log("if (ref && ref.validate) ");
+        ref.validate();
+      }
+    });
+  };
+  return (
+    <>
+        {Children.map(props.children, (child, index) =>
+        cloneElement(child, {
+          ref: (ref) => (childRefs.current[index] = ref),
+        })
+      )}
+      <button onClick={callChildMethods}>Validate</button>
+    </>
+  );
+};
+
+export default Form;
+
+
+
+
 /*
 import React, { useRef, Children, cloneElement } from 'react';
 
