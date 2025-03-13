@@ -24,8 +24,14 @@ const Name = React.forwardRef((props,ref) => {
     useImperativeHandle(ref, () => ({
         getValue,validate,getLabel
     }));
+    const inputKeyPressed = (event)=> {
+        if(event.key=="Enter"){
+            console.log(event);
+            props.validateAndSubmit();
+        }
+    }
     return(
-        <Input ref={inputRef} label={props.label} ></Input>
+        <Input keypressParentCallback={inputKeyPressed} ref={inputRef} label={props.label} ></Input>
     );
 });
 export default Name;

@@ -37,6 +37,7 @@ const Form = (props) => {
         {Children.map(props.children, (child, index) =>
         cloneElement(child, {
           ref: (ref) => (childRefs.current[index] = ref),
+          validateAndSubmit: callChildMethods,
         })
       )}
       <button onClick={callChildMethods}>Validate</button>

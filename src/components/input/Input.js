@@ -67,10 +67,13 @@ const Input = React.forwardRef((props,ref) => {
             }
         }
     }
+    const keypressed = (event)=> {
+        props.keypressParentCallback(event);
+    }
     const createlabelOnTop = (cols)=>{
         return [<div className={ bootstrapGrid['col-md-' + cols] +" " + bootstrapGrid['col-sm-12'] + " " + inputShape.container+ " " + shape.formFieldOuterLableOnTop}>
                     <div className={ shape.topLableContainer}>{props.label}</div>
-                    <input value={inputValue}  onChange={e => setInputValue(e.target.value)} type="text" className={ color.formField+ " " + shape.formField} id="fname"  name="fname"/> 
+                    <input value={inputValue}  onKeyPress={keypressed}  onChange={e => setInputValue(e.target.value)} type="text" className={ color.formField+ " " + shape.formField} id="fname"  name="fname"/> 
                     <div className={inputTypo.validationMessage+ " " + inputColor.validationMessage}>{validationMessage}&nbsp;</div>
                 </div>
                 ];
@@ -80,7 +83,7 @@ const Input = React.forwardRef((props,ref) => {
                     {props.label}
                 </div>,
                 <div className={ bootstrapGrid['col-md-' + colsForfield] + " " + bootstrapGrid['col-sm-12'] + " " + inputShape.container+ " " + shape.formFieldOuterLableOnLeft}>
-                    <input value={inputValue}  onChange={e => setInputValue(e.target.value)} type="text" className={ color.formField+ " " + shape.formField} id="fname"  name="fname"/> 
+                    <input value={inputValue} onKeyPress={keypressed}  onChange={e => setInputValue(e.target.value)} type="text" className={ color.formField+ " " + shape.formField} id="fname"  name="fname"/> 
                     <div className={inputTypo.validationMessage + " " + inputColor.validationMessage}>{validationMessage}&nbsp;</div>
                 </div>
                 ];
