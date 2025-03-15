@@ -11,6 +11,8 @@ import FormPage from "./pages/component/formPage";
 import FormSectionPage from "./pages/component/formSectionPage";
 import CodePage from "./pages/component/code";
 import FormFieldPage from "./pages/component/formFieldPage";
+import DatePicker from "./pages/component/datePickerPage";
+import DropDownPage from "./pages/component/dropDownPage";
 import Contact from "./pages/Contact";
 import NoPage from "./pages/NoPage";
 import Login from "./pages/login";
@@ -38,6 +40,8 @@ function App() {
           <Route path="notifier" element={<NotificatoinPage/>} />
           <Route path="form-field" element={<FormFieldPage/>} />
           <Route path="form" element={<FormPage/>} />
+          <Route path="date-picker" element={<DatePicker/>} />
+          <Route path="drop-down" element={<DropDownPage/>} />
         </Route>
       </Routes>
     </BrowserRouter>
