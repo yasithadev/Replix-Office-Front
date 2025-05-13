@@ -8,34 +8,33 @@ I.e GMT+2 ,-120 will be return
 */
 let todayTimestamp = Date.now() - (Date.now() % oneDay) + (new Date().getTimezoneOffset() * 1000 * 60);
 const DatePicker = React.forwardRef((props,ref) => {  
-    const myElementRef = useRef(null);
-    const inputRef = useRef();  
-    const [showDatePicker,setShowDatePicker] = useState(false);
-    const [selectedDay,setSelectedDay] = useState();
-    const [stYear,setStYear] = useState();
-    const [stMonth,setStMonth] = useState();
-    const [stMonthDetails,setStMonthDetails] = useState();
-
-    const addBackDrop = (e) => {
-        console.log("event fired");
-        if(!myElementRef.current.contains(e.target)) {
-            //console.log("c");
-            setShowDatePicker(false);
-        }
-    }
-    useEffect(() => {
-        //window.removeEventListener('click',addBackDrop);
-        window.addEventListener('click', addBackDrop);
-        return () => {
-            window.removeEventListener('click',addBackDrop); // Remove listener
-            //console.log('Event listener removed.');
-          };
-    }, [props]);
-
     const daysMap = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     const monthMap = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-    
-
+        //give number of days for the month
+        const getNumberOfDays =(year, month)=> {
+            return 40 - new Date(year, month, 40).getDate();
+        }
+        const getDayDetails =args=> {
+            let date = args.index - args.firstDay;
+            let day = args.index%7;
+            let prevMonth = args.month-1;
+            let prevYear = args.year;
+            if(prevMonth < 0) {
+                prevMonth = 11;
+                prevYear--;
+            }
+            let prevMonthNumberOfDays = getNumberOfDays(prevYear, prevMonth);
+            let _date = (date < 0 ? prevMonthNumberOfDays+date : date % args.numberOfDays) + 1;
+            let month = date < 0 ? -1 : date >= args.numberOfDays ? 1 : 0;
+            let timestamp = new Date(args.year, args.month, _date).getTime();
+            return {
+                date: _date,
+                day,
+                month,
+                timestamp,
+                dayString: daysMap[day]
+            }
+        }
     const getMonthDetails =(year, month)=> {
         let firstDay = (new Date(year, month)).getDay();//first day of the month
         let numberOfDays = getNumberOfDays(year, month);
@@ -63,31 +62,37 @@ const DatePicker = React.forwardRef((props,ref) => {
     }
 
 
-    const getDayDetails =args=> {
-        let date = args.index - args.firstDay;
-        let day = args.index%7;
-        let prevMonth = args.month-1;
-        let prevYear = args.year;
-        if(prevMonth < 0) {
-            prevMonth = 11;
-            prevYear--;
-        }
-        let prevMonthNumberOfDays = getNumberOfDays(prevYear, prevMonth);
-        let _date = (date < 0 ? prevMonthNumberOfDays+date : date % args.numberOfDays) + 1;
-        let month = date < 0 ? -1 : date >= args.numberOfDays ? 1 : 0;
-        let timestamp = new Date(args.year, args.month, _date).getTime();
-        return {
-            date: _date,
-            day,
-            month,
-            timestamp,
-            dayString: daysMap[day]
+    const myElementRef = useRef(null);
+    const inputRef = useRef();  
+    const [showDatePicker,setShowDatePicker] = useState(false);
+    const [stSelectedDay,setStSelectedDay] = useState();
+    const [stYear,setStYear] = useState();
+    const [stMonth,setStMonth] = useState();
+    const [stMonthDetails,setStMonthDetails] = useState(getMonthDetails(stYear, stMonth));
+
+    const addBackDrop = (e) => {
+        console.log("event fired");
+        if(!myElementRef.current.contains(e.target)) {
+            //console.log("c");
+            setShowDatePicker(false);
         }
     }
-    //give number of days for the month
-    const getNumberOfDays =(year, month)=> {
-        return 40 - new Date(year, month, 40).getDate();
-    }
+    useEffect(() => {
+        //window.removeEventListener('click',addBackDrop);
+        window.addEventListener('click', addBackDrop);
+        return () => {
+            window.removeEventListener('click',addBackDrop); // Remove listener
+            //console.log('Event listener removed.');
+          };
+    }, [props]);
+
+
+    
+
+
+
+
+
 
     //put date details in to an array from a date string in format yyyy-mm-dd
     const getDateFromDateString =dateValue=> {
@@ -116,7 +121,7 @@ const DatePicker = React.forwardRef((props,ref) => {
     const setDate =dateData=> {
         let selectedDay = new Date(dateData.year, dateData.month-1, dateData.date).getTime();
         //this.setState({ selectedDay })
-        setSelectedDay(selectedDay)
+        setStSelectedDay(selectedDay)
         /*call callback method when time changes out of the cmponent*/
         /*
         if(this.props.onChange) {
@@ -143,6 +148,40 @@ const DatePicker = React.forwardRef((props,ref) => {
         }
     }
 
+
+    const renderCalendar = () => {
+        let days = stMonthDetails.map((day, index)=> {
+            return (
+                <div className={datepicker.cDayContainer + " " + (day.month !== 0 ? ' disabled' : '') + 
+                    (isCurrentDay(day) ? ' highlight' : '') + (isSelectedDay(day) ? ' highlight-green' : '')} key={index}>
+                    <div className={datepicker.cdcDay}>
+                        <span onClick={()=>this.onDateClick(day)}>
+                            {day.date}
+                        </span>
+                    </div>
+                </div>
+            )
+        })
+
+        return (
+            <div className={datepicker.cContainer}>
+                <div className={datepicker.ccHead}>
+                    {['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'].map((d,i)=><div key={i} className={datepicker.cchName}>{d}</div>)}
+                </div>
+                <div className={datepicker.ccBody}>
+                    {days}
+                </div>
+            </div>
+        )
+    }
+
+    const isCurrentDay =day=> {
+        return day.timestamp === todayTimestamp;
+    }
+
+    const isSelectedDay =day=> {
+        return day.timestamp === stSelectedDay;
+    }
     return (
         <div ref={myElementRef} className={datepicker.MyDatePicker}>
             <div className={datepicker.mdpInput} onClick={()=> setShowDatePicker(true)}>
@@ -175,6 +214,9 @@ const DatePicker = React.forwardRef((props,ref) => {
                             <span className={datepicker.mdpchbiRightArrows}></span>
                         </div>
                     </div>
+                </div>
+                <div className={datepicker.mdpcBody}>
+                    {renderCalendar()}
                 </div>
             </div>    
             ) : ''}
