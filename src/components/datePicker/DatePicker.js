@@ -38,7 +38,7 @@ const DatePicker = React.forwardRef((props,ref) => {
 
     const getMonthDetails =(year, month)=> {
         let firstDay = (new Date(year, month)).getDay();//first day of the month
-        let numberOfDays = this.getNumberOfDays(year, month);
+        let numberOfDays = getNumberOfDays(year, month);
         let monthArray = [];
         let rows = 6;
         let currentDay = null;
@@ -48,7 +48,7 @@ const DatePicker = React.forwardRef((props,ref) => {
  
         for(let row=0; row<rows; row++) {
             for(let col=0; col<cols; col++) {
-                currentDay = this.getDayDetails({
+                currentDay = getDayDetails({
                     index,//Date Index of the month 0-31
                     numberOfDays,
                     firstDay,
@@ -72,7 +72,7 @@ const DatePicker = React.forwardRef((props,ref) => {
             prevMonth = 11;
             prevYear--;
         }
-        let prevMonthNumberOfDays = this.getNumberOfDays(prevYear, prevMonth);
+        let prevMonthNumberOfDays = getNumberOfDays(prevYear, prevMonth);
         let _date = (date < 0 ? prevMonthNumberOfDays+date : date % args.numberOfDays) + 1;
         let month = date < 0 ? -1 : date >= args.numberOfDays ? 1 : 0;
         let timestamp = new Date(args.year, args.month, _date).getTime();
@@ -81,7 +81,7 @@ const DatePicker = React.forwardRef((props,ref) => {
             day,
             month,
             timestamp,
-            dayString: this.daysMap[day]
+            dayString: daysMap[day]
         }
     }
     //give number of days for the month
@@ -103,7 +103,7 @@ const DatePicker = React.forwardRef((props,ref) => {
     /* ‘month’ parameter will be integer index of the month
     -if month value is greater than 11 then it will return 11.
     -Otherwise it will compare the month value with 0.if month value greater than 0 it will return string for the given index.if 0 is greater than themonth value then it will return string “month”.*/
-    const getMonthStr = month => this.monthMap[Math.max(Math.min(11, month), 0)] || 'Month';
+    const getMonthStr = month => monthMap[Math.max(Math.min(11, month), 0)] || 'Month';
     
     const setYear =offset=> {
         let wk_year = stYear + offset;
@@ -159,6 +159,20 @@ const DatePicker = React.forwardRef((props,ref) => {
                     <div className={datepicker.mdpchButton}>
                         <div className={datepicker.mdpchbInner} onClick={()=> this.setMonth(-1)}>
                             <span className={datepicker.mdpchbiLeftArrow}></span>
+                        </div>
+                    </div>
+                    <div className={datepicker.mdpchContainer}>
+                        <div className={datepicker.mdpchcYear}>{stYear}</div>
+                        <div className={datepicker.mdpchcMonth}>{getMonthStr(stMonth)}</div>
+                    </div>
+                    <div className={datepicker.mdpchButton}>
+                        <div className={datepicker.mdpchbInner} onClick={()=> this.setMonth(1)}>
+                            <span className={datepicker.mdpchbiRightArrow}></span>
+                        </div>
+                    </div>
+                    <div className={datepicker.mdpchButton} onClick={()=> this.setYear(1)}>
+                        <div className={datepicker.mdpchbInner}>
+                            <span className={datepicker.mdpchbiRightArrows}></span>
                         </div>
                     </div>
                 </div>

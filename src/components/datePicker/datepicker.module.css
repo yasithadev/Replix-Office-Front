@@ -37,7 +37,7 @@
     position: absolute;
     left:0;
     top: 40px;
-    width: 300px;
+    width: 360px;/*changedbyyasitha*/
     min-height: 350px;
     background: #fff;
     box-shadow: 10px 10px 40px rgba(0,0,0,0.2);
@@ -80,10 +80,10 @@
     margin-top: -17px;
 }
 
-.mdpchbi-right-arrows:after,
+.mdpchbiRightArrows:after,
 .mdpchbiLeftArrows:after,
-.mdpchbi-right-arrow,
-.mdpchbi-right-arrows,
+.mdpchbiRightArrow,
+.mdpchbiRightArrows,
 .mdpchbiLeftArrow,
 .mdpchbiLeftArrows{
     display: block;
@@ -94,8 +94,8 @@
     border-bottom: 2px solid #888;
     position: absolute;
 }
-.mdpchbi-right-arrow,
-.mdpchbi-right-arrows,
+.mdpchbiRightArrow,
+.mdpchbiRightArrows,
 .mdpchbiLeftArrow,
 .mdpchbiLeftArrows{
     transform: rotate(45deg);
@@ -104,12 +104,12 @@
     margin-left: -2px;
     margin-top: -4px;
 }
-.mdpchbi-right-arrows,
-.mdpchbi-right-arrow {
+.mdpchbiRightArrows,
+.mdpchbiRightArrow {
     transform: rotate(225deg);
     margin-left: -4px;
 }
-.mdpchbi-right-arrows:after,
+.mdpchbiRightArrows:after,
 .mdpchbiLeftArrows:after{
     content: '';
 }
@@ -117,12 +117,36 @@
 .mdpchbiLeftArrows{
     margin-left: -5px;
 }
-.mdpchbi-right-arrows{
+.mdpchbiRightArrows{
     margin-left: -2px;
 }
-.mdpchbi-right-arrows:after,
+.mdpchbiRightArrows:after,
 .mdpchbiLeftArrows:after{
     left: 3px;
     top: -5px
+}
+
+.mdpchContainer{
+    float: left;
+    width: 120px;
+    height: 100%;
+}
+.mdpchcYear{
+    float: left;
+    width: 100%;
+    height: 30px;
+    font-size: 27px;
+    color: #666;
+    font-weight: 200px;
+    text-align: center;
+}
+.mdpchcMonth{
+    float: left;
+    width: 100%;
+    height: 15px;
+    font-size: 13px;
+    color: #666;
+    font-weight: 200px;
+    text-align: center;
 }
  
