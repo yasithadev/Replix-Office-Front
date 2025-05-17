@@ -12,6 +12,9 @@
 }
 .sheetOuter{
     padding: 10px;
+    /* following 2 lines helps  to datepicker drop over footer*/
+    position: relative; 
+    z-index: 1;
 }
 
 .container{
