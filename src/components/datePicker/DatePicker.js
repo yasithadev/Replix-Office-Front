@@ -156,8 +156,8 @@ const DatePicker = React.forwardRef((props,ref) => {
         let days = stMonthDetails.map((day, index)=> {
             console.log("day.month==========" + day.month );
             return (
-                <div className={(day.month !== 0 ? datepicker.cDayContainerDisabled : datepicker.cDayContainer) + 
-                    (isCurrentDay(day) ? ' highlight' : '') + (isSelectedDay(day) ? ' highlight-green' : '')} key={index}>
+                <div className={(day.month !== 0 ? datepicker.cDayContainerDisabled : datepicker.cDayContainer) + " " +
+                    (isCurrentDay(day) ? datepicker.cDayContainerHighlightCdcDay : '') + (isSelectedDay(day) ? ' highlight-green' : '')} key={index}>
                     <div className={(day.month !== 0 ? datepicker.cdcDayDisabled : datepicker.cdcDay) }>
                         <span onClick={()=>this.onDateClick(day)}>
                             {day.date}

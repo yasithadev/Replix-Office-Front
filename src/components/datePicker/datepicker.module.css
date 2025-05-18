@@ -281,7 +281,7 @@
 .cDayContainer.disabled .cdcDay span{
     background: #fff!important;
 }
-.cDayContainer.highlight .cdcDay span{
+.cDayContainerHighlightCdcDay span{
     background: #efdbca;
 }
 .cDayContainer.highlight-green .cdcDay span{
