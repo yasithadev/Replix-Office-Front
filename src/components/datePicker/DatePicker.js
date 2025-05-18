@@ -36,6 +36,10 @@ const DatePicker = React.forwardRef((props,ref) => {
             }
         }
     const getMonthDetails =(year, month)=> {
+        //year=2024;
+        //month =11;
+        console.log("year-------",year);
+        console.log("month-------",month);
         let firstDay = (new Date(year, month)).getDay();//first day of the month
         let numberOfDays = getNumberOfDays(year, month);
         let monthArray = [];
@@ -43,8 +47,7 @@ const DatePicker = React.forwardRef((props,ref) => {
         let currentDay = null;
         let index = 0;//Date Index of the month 0-31
         let cols = 7;
- 
- 
+
         for(let row=0; row<rows; row++) {
             for(let col=0; col<cols; col++) {
                 currentDay = getDayDetails({
@@ -66,8 +69,8 @@ const DatePicker = React.forwardRef((props,ref) => {
     const inputRef = useRef();  
     const [showDatePicker,setShowDatePicker] = useState(false);
     const [stSelectedDay,setStSelectedDay] = useState();
-    const [stYear,setStYear] = useState();
-    const [stMonth,setStMonth] = useState();
+    const [stYear,setStYear] = useState(new Date().getFullYear());
+    const [stMonth,setStMonth] = useState(new Date().getMonth());
     const [stMonthDetails,setStMonthDetails] = useState(getMonthDetails(stYear, stMonth));
 
     const addBackDrop = (e) => {
@@ -151,10 +154,11 @@ const DatePicker = React.forwardRef((props,ref) => {
 
     const renderCalendar = () => {
         let days = stMonthDetails.map((day, index)=> {
+            console.log("day.month==========" + day.month );
             return (
-                <div className={datepicker.cDayContainer + " " + (day.month !== 0 ? ' disabled' : '') + 
+                <div className={(day.month !== 0 ? datepicker.cDayContainerDisabled : datepicker.cDayContainer) + 
                     (isCurrentDay(day) ? ' highlight' : '') + (isSelectedDay(day) ? ' highlight-green' : '')} key={index}>
-                    <div className={datepicker.cdcDay}>
+                    <div className={(day.month !== 0 ? datepicker.cdcDayDisabled : datepicker.cdcDay) }>
                         <span onClick={()=>this.onDateClick(day)}>
                             {day.date}
                         </span>

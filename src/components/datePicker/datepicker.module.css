@@ -163,9 +163,11 @@
  .cchName, 
  .ccBody,
  .cdcDay span,
+ .cdcDayDisabled span,
  .cdcDay,
+ .cdcDayDisabled,
  .cDayContainer,
- .cContainer{
+ .cContainer,.cDayContainerDisabled{
      position: relative;
      display: block;
      float: left;
@@ -209,6 +211,11 @@
     width: 14.285%;
     height: 16.6666%;
 }
+.cDayContainerDisabled{
+    width: 14.285%;
+    height: 16.6666%;
+    pointer-events: none;
+}
 .cdcDay{
     width: 100%;
     height: 100%;
@@ -217,19 +224,20 @@
     color: #444;
     text-align: center;
 }
+.cdcDayDisabled{
+    width: 100%;
+    height: 100%;
+    font-size: 12px;
+    font-weight: 300;
+    color: #ddd;
+    text-align: center;
+}
 .cdcDay span{ 
     width: 100%;
     height: 100%;
     font-size: 12px;
     font-weight: 300;
     color: #444;
-}
-
-.cdcDay span:hover{
-    cursor: pointer;
-    background: #eee;
-} 
-.cdcDay span{
     width: 30px;
     height: 30px;
     margin-top: -15px;
@@ -240,12 +248,36 @@
     border-radius: 100%;
     line-height: 30px;
 }
-.cDayContainer.disabled{
-    pointer-events: none;
+.cdcDayDisabled  span{
+    width: 100%;
+    height: 100%;
+    font-size: 12px;
+    font-weight: 300;
+    color: rgb(173, 172, 172);;
+    width: 30px;
+    height: 30px;
+    margin-top: -15px;
+    margin-left: -15px;
+    left: 50%;
+    top: 50%;
+    font-weight: 400;
+    border-radius: 100%;
+    line-height: 30px;
 }
- .cDayContainer.disabled .cdcDay span{
-    color: #ddd;
+
+.cdcDay span:hover{
+    cursor: pointer;
+    background: #eee;
+} 
+.cdcDayDisabled  span:hover{
+    cursor: pointer;
+    background: #eee;
 }
+
+
+
+
+
 .cDayContainer.disabled .cdcDay span{
     background: #fff!important;
 }
