@@ -176,7 +176,9 @@ const DatePicker = React.forwardRef((props,ref) => {
             console.log("day.month==========" + day.month );
             return (
                 <div className={(day.month !== 0 ? datepicker.cDayContainerDisabled : datepicker.cDayContainer) + " " +
-                    (isCurrentDay(day) ? datepicker.cDayContainerHighlightCdcDay : '') + " " + ((isSelectedDay(day) && day.month === 0) ? datepicker.cDayContainerHighlightGreenCdcDay : '')} key={index}>
+                    (isCurrentDay(day) ? datepicker.cDayContainerHighlightCdcDay : '') + " " + 
+                    ((isSelectedDay(day) && day.month === 0) ? datepicker.cDayContainerHighlightGreenCdcDay : '') //day.month === 0 condition ensure that it is not a disable date
+                    } key={index}>
                     <div className={(day.month !== 0 ? datepicker.cdcDayDisabled : datepicker.cdcDay) }>
                         <span onClick={()=>onDateClick(day)}>
                             {day.date}
