@@ -151,15 +151,34 @@ const DatePicker = React.forwardRef((props,ref) => {
         }
     }
 
+    const getDateStringFromTimestamp =timestamp=> {
+        let dateObject = new Date(timestamp);
+        let month = dateObject.getMonth()+1;
+        let date = dateObject.getDate();
+        return dateObject.getFullYear() + '-' + (month < 10 ? '0'+month : month) + '-' + (date < 10 ? '0'+date : date);
+    }
+    const setDateToInput =(timestamp)=> {
+        let dateString = getDateStringFromTimestamp(timestamp);
+        inputRef.current.value = dateString;
+    }
+    const onDateClick =day=> {
+        setStSelectedDay(day.timestamp);
+        setDateToInput(day.timestamp);
+        /*
+        if(this.props.onChange) {
+            this.props.onChange(day.timestamp);
+        }
+        */
+    }
 
     const renderCalendar = () => {
         let days = stMonthDetails.map((day, index)=> {
             console.log("day.month==========" + day.month );
             return (
                 <div className={(day.month !== 0 ? datepicker.cDayContainerDisabled : datepicker.cDayContainer) + " " +
-                    (isCurrentDay(day) ? datepicker.cDayContainerHighlightCdcDay : '') + (isSelectedDay(day) ? ' highlight-green' : '')} key={index}>
+                    (isCurrentDay(day) ? datepicker.cDayContainerHighlightCdcDay : '') + " " + ((isSelectedDay(day) && day.month === 0) ? datepicker.cDayContainerHighlightGreenCdcDay : '')} key={index}>
                     <div className={(day.month !== 0 ? datepicker.cdcDayDisabled : datepicker.cdcDay) }>
-                        <span onClick={()=>this.onDateClick(day)}>
+                        <span onClick={()=>onDateClick(day)}>
                             {day.date}
                         </span>
                     </div>
@@ -186,6 +205,27 @@ const DatePicker = React.forwardRef((props,ref) => {
     const isSelectedDay =day=> {
         return day.timestamp === stSelectedDay;
     }
+    const setMonth =offset=> {
+        let year = stYear;
+        let month = stMonth + offset;
+        if(month === -1) {
+            month = 11;
+            year--;
+        } else if(month === 12) {
+            month = 0;
+            year++;
+        }
+        setStYear(year);
+        setStMonth(month);
+        setStMonthDetails(getMonthDetails(year, month));
+        /*
+        this.setState({ 
+            year, 
+            month,
+            monthDetails: this.getMonthDetails(year, month)
+        })
+        */
+    }
     return (
         <div ref={myElementRef} className={datepicker.MyDatePicker}>
             <div className={datepicker.mdpInput} onClick={()=> setShowDatePicker(true)}>
@@ -200,7 +240,7 @@ const DatePicker = React.forwardRef((props,ref) => {
                         </div>
                     </div>
                     <div className={datepicker.mdpchButton}>
-                        <div className={datepicker.mdpchbInner} onClick={()=> this.setMonth(-1)}>
+                        <div className={datepicker.mdpchbInner} onClick={()=> setMonth(-1)}>
                             <span className={datepicker.mdpchbiLeftArrow}></span>
                         </div>
                     </div>
@@ -209,11 +249,11 @@ const DatePicker = React.forwardRef((props,ref) => {
                         <div className={datepicker.mdpchcMonth}>{getMonthStr(stMonth)}</div>
                     </div>
                     <div className={datepicker.mdpchButton}>
-                        <div className={datepicker.mdpchbInner} onClick={()=> this.setMonth(1)}>
+                        <div className={datepicker.mdpchbInner} onClick={()=>setMonth(1)}>
                             <span className={datepicker.mdpchbiRightArrow}></span>
                         </div>
                     </div>
-                    <div className={datepicker.mdpchButton} onClick={()=> this.setYear(1)}>
+                    <div className={datepicker.mdpchButton} onClick={()=>setYear(1)}>
                         <div className={datepicker.mdpchbInner}>
                             <span className={datepicker.mdpchbiRightArrows}></span>
                         </div>
