@@ -1,5 +1,6 @@
 .MyDatePicker {
     /*float: left;*//*commented to stop headers jump up and floating left.*/ 
+    width: 150px;/*This will reduce the length of the date picker and allow to close the date picker by clicking right side ofthe field*/
     position: relative;
 }
 
