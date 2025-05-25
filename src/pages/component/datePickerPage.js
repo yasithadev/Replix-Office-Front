@@ -12,17 +12,18 @@ import React, {useState,useRef, useEffect,useImperativeHandle} from 'react';
 import Notifier from '../../components/notification/Notifier';
 
 const DatePickerPage = (props) => { 
-
+    const dateSelected =  (date) => {
+        console.log("----------------dateSelected----------------- ",date)
+      }
     return <Sheet>
         <H4>DatePicker</H4>
-        <DatePicker>
-        </DatePicker>
+        <DatePicker onSelect={dateSelected} fieldType="date"></DatePicker>
+
+        <H4>DatePicker</H4>
+        <DatePicker onSelect={dateSelected} fieldType="text"></DatePicker>
+        
         <H4>HtmlPicker</H4>
         <HtmlPicker></HtmlPicker>
-        <H4>Sample Header</H4>
-        <H4>Sample Header</H4>
-        <H4>Sample Header</H4>
-        <H4>Sample Header</H4>
     </Sheet>;
 }
 export default DatePickerPage;

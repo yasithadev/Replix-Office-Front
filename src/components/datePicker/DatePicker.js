@@ -38,8 +38,8 @@ const DatePicker = React.forwardRef((props,ref) => {
     const getMonthDetails =(year, month)=> {
         //year=2024;
         //month =11;
-        console.log("year-------",year);
-        console.log("month-------",month);
+        //console.log("year-------",year);
+        //console.log("month-------",month);
         let firstDay = (new Date(year, month)).getDay();//first day of the month
         let numberOfDays = getNumberOfDays(year, month);
         let monthArray = [];
@@ -126,11 +126,9 @@ const DatePicker = React.forwardRef((props,ref) => {
         //this.setState({ selectedDay })
         setStSelectedDay(selectedDay)
         /*call callback method when time changes out of the cmponent*/
-        /*
-        if(this.props.onChange) {
-            this.props.onChange(selectedDay);
+        if(props.onSelect) {
+            props.onSelect(selectedDay);
         }
-       */ 
     }
 
     const updateDateFromInput =()=> {
@@ -147,7 +145,8 @@ const DatePicker = React.forwardRef((props,ref) => {
             */
             setStYear(dateData.year);
             setStMonth(dateData.month-1);
-            setStMonthDetails(dateData.year, dateData.month-1)
+            setStMonthDetails(getMonthDetails(dateData.year, dateData.month-1));
+            //console.log("setStMonthDetails ////////////" , stMonthDetails);
         }
     }
 
@@ -169,11 +168,15 @@ const DatePicker = React.forwardRef((props,ref) => {
             this.props.onChange(day.timestamp);
         }
         */
+        if(props.onSelect) {
+            props.onSelect(day.timestamp);
+        }
     }
 
-    const renderCalendar = () => {
+    const renderCalendar = () => { 
+        //console.log("setStMonthDetails renderCalendar+++++++++++++++ " , stMonthDetails);
         let days = stMonthDetails.map((day, index)=> {
-            console.log("day.month==========" + day.month );
+            //console.log("day.month==========" + day.month );
             return (
                 <div className={(day.month !== 0 ? datepicker.cDayContainerDisabled : datepicker.cDayContainer) + " " +
                     (isCurrentDay(day) ? datepicker.cDayContainerHighlightCdcDay : '') + " " + 
@@ -231,7 +234,7 @@ const DatePicker = React.forwardRef((props,ref) => {
     return (
         <div ref={myElementRef} className={datepicker.MyDatePicker}>
             <div className={datepicker.mdpInput} onClick={()=> setShowDatePicker(true)}>
-                <input type='date' onChange={updateDateFromInput} ref={inputRef}/>
+                <input type={props.fieldType} onChange={updateDateFromInput} ref={inputRef}/>
             </div>
             {showDatePicker ? (
             <div className={datepicker.mdpContainer}>

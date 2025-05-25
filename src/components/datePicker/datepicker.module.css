@@ -1,5 +1,5 @@
 .MyDatePicker {
-    float: left;
+    /*float: left;*//*commented to stop headers jump up and floating left.*/ 
     position: relative;
 }
 
@@ -12,7 +12,7 @@
     user-select: none;           /* Non-prefixed version, currently */  
 }
 .mdpInput{
-    float: left;
+    /*float: left;*//*commented to stop headers jump up and floating left.*/ 
     width: 150px;
     height: 35px;
     overflow: hidden;
