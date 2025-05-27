@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { AxiosError } from "axios";
 import UnauthorizedException from '../exception/UnauthorizedException';
+import NetworkErrorException from '../exception/NetworkErrorException';
 import logger from '../util/log/logger';
 
 class AuthRepository{
@@ -25,8 +26,13 @@ class AuthRepository{
         catch(e)
         {
             if (e instanceof AxiosError) {
-                if(e.status == 401){
-                    console.error("AxiosError.status:401");
+                console.log(e.code);
+                if(e.code+"" == "ERR_NETWORK"){
+                    console.error("C503:Server Unavailable");
+                    throw new NetworkErrorException();
+                }
+                else if(e.code == "ERR_BAD_REQUEST"){
+                    console.error("S401:Unauthorized");
                     throw new UnauthorizedException();
                 }
                 console.log(e);
