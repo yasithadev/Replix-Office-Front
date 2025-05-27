@@ -1,3 +1,5 @@
 const msg={
-    "C503":"Server Unavailable"
+    "C503":"Network Error",
+    "S401":"Unauthorized"
 };
+export default msg;

@@ -17,9 +17,12 @@ const Notification = (props) => {
             props.remove(props.id);
         }, 300);
     }
+    const icon = () => {  
+        return (<span style={{color: "#dc3545",fontWeight: 'bold'}}> 🛈 </span>);
+    }
     return (<div className={NotificationStyle.notification} style={{opacity: opacity}}>
         <span className={NotificationStyle.closebtn} onClick={selfRemove}>&times;</span> 
-        <div className={NotificationStyle.content}>{props.children}</div>
+        <div className={NotificationStyle.content}>{icon()}{props.children}</div>
         </div>);
 }
 export default Notification;

@@ -12,6 +12,7 @@ import InvalidCredentialException from '../components/login/InvalidCredentialExc
 import UnauthorizedException from '../exception/UnauthorizedException';
 import NetworkErrorException from '../exception/NetworkErrorException';
 import Notifier from '../components/notification/Notifier';
+import msg from '../resources/msg';
 
 const Login = () => {
   let navigate = useNavigate();
@@ -27,7 +28,7 @@ const Login = () => {
         throw new InvalidCredentialException();
       }
       if (e instanceof NetworkErrorException) {
-        Notifier.notify("Error","94rt - Shis is a big Problem. let notificationModel = new NotificationModel Shis is a big Problem.");
+        Notifier.notify("Error","C503 : "+ msg.C503);
       }
     }
 
