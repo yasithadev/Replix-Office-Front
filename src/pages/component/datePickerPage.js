@@ -10,19 +10,28 @@ import DatePicker from '../../components/datePicker/DatePicker';
 import HtmlPicker from '../../components/datePicker/htmlPicker';
 import React, {useState,useRef, useEffect,useImperativeHandle} from 'react';
 import Notifier from '../../components/notification/Notifier';
+import Code from '../../components/code/Code';
 
 const DatePickerPage = (props) => { 
     const dateSelected =  (date) => {
         console.log("----------------dateSelected----------------- ",date)
       }
     return <Sheet>
-        <H4>DatePicker</H4>
+        <H4>Date Picker with date field</H4>
         <DatePicker onSelect={dateSelected} fieldType="date"></DatePicker>
-
-        <H4>DatePicker</H4>
+        <Code>
+        {
+        `<DatePicker onSelect={dateSelected} fieldType="date"></DatePicker>`
+        }
+        </Code>
+        <H4>Date Picker with text field</H4>
         <DatePicker onSelect={dateSelected} fieldType="text"></DatePicker>
-        
-        <H4>HtmlPicker</H4>
+        <Code>
+        {
+        `<DatePicker onSelect={dateSelected} fieldType="text"></DatePicker>`
+        }
+        </Code>
+        <H4>Html Picker</H4>
         <HtmlPicker></HtmlPicker>
     </Sheet>;
 }
