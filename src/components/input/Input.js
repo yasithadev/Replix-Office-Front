@@ -21,7 +21,7 @@ const Input = React.forwardRef((props,ref) => {
         getValue,changeValidationMessage
     }));
     const createStyledField = (labelOnLeft,col)=>{
-        if(col && col == "1"){
+        if(col && col == "12"){
             if(labelOnLeft && labelOnLeft == "true"){
                 if(props.longLabels && props.longLabels == "true"){
                     return createlabelOnLeft(3,9);
@@ -34,7 +34,7 @@ const Input = React.forwardRef((props,ref) => {
                 return createlabelOnTop(12);
             }
         }
-        else if(col && col == "2"){
+        else if(col && col == "6"){
             if(labelOnLeft && labelOnLeft == "true"){
                 return createlabelOnLeft(2,4)
             }
@@ -42,7 +42,7 @@ const Input = React.forwardRef((props,ref) => {
                 return createlabelOnTop(6);
             }
         }
-        else if(col && col == "3"){
+        else if(col && col == "4"){
             if(labelOnLeft && labelOnLeft == "true"){
                 return createlabelOnLeft(1,3)
             }
@@ -50,7 +50,7 @@ const Input = React.forwardRef((props,ref) => {
                 return createlabelOnTop(4);
             }
         }
-        else if(col && col == "4"){
+        else if(col && col == "3"){
             if(labelOnLeft && labelOnLeft == "true"){
                 return createlabelOnLeft(1,2);
             }

@@ -31,7 +31,7 @@ const Name = React.forwardRef((props,ref) => {
         }
     }
     return(
-        <Input keypressParentCallback={inputKeyPressed} ref={inputRef} label={props.label} ></Input>
+        <Input keypressParentCallback={inputKeyPressed} ref={inputRef} col={props.col} label={props.label} ></Input>
     );
 });
 export default Name;

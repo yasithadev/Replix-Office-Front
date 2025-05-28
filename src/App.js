@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 //import Layout from "./pages/Layout";
 import Home from "./pages/Home";
 import Blogs from "./pages/Blogs";
-import CreateUser from "./pages/CreateUser";
+import CreateUser from "./pages/Admin/CreateUser";
 import TypoPage from "./pages/component/typoPage";
 import NotificatoinPage from "./pages/component/notificatoinPage";
 import InputPage from "./pages/component/input";

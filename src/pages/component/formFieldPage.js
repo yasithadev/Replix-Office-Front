@@ -62,8 +62,9 @@ const FormFieldPage = () => {
         </FormSection>
         
         <Stack spacing={2} direction="row"><Input></Input> </Stack>*/}
-       
-        <Name ref={nameFieldRef} label="Full Name"/>
+       <H4>Field</H4>
+       <H5>Name Field</H5>
+        <Name ref={nameFieldRef} col="2" label="Full Name"/>
         <button onClick={validateName}>validate</button>
     <Stack spacing={2} direction="row">
       <Button variant="text">Text</Button>
