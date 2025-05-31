@@ -23,10 +23,10 @@ const FormPage = (props) => {
     }
     return <Sheet>
         <Form>
-        <Name label="First Name"/>
-        <Name label="Last Name"/>
-        <Name label="Full Name"/>
-        <Name label="Full Name"/>
+        <Name col="4" label="First Name"/>
+        <Name col="4" label="Last Name"/>
+        <Name col="4" label="Full Name"/>
+        <Name col="4" label="Full Name"/>
         </Form>
     </Sheet>;
 }

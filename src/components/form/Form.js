@@ -1,5 +1,6 @@
 import React, {useState,useRef,Children, useEffect,useImperativeHandle,cloneElement} from 'react';
 import Notifier from '../../components/notification/Notifier';
+import Raw from '../../components/raw/raw';
 //import console = require('console');
 const Form = (props) => {
   const childRefs = useRef([]);
@@ -32,14 +33,34 @@ const Form = (props) => {
       console.log("formData ",formData);
     }
   };
+  const groupChildren=()=>{
+    // Convert children into an array for easier manipulation
+    let childArray = React.Children.toArray(props.children);
+
+    // Group every 3 children inside a div
+    let groupedChildren = childArray.reduce((acc, child, index) => {
+      let groupIndex = Math.floor(index / 3);
+    if (!acc[groupIndex]) acc[groupIndex] = [];
+    acc[groupIndex].push(cloneElement(child, {
+      ref: (ref) => (childRefs.current[index] = ref),
+      validateAndSubmit: callChildMethods,//child call this method if user hit enter button
+    }));
+    return acc;
+    }, {});
+    //return groupedChildren;
+    return Object.values(groupedChildren); 
+  }
   return (
     <>
-        {Children.map(props.children, (child, index) =>
-        cloneElement(child, {
-          ref: (ref) => (childRefs.current[index] = ref),
-          validateAndSubmit: callChildMethods,
-        })
-      )}
+        <div className="parent-container">
+            {
+
+            groupChildren().map((group, index) => (
+                <Raw key={index} className="child-group">
+                    {group}
+                </Raw>
+            ))}
+        </div>
       <button onClick={callChildMethods}>Validate</button>
     </>
   );

@@ -10,10 +10,16 @@ import H5 from '../../components/typo/H5'
 import H6 from '../../components/typo/H6'
 import Sub1 from '../../components/typo/Sub1'
 import FormSection from '../../components/form-section/formSection';
-import Code from '../../components/code/Code'
+import Code from '../../components/code/Code';
+import Name from '../../components/formfield/Name';
 const CreateUser = () => {
     return <Sheet>
- <H4>Create User</H4>
+      <H4>Create User</H4>
+      <Name col="6" label="User Name"/>
+      <Name col="6" label="First Name"/>
+      <Name col="6" label="Second Name"/>
+
+      
     <Stack spacing={2} direction="row"></Stack>
     <Stack spacing={2} direction="row">
       <Button variant="text">Text</Button>
