@@ -5,6 +5,7 @@ import {inputTypo} from '../comp.properties.js';
 import {inputColor} from '../comp.properties.js';
 import {bootstrapGrid} from '../comp.properties.js';
 import React, {useState,useRef, useEffect,useImperativeHandle} from 'react';
+//import console = require('console');
 
 
 const Input = React.forwardRef((props,ref) => {   
@@ -21,6 +22,7 @@ const Input = React.forwardRef((props,ref) => {
         getValue,changeValidationMessage
     }));
     const createStyledField = (labelOnLeft,col)=>{
+        //console.log("createStyledField col " + col);
         if(col && col == "12"){
             if(labelOnLeft && labelOnLeft == "true"){
                 if(props.longLabels && props.longLabels == "true"){

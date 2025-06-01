@@ -10,6 +10,8 @@ const Form = (props) => {
     ["3",4],
     ["4",3] 
   ]);
+  console.log("excecuting secuentially ");
+  let defaultCols = colsForLane.get(props.lan);
   const callChildMethods = () => {
     let valid =true;
     let formData={};
@@ -47,7 +49,7 @@ const Form = (props) => {
     // Group every 3 children inside a div
     let groupedChildren = childArray.reduce((acc, child, index) => {
       
-    let groupIndex = Math.floor(index /props.lan);
+    let groupIndex = Math.floor(index/props.lan);
 
     if (!acc[groupIndex]) acc[groupIndex] = [];
     
@@ -58,9 +60,8 @@ const Form = (props) => {
     };
     // Check if the original child already has a 'col' prop
     if (child.props && child.props.col === undefined) {
-      console.log("props.lan----- "+ props.lan);
-      console.log("colsForLane.get(props.lan)----- "+ colsForLane.get(props.lan));
-      newProps.col = colsForLane.get(props.lan); // Or whatever default value you want for 'col'
+      console.log("defaultCols----- "+ defaultCols);
+      newProps.col = defaultCols; // Or whatever default value you want for 'col'
     }
 
     acc[groupIndex].push(cloneElement(child, newProps));
@@ -73,8 +74,7 @@ const Form = (props) => {
     <>
         <div className="parent-container">
             {
-
-            groupChildren().map((group, index) => (
+              groupChildren().map((group, index) => (
                 <Raw key={index} className="child-group">
                     {group}
                 </Raw>
