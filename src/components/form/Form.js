@@ -4,9 +4,16 @@ import Raw from '../../components/raw/raw';
 //import console = require('console');
 const Form = (props) => {
   const childRefs = useRef([]);
+  const colsForLane = new Map([
+    ["1",12],//if lane value is 1 field should 12 columns long
+    ["2",6],//if lane value is 2 field should 6 columns long
+    ["3",4],
+    ["4",3] 
+  ]);
   const callChildMethods = () => {
     let valid =true;
     let formData={};
+
     childRefs.current.forEach((ref, index) => {
       if (ref && ref.validate) {
       // console.log("if (ref && ref.validate) ");
@@ -39,7 +46,9 @@ const Form = (props) => {
 
     // Group every 3 children inside a div
     let groupedChildren = childArray.reduce((acc, child, index) => {
-      let groupIndex = Math.floor(index / props.lan);
+      
+    let groupIndex = Math.floor(index /props.lan);
+
     if (!acc[groupIndex]) acc[groupIndex] = [];
     
     // Create an object for new props to be added
@@ -49,7 +58,9 @@ const Form = (props) => {
     };
     // Check if the original child already has a 'col' prop
     if (child.props && child.props.col === undefined) {
-      newProps.col = "6"; // Or whatever default value you want for 'col'
+      console.log("props.lan----- "+ props.lan);
+      console.log("colsForLane.get(props.lan)----- "+ colsForLane.get(props.lan));
+      newProps.col = colsForLane.get(props.lan); // Or whatever default value you want for 'col'
     }
 
     acc[groupIndex].push(cloneElement(child, newProps));
