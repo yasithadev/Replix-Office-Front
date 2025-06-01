@@ -39,12 +39,20 @@ const Form = (props) => {
 
     // Group every 3 children inside a div
     let groupedChildren = childArray.reduce((acc, child, index) => {
-      let groupIndex = Math.floor(index / 3);
+      let groupIndex = Math.floor(index / props.lan);
     if (!acc[groupIndex]) acc[groupIndex] = [];
-    acc[groupIndex].push(cloneElement(child, {
+    
+    // Create an object for new props to be added
+    const newProps = {
       ref: (ref) => (childRefs.current[index] = ref),
-      validateAndSubmit: callChildMethods,//child call this method if user hit enter button
-    }));
+      validateAndSubmit: callChildMethods, // child calls this method if the user hits the enter button
+    };
+    // Check if the original child already has a 'col' prop
+    if (child.props && child.props.col === undefined) {
+      newProps.col = "6"; // Or whatever default value you want for 'col'
+    }
+
+    acc[groupIndex].push(cloneElement(child, newProps));
     return acc;
     }, {});
     //return groupedChildren;
