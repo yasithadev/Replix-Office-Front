@@ -29,7 +29,7 @@ class AuthRepository{
             if (e instanceof AxiosError) {
                 console.log(e.code);
                 if(e.code == "ERR_NETWORK"){
-                    console.error("C503:",msg.C503);
+                    console.error("W503:",msg.W503);
                     throw new NetworkErrorException();
                 }
                 else if(e.code == "ERR_BAD_REQUEST"){

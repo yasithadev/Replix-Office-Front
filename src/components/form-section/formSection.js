@@ -4,8 +4,8 @@ import {shape} from '../comp.properties.js';
 import {bootstrapGrid} from '../comp.properties.js';
 import Raw from '../raw/raw';
 ///import Tel from '../tel/tel';
-class FormSection extends React.Component
-{
+class Section extends React.Component
+{   //this compomponent should same as form component but only the name shouldbe different
     render()
     { /*
         var i=0,colCount=0,rawCount=0;
@@ -42,4 +42,4 @@ class FormSection extends React.Component
 return;//dummyreturn
 }
 }
-export default FormSection;
+export default Section;

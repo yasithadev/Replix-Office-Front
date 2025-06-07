@@ -28,7 +28,7 @@ const Login = () => {
         throw new InvalidCredentialException();
       }
       if (e instanceof NetworkErrorException) {
-        Notifier.notify("Error","C503 : "+ msg.C503);
+        Notifier.notify("Error","W503 : "+ msg.W503);
       }
     }
 

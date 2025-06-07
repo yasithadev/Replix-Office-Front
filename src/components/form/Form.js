@@ -1,6 +1,7 @@
 import React, {useState,useRef,Children, useEffect,useImperativeHandle,cloneElement} from 'react';
 import Notifier from '../../components/notification/Notifier';
 import Raw from '../../components/raw/raw';
+import Button from '../button/button'
 //import console = require('console');
 const Form = (props) => {
   const childRefs = useRef([]);
@@ -25,7 +26,7 @@ const Form = (props) => {
       }
     });
     if(!valid){
-      Notifier.notify("Error","WU0001 -Form contain Invalid Data.Please correct them before Submit");
+      Notifier.notify("Error","Form contain Invalid Data.Please correct them before Submit");//TODO make a mechanism get error codes frm msg file in resurce folder.msg file canchange from project to project so errr code and message should pass as props.
     }
     else{
       childRefs.current.forEach((ref, index) => {
@@ -35,7 +36,7 @@ const Form = (props) => {
             formData[propertyName] = ref.getValue();
           }
           else{
-            Notifier.notify("Error","WD0001 -Duplicated Field lable : " + ref.getLabel()+". " + "This will overigth some values in your output json.Inorder to prevent this add name property to your fields." );//ToDo Error Log
+            console.warn("Error","WD0001 -Duplicated Field lable : " + ref.getLabel()+". " + "This will overigth some values in your output json.Inorder to prevent this add name property to your fields." );//ToDo Error Log
           }
         }
       });
@@ -80,7 +81,7 @@ const Form = (props) => {
                 </Raw>
             ))}
         </div>
-      <button onClick={callChildMethods}>Validate</button>
+      <button onClick={callChildMethods}>Validate</button><Button lable="Button"></Button>
     </>
   );
 };

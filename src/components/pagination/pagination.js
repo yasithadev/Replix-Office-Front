@@ -1,5 +1,5 @@
 import React from 'react';
-import {thirdController} from '../../controllers/ThiredController';
+//import {thirdController} from '../../controllers/ThiredController';
 import pgStyle from './pagination.module.css';
 
 class Pagination extends React.Component{
