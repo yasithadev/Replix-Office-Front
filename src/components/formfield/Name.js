@@ -5,8 +5,12 @@ const Name = React.forwardRef((props,ref) => {
     const validate = () => {
         let val = inputRef.current?.getValue();
         let hasNumbers = /\d/.test(val);
-        //let msg = 
-        if(hasNumbers){
+
+        if(props.required && (val=="")) {
+            inputRef.current?.changeValidationMessage(props.label + " can not be empty");
+            return false;
+        }
+        else if(hasNumbers){
             inputRef.current?.changeValidationMessage(props.label + " can not contain numers");
             return false;
         }else{
@@ -31,7 +35,7 @@ const Name = React.forwardRef((props,ref) => {
         }
     }
     return(
-        <Input keypressParentCallback={inputKeyPressed} ref={inputRef} col={props.col} label={props.label} ></Input>
+        <Input required={props.required ? true:false} keypressParentCallback={inputKeyPressed} ref={inputRef} col={props.col} label={props.label} ></Input>
     );
 });
 export default Name;

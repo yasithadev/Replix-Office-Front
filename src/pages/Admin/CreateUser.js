@@ -19,9 +19,9 @@ const CreateUser = () => {
     return <Sheet>
         <H4>Create User</H4>
         <Form lan="2">
-        <Name col="6" label="User Name"/>
-        <Name col="6" label="First Name"/>
-        <Name col="6" label="Second Name"/>
+        <Name required={true} label="User Name"/>
+        <Name label="First Name"/>
+        <Name label="Second Name"/>
         </Form>
         <Pagination totalPages="20" currentPage="10"></Pagination>
       <Stack spacing={2} direction="row"></Stack>
