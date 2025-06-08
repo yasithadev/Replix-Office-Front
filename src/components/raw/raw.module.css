@@ -1,5 +1,12 @@
 .main{
   margin-right: 0px;/* nurtalizing margin-right: -15px; in bootstrap */
   margin-left: 0px;/* nurtalizing margin-left: -15px; in bootstrap */
+  display: flex;
+}
+.floatLeft{
+  justify-content: flex-end;
+}
+.floatRight{
+  justify-content: flex-start;
 }
 

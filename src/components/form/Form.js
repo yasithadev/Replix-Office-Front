@@ -81,7 +81,9 @@ const Form = (props) => {
                 </Raw>
             ))}
         </div>
-      <button onClick={callChildMethods}>Validate</button><Button lable="Button"></Button>
+      <Raw aligne = "left">
+        <Button onClick={callChildMethods} lable="Save"></Button>
+      </Raw>
     </>
   );
 };

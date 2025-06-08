@@ -6,6 +6,7 @@ export { default as bootstrapGrid } from './css/bootstrap-grid.module.css';
 export { default as layoutColor } from './css/component/layout/color-layout.module.scss';
 export { default as sheetColor} from './css/component/sheet/color-sheet.module.scss';
 export { default as loginColor} from './css/component/login/color-login.module.scss';
+export { default as buttonColor} from './css/component/button/color-button.module.scss';
 export { default as typo} from './css/component/typo/typo.module.scss';
 export { default as codeColor} from './css/component/code/color-code.module.scss';
 export { default as inputShape} from './css/component/input/shape-input.module.scss';

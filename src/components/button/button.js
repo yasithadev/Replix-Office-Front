@@ -1,10 +1,11 @@
 import React from 'react';
 //import './Button.css'; // Import your CSS file
 import ButtonStyles from './button.module.css';
+import {buttonColor} from '../comp.properties.js';
 
 const Button=(props) =>{
   return (
-    <button className={ButtonStyles.button}>
+    <button onClick={props.onClick} className={ButtonStyles.button + " " + buttonColor.mainButton}>
       {props.lable}
     </button>
   );

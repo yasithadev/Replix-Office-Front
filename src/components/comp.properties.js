@@ -9,6 +9,7 @@ export {
     layoutColor,
     sheetColor,
     loginColor,
+    buttonColor,
     codeColor,
     typo,
     inputShape,

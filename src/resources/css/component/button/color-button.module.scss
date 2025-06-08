@@ -1,0 +1,12 @@
+@import "../../color-palette.scss";
+.mainButton{
+    background-color: $primary-lt;
+    color: $on-primary-lt;
+}
+.mainButton:hover{
+    background-color: $primary-dark-lt;
+}
+
+.mainButton:active{
+    background-color: $primary-light-lt;
+}
