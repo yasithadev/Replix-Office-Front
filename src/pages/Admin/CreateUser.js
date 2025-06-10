@@ -12,6 +12,7 @@ import Sub1 from '../../components/typo/Sub1'
 import FormSection from '../../components/form-section/formSection';
 import Code from '../../components/code/Code';
 import Name from '../../components/formfield/Name';
+import Email from '../../components/formfield/email';
 import Form from '../../components/form/Form';
 import Pagination from '../../components/pagination/pagination'
 
@@ -20,6 +21,7 @@ const CreateUser = () => {
         <H4>Create User</H4>
         <Form lan="2">
         <Name required={true} label="User Name"/>
+        <Email required={true} label="Email"/>
         <Name label="First Name"/>
         <Name label="Second Name"/>
         </Form>
