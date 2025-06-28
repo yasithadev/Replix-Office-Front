@@ -1,7 +1,6 @@
 import React from 'react';
 import DtStyles from './datatable.module.css';
 
-import {thirdController} from '../../controllers/ThiredController';
 import {color} from '../comp.properties.js';
 import {shape} from '../comp.properties.js';
 import Pagination from '../pagination/pagination';

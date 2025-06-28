@@ -18,6 +18,7 @@ import NoPage from "./pages/NoPage";
 import Login from "./pages/login";
 import AppLayout from "./pages/AppLayout";
 import NotificationContainer from './components/notification/notificationContainer';
+import DateTablePage from "./pages/component/dataTablePage";
 
 
 function App() {
@@ -41,6 +42,7 @@ function App() {
           <Route path="form-field" element={<FormFieldPage/>} />
           <Route path="form" element={<FormPage/>} />
           <Route path="date-picker" element={<DatePicker/>} />
+          <Route path="/data-table" element={<DateTablePage/>} />
           <Route path="drop-down" element={<DropDownPage/>} />
         </Route>
       </Routes>

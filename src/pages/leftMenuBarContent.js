@@ -17,7 +17,8 @@ export const sideMenuContent = [
     <Link to="/formSection"><MenuItem>🗀 ✔ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;form Section</MenuItem></Link>
     <Link to="/date-picker"><MenuItem>📅 &nbsp; 🗓 &nbsp; 📆 &nbsp;&nbsp;&nbsp;Date Picker</MenuItem></Link>
     <Link to="/drop-down"><MenuItem> &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;Drop Down</MenuItem></Link>
-    <Link to="/code"><MenuItem>{"</> " + "code"}</MenuItem></Link>
+    <Link to="/code"><MenuItem>{"</> " + "code"}</MenuItem></Link> 
+    <Link to="/data-table"><MenuItem>Data Table</MenuItem></Link>
     <CollapsibleMenu name="🗀 Sample Collapsible Menu">
         <MenuItem >Example Menu Itemmmmm</MenuItem>
         <CollapsibleMenu name="✔Sample Collapsible Menu">

@@ -5,6 +5,7 @@ class FrontEndDataManipulator{
     //(because no one will sort or search in specific page to find data)
     constructor(props){
         this.props= props;
+        /* eslint-disable */
         this.originalDataSet;
         this.resultSet;
         this.columnToSort ;
