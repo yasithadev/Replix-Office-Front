@@ -161,6 +161,7 @@ class DataTable extends React.Component{
         this.currentPage = pageData.pageNumber;
         //console.log("this.currentPage",this.currentPage);
         this.totalPages = pageData.totalPages;
+        console.debug("pageData.tableData------",pageData.tableData);//Trace
         this.setState({allrawData:pageData.tableData,currentPage: pageData.pageNumber,totalPages:pageData.totalPages,totalRecords:pageData.totalRecords,iconArray:this.iconArray});
     }
     changePageLength(index,requestedPageLength,lable){
@@ -208,8 +209,10 @@ class DataTable extends React.Component{
                 tableHeaders.push(<th onClick={this.sortManager} key={i+"i"} className={DtStyles.headerIcon}>{this.state.iconArray[i]}</th>);
             }
             var allrawData = this.state.allrawData;
+            console.debug("allrawData.length----------------------------------------------",allrawData.length);
             for (i = 0; i < allrawData.length; i++) {
                 //var j;
+                console.debug("for (i = 0; i < allrawData.length; i++)----------------------------------------------i",i);
                 var tds = [];
                 /*
                 for (j = 0; j < headersArray.length; j++){
@@ -222,6 +225,7 @@ class DataTable extends React.Component{
                         
                     } 
                 } 
+                console.debug("for (i = 0; i < allrawData.length; i++)----------------------------------------------pushing ",tds);
                 tableRaws.push(<tr key={i}>{tds}</tr>);
             }
         }

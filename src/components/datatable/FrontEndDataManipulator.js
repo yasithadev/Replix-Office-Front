@@ -108,7 +108,7 @@ class FrontEndDataManipulator{
           pageDataDto.pageNumber = pageNumber;
           pageDataDto.totalPages = this.totalPages;
           pageDataDto.totalRecords = this.resultSet.length;
-          return  pageDataDto;
+          //return  pageDataDto;
         }else if(changedCriteria == "pagesize"){
             this.totalPages = this.getTotalPages(this.resultSet,pagesize);
             pageDataDto.totalPages = this.totalPages;
@@ -118,6 +118,20 @@ class FrontEndDataManipulator{
             
             //extract the page data from resultset
         }
+        if((pageDataDto.tableData.length<pagesize)&&(this.totalPages>1)){
+          //let emptyRecord = structuredClone(pageDataDto.tableData[0]);
+          let emptyRecord = JSON.parse(JSON.stringify(pageDataDto.tableData[0]));
+          Object.keys(emptyRecord).forEach(key => {
+            emptyRecord[key] = "⠀";//empty sting not spaec. it contain.unicode space 
+            //console.log(`Key: ${key}, Value: ${myObject[key]}`);
+          });
+          let numberOfEmptyRecordNeeded = pagesize-pageDataDto.tableData.length;
+          for(let i=0;i<numberOfEmptyRecordNeeded;i++){
+            pageDataDto.tableData.push(emptyRecord);
+          }
+          
+        }
+        console.log("pageDataDto.tableData+++++++++++++++++++++ " ,  pageDataDto.tableData);
         return  pageDataDto;
     }
     getTotalPages(array,pagesize){
