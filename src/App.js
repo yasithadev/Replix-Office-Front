@@ -19,6 +19,7 @@ import Login from "./pages/login";
 import AppLayout from "./pages/AppLayout";
 import NotificationContainer from './components/notification/notificationContainer';
 import DateTablePage from "./pages/component/dataTablePage";
+import SelectPage from "./pages/component/selectPage";
 
 
 function App() {
@@ -44,6 +45,7 @@ function App() {
           <Route path="date-picker" element={<DatePicker/>} />
           <Route path="/data-table" element={<DateTablePage/>} />
           <Route path="drop-down" element={<DropDownPage/>} />
+          <Route path="rselect" element={<SelectPage/>} />
         </Route>
       </Routes>
     </BrowserRouter>

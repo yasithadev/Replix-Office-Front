@@ -1,0 +1,1 @@
+//make a copy of data table and  change it th work with server side pages
