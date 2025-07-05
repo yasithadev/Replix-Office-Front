@@ -49,14 +49,13 @@ function SelectPage() {
        
       <CustomSelect
        col="3"
-       labelOnLeft="true" 
         options={carOptions}           // Pass the array of options
         onSelectChange={handleCarSelection} // Pass the handler for selection changes
         initialValue="Select car:"    // Optional: Set the initially displayed label
       /> 
       <input type="text"/>
             <CustomSelect
-            col="3"
+            col="3" 
         options={carOptions}           // Pass the array of options
         onSelectChange={handleCarSelection} // Pass the handler for selection changes
         initialValue="Select car:"    // Optional: Set the initially displayed label
@@ -74,11 +73,15 @@ function SelectPage() {
 
       <p>Choose your favorite fruit:</p>
       {/* Second instance of CustomSelect to show reusability */}
+      <Raw>
       <CustomSelect
         options={fruitOptions}
+        col="3"
+        labelOnLeft="true" 
         onSelectChange={handleFruitSelection}
         initialValue="Apple" // You can set any label as initial
       />
+      </Raw>
       {selectedFruitValue && (
         <p>
           You have selected: <strong>{selectedFruitValue}</strong>
@@ -91,6 +94,6 @@ function SelectPage() {
         <input type="text" id="someInput" placeholder="Click here to close select" />
       </div>
     </div>
-    </Sheet>);
+  </Sheet>);
 }
 export default SelectPage;

@@ -11,6 +11,10 @@
   .selectSelected {
     background-color: DodgerBlue;
   }
+
+  .lableleftSelectSelected {
+    background-color: DodgerBlue;
+  }
   
   /*style the arrow inside the select element:*/
   .selectSelected:after {
@@ -30,6 +34,23 @@
     border-color: #fff transparent transparent transparent;
     
   }
+  .lableleftSelectSelected:after {
+    position: absolute;
+    content: "";
+
+    /*bootstrap grid column class add additional padding 15 px to field.
+    inorder to keep arrow icon in correct place added flowing line  right: 25px;top: 35px;
+    and commented
+        top: 16px;
+    right: 10px;*/
+    right: 25px;
+    top: 15px;
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+    border-color: #fff transparent transparent transparent;
+    
+  }
   
   /*point the arrow upwards when the select box is open (active):*/
   .selectSelected.selectArrowActive:after {
@@ -41,9 +62,26 @@
     top: 7px;*/
      top: 30px;
   }
+  .lableleftSelectSelected.selectArrowActive:after {
+    border-color: transparent transparent #fff transparent;
+   
+        /*bootstrap grid column class add additional padding 15 px to field.
+    inorder to keep arrow icon in correct place added flowing line   top: 30px;
+    and commented
+    top: 7px;*/
+     top: 7px;
+  }
   
   /*style the items (options), including the selected item:*/
   .selectItems div, .selectSelected {
+    color: #ffffff;
+    padding: 8px 16px;
+    border: 1px solid transparent;
+    border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+    cursor: pointer;
+    user-select: none;
+  }
+  .selectItems div, .lableleftSelectSelected {
     color: #ffffff;
     padding: 8px 16px;
     border: 1px solid transparent;
@@ -74,10 +112,43 @@
   .selectItems div:hover, .sameAsSelected {
     background-color: rgba(0, 0, 0, 0.1);
   }
-
+  .container{
+    padding-top: 15px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+    padding-left: 15px
+}
   .topLableContainer
 {
     font-family: Form;
     font-size: 13px;
     padding-bottom: 5px;
+}
+.lableContainer
+{
+    font-family: Form;
+    font-size: 81.25%;;
+    padding-top: 18px;/*common util "container" defind 15px,and this will overight with 18 inorder to aligne lable with user entered form field value*/
+    /*text-align: right;*//*uncomment this line if your theam needs right aligned lables*/ 
+}
+@media screen and (min-width:576px){
+  .lableContainer
+  {
+      font-family: Form;
+      font-size: 81.25%;;
+      padding-top: 18px;/*common util "container" defind 15px,and this will overight with 18 inorder to aligne lable with user entered form field value*/
+      padding-bottom: 0px;
+      text-align: left;/*if any one decide to go with right aligned left side labels this line will ensure correct behaviour for smalller screens(when resposive)*/ 
+  }
+}
+.topLableContainer
+{
+  font-family: Form;
+  font-size: 13px;
+  padding-bottom: 5px;
+}
+.formField{
+  font-family: Form;
+  font-size: 14px;
+  width: 100%;
 }
