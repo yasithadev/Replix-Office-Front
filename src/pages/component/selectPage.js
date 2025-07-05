@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import CustomSelect from '../../components/Rselect/rselect'; // Adjust the path if your component is in a different folder
 import Raw from '../../components/raw/raw';
+import Sheet from '../../components/sheet/sheet';
 
 function SelectPage() {
   // Define the options for your custom select dropdown
@@ -37,7 +38,7 @@ function SelectPage() {
     setSelectedFruitValue(selectedValue);
   };
 
-  return (
+  return (<Sheet>
     <div style={{ padding: '20px' }}>
       <h1>Using the Custom Select Component</h1>
 
@@ -47,12 +48,15 @@ function SelectPage() {
 
        
       <CustomSelect
+       col="3"
+       labelOnLeft="true" 
         options={carOptions}           // Pass the array of options
         onSelectChange={handleCarSelection} // Pass the handler for selection changes
         initialValue="Select car:"    // Optional: Set the initially displayed label
       /> 
       <input type="text"/>
             <CustomSelect
+            col="3"
         options={carOptions}           // Pass the array of options
         onSelectChange={handleCarSelection} // Pass the handler for selection changes
         initialValue="Select car:"    // Optional: Set the initially displayed label
@@ -87,6 +91,6 @@ function SelectPage() {
         <input type="text" id="someInput" placeholder="Click here to close select" />
       </div>
     </div>
-  );
+    </Sheet>);
 }
 export default SelectPage;

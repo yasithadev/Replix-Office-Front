@@ -39,6 +39,7 @@ const CustomSelect = ({ options, onSelectChange, initialValue }) => {
   return (
     // Use the imported 'styles' object to apply classes
     <div className={bootstrapGrid['col-md-4'] +" " + bootstrapGrid['col-sm-12']+" "+styles.customSelect} style={{ width: '400px' }} ref={selectRef}>
+      <div className={ styles.topLableContainer}>lable</div>
       <div
         className={`${styles.selectSelected} ${isOpen ? styles.selectArrowActive : ''}`}
         onClick={handleSelectClick}
