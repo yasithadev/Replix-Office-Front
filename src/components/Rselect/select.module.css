@@ -72,7 +72,7 @@
     cursor: pointer;
     user-select: none;
   }
-  .selectItems div, .lableleftSelectSelected {
+  .lableOnLeftSelectItems div, .lableleftSelectSelected {
     color: #ffffff;
     padding: 8px 16px;
     border: 1px solid transparent;
@@ -90,6 +90,15 @@
     right: 0px;
     z-index: 99;
   }
+
+  .lableOnLeftSelectItems {
+    position: absolute;
+    background-color: DodgerBlue;
+    top:100%;
+    left: 0px;
+    right: 0px;
+    z-index: 99;
+  }
   
   /*hide the items when the select box is closed:*/
   .selectHide {
@@ -97,6 +106,9 @@
   }
   
   .selectItems div:hover, .sameAsSelected {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+  .lableOnLeftSelectItems div:hover, .sameAsSelected {
     background-color: rgba(0, 0, 0, 0.1);
   }
   .container{

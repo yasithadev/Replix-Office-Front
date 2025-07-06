@@ -76,7 +76,7 @@ function SelectPage() {
       <Raw>
       <CustomSelect
         options={fruitOptions}
-        col="3"
+        col="6"
         labelOnLeft="true" 
         onSelectChange={handleFruitSelection}
         initialValue="Apple" // You can set any label as initial

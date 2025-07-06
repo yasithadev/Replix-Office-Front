@@ -68,7 +68,8 @@ const CustomSelect = ({labelOnLeft,col,options, onSelectChange, initialValue }) 
       <div  className={ bootstrapGrid['col-md-' + colsForLabel] + " " + bootstrapGrid['col-sm-12']+ " " + styles.container+ " " + styles.lableContainer}>
                     Lable
                 </div>,
-    <div className={bootstrapGrid['col-md-'+ col] +" " + bootstrapGrid['col-sm-12']+" "+styles.customSelect} style={{ width: '400px' }} ref={selectRef}>
+    <div className={bootstrapGrid['col-md-'+ col] +" " + bootstrapGrid['col-sm-12']+" "+styles.customSelect}  ref={selectRef}>
+      <div className={styles.dropdownParent} >
       <div
         className={`${styles.lableleftSelectSelected} ${isOpen ? styles.selectArrowActive : ''}`}
         onClick={handleSelectClick}
@@ -76,7 +77,7 @@ const CustomSelect = ({labelOnLeft,col,options, onSelectChange, initialValue }) 
         {selectedOption}
       </div>
 
-      <div className={`${styles.selectItems} ${isOpen ? '' : styles.selectHide}`}>
+      <div className={`${styles.lableOnLeftSelectItems} ${isOpen ? '' : styles.selectHide}`}>
         {options.map((option) => (
           <div
             key={option.value}
@@ -87,6 +88,8 @@ const CustomSelect = ({labelOnLeft,col,options, onSelectChange, initialValue }) 
           </div>
         ))}
       </div>
+      </div>
+      <div className={inputTypo.validationMessage + " " + inputColor.validationMessage}>sadasd cccc fafafdadfadf &nbsp;</div>
     </div>
     ];
   };
