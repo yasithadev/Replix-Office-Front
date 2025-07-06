@@ -7,6 +7,7 @@ import H6 from '../../components/typo/H6';
 import Sub1 from '../../components/typo/Sub1';
 import React, {useState,useRef, useEffect,useImperativeHandle} from 'react';
 import Notifier from '../../components/notification/Notifier';
+import CustomSelect from '../../components/Rselect/rselect'; // Adjust the path if your component is in a different folder
 
 const InputPage = (props) => { 
     const myRef = useRef();  
@@ -18,6 +19,15 @@ const InputPage = (props) => {
         Notifier.notify("Error","🛈 " + val);
         //console.log(val);
     }
+    const fruitOptions = [
+        { value: 'apple', label: 'Apple' },
+        { value: 'banana', label: 'Banana' },
+        { value: 'orange', label: 'Orange' },
+        { value: 'grape', label: 'Grape' },
+      ];
+      const handleFruitSelection = (selectedValue) => {
+        console.log('Selected fruit value:', selectedValue);
+      };
     return <Sheet>
         <H5>Single column Form</H5>
         <Sub1>Lable on Top</Sub1>
@@ -116,8 +126,13 @@ const InputPage = (props) => {
         <Raw>
             <Input labelOnLeft="true" col="4" type="tel" label="Email"/> 
             <Input labelOnLeft="true" col="4" type="tel" label="No. of children "/>
-            <Input labelOnLeft="true" col="4" type="tel" label="Age"/>
-            <Input labelOnLeft="true" col="4" type="tel" label="Age"/>
+            <CustomSelect
+        options={fruitOptions}
+        col="4"
+        labelOnLeft="true" 
+        onSelectChange={handleFruitSelection}
+        initialValue="Apple" // You can set any label as initial
+      />
         </Raw>
         <Raw>
             <Input labelOnLeft="true" col="4" type="tel" label="Designation"/>
