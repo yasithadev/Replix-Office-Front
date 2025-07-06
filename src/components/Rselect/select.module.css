@@ -21,13 +21,9 @@
     position: absolute;
     content: "";
 
-    /*bootstrap grid column class add additional padding 15 px to field.
-    inorder to keep arrow icon in correct place added flowing line  right: 25px;top: 35px;
-    and commented
+
         top: 16px;
-    right: 10px;*/
-    right: 25px;
-    top: 35px;
+    right: 10px;
     width: 0;
     height: 0;
     border: 6px solid transparent;
@@ -55,12 +51,7 @@
   /*point the arrow upwards when the select box is open (active):*/
   .selectSelected.selectArrowActive:after {
     border-color: transparent transparent #fff transparent;
-   
-        /*bootstrap grid column class add additional padding 15 px to field.
-    inorder to keep arrow icon in correct place added flowing line   top: 30px;
-    and commented
-    top: 7px;*/
-     top: 30px;
+    top: 7px;
   }
   .lableleftSelectSelected.selectArrowActive:after {
     border-color: transparent transparent #fff transparent;
@@ -94,13 +85,9 @@
   .selectItems {
     position: absolute;
     background-color: DodgerBlue;
-    top: 100%;
-    /*bootstrap grid column class add additional padding 15 px to field.
-    inorder to fix mismatch length between field and droplist added flowing lins left: 15px;  right: 15px;
-    left: 0;
-    right: 0;*/
-    left: 15px;
-    right: 15px;
+    top:100%;
+    left: 0px;
+    right: 0px;
     z-index: 99;
   }
   
@@ -151,4 +138,7 @@
   font-family: Form;
   font-size: 14px;
   width: 100%;
+}
+.dropdownParent{
+  position: relative;
 }

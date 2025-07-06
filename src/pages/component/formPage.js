@@ -9,7 +9,7 @@ import Form from '../../components/form/Form';
 import Name from '../../components/formfield/Name';
 import React, {useState,useRef, useEffect,useImperativeHandle} from 'react';
 import Notifier from '../../components/notification/Notifier';
-
+import CustomSelect from '../../components/Rselect/rselect'; 
 
 const FormPage = (props) => { 
     const myRef = useRef();  
@@ -21,12 +21,28 @@ const FormPage = (props) => {
         Notifier.notify("Error","🛈 " + val);
         //console.log(val);
     }
+
+        const carOptions = [
+          { value: '0', label: 'Select carsssssssssssssssssssssssssssss:' }, // A default or placeholder option
+          { value: '1', label: 'Audi' },
+          { value: '2', label: 'BMW' },
+          { value: '3', label: 'Citroen' },
+          { value: '4', label: 'Ford' },
+          { value: '5', label: 'Honda' },
+        ];
+    
     return <Sheet>
         <Form lan="2">
             <Name label="First Name"/>
             <Name label="Last Name"/>
             <Name label="First Name"/>
             <Name label="Last Name"/>
+            <Name label="Last Name"/>
+            <CustomSelect
+       col="6"
+        options={carOptions}           // Pass the array of options
+        initialValue="Select rrrrrrrrrrrrrrrrrrrrrrrrrrrr:"    // Optional: Set the initially displayed label
+      /> 
             <Name col="4" label="Full Name"/>
             <Name col="6" label="Full Name"/>
         </Form>

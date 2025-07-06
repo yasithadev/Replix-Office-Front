@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import styles from './select.module.css'; // Import the CSS module
 import {bootstrapGrid} from '../comp.properties.js';
+import {inputTypo} from '../comp.properties.js';
+import {inputColor} from '../comp.properties.js';
 
 const CustomSelect = ({labelOnLeft,col,options, onSelectChange, initialValue }) => {
 
@@ -92,15 +94,17 @@ const CustomSelect = ({labelOnLeft,col,options, onSelectChange, initialValue }) 
   const createlabelOnTop = (col)=>{
     // Use the imported 'styles' object to apply classes
     return[
-    <div className={bootstrapGrid['col-md-'+ col] +" " + bootstrapGrid['col-sm-12']+" "+styles.customSelect} style={{ width: '400px' }} ref={selectRef}>
+    <div className={bootstrapGrid['col-md-'+ col] +" " + bootstrapGrid['col-sm-12']+" "+styles.customSelect}  ref={selectRef}>
+      
       <div className={ styles.topLableContainer}>lable</div>
+      <div className={styles.dropdownParent} >
       <div
         className={`${styles.selectSelected} ${isOpen ? styles.selectArrowActive : ''}`}
         onClick={handleSelectClick}
       >
         {selectedOption}
       </div>
-
+      
       <div className={`${styles.selectItems} ${isOpen ? '' : styles.selectHide}`}>
         {options.map((option) => (
           <div
@@ -112,6 +116,8 @@ const CustomSelect = ({labelOnLeft,col,options, onSelectChange, initialValue }) 
           </div>
         ))}
       </div>
+    </div>
+    <div className={inputTypo.validationMessage + " " + inputColor.validationMessage}>sadasd cccc fafafdadfadf &nbsp;</div>
     </div>
     ];
   };
