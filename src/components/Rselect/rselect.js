@@ -3,8 +3,8 @@ import styles from './select.module.css'; // Import the CSS module
 import {bootstrapGrid} from '../comp.properties.js';
 import {inputTypo} from '../comp.properties.js';
 import {inputColor} from '../comp.properties.js';
-
-const CustomSelect = ({labelOnLeft,col,options, onSelectChange, initialValue }) => {
+import ROption from './roption'; // Import the new ROption component
+const CustomSelect = ({labelOnLeft,col,options, onSelectChange, initialValue,children  }) => {
 
   const createStyledField = (labelOnLeft,col)=>{
     if(labelOnLeft && labelOnLeft == "true"){
@@ -37,7 +37,26 @@ const CustomSelect = ({labelOnLeft,col,options, onSelectChange, initialValue }) 
   const selectRef = useRef(null);
 
   // Effect for handling clicks outside the component
+  const extractOptionsFromChildren = () => {
+
+    return React.Children.map(children, child => {
+      if (React.isValidElement(child) && child.type === ROption) {
+        return {
+          value: child.props.value,
+          label: child.props.children, // The text content of ROption is its label
+        };
+      }
+      return null;
+    }).filter(option => option !== null);
+  };
+  console.log("useEffect options",options);
+  if(!options || options.length== 0){
+    console.log("if(!options || options.length== 0)");
+    options= extractOptionsFromChildren();
+  }
   useEffect(() => {
+    
+
     const handleClickOutside = (event) => {
       if (selectRef.current && !selectRef.current.contains(event.target)) {
         setIsOpen(false);
@@ -109,7 +128,9 @@ const CustomSelect = ({labelOnLeft,col,options, onSelectChange, initialValue }) 
       </div>
       
       <div className={`${styles.selectItems} ${isOpen ? '' : styles.selectHide}`}>
-        {options.map((option) => (
+        
+        {
+          options.map((option) => (
           <div
             key={option.value}
             onClick={() => handleOptionClick(option)}

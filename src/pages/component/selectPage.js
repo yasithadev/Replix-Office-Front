@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import CustomSelect from '../../components/Rselect/rselect'; // Adjust the path if your component is in a different folder
 import Raw from '../../components/raw/raw';
 import Sheet from '../../components/sheet/sheet';
+import ROption from '../../components/Rselect/roption'; // Import the new ROption component
 
 function SelectPage() {
   // Define the options for your custom select dropdown
@@ -93,7 +94,22 @@ function SelectPage() {
         <label htmlFor="someInput">Test Input:</label>
         <input type="text" id="someInput" placeholder="Click here to close select" />
       </div>
+
+      <Raw>
+      <CustomSelect
+        col="3"
+        onSelectChange={handleCarSelection}
+        initialValue="0"
+      >
+        <ROption value="0">Select car:</ROption>
+        <ROption value="1">Audi</ROption>
+        <ROption value="2">BMW</ROption>
+      </CustomSelect>
+      </Raw>
+      
     </div>
+
+
   </Sheet>);
 }
 export default SelectPage;
