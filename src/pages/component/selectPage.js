@@ -50,6 +50,7 @@ function SelectPage() {
        
       <CustomSelect
        col="3"
+       label = "label"
         options={carOptions}           // Pass the array of options
         onSelectChange={handleCarSelection} // Pass the handler for selection changes
         initialValue="Select car:"    // Optional: Set the initially displayed label
@@ -57,6 +58,7 @@ function SelectPage() {
       <input type="text"/>
             <CustomSelect
             col="3" 
+            label = "label"
         options={carOptions}           // Pass the array of options
         onSelectChange={handleCarSelection} // Pass the handler for selection changes
         initialValue="Select car:"    // Optional: Set the initially displayed label
@@ -78,6 +80,7 @@ function SelectPage() {
       <CustomSelect
         options={fruitOptions}
         col="6"
+        label = "label"
         labelOnLeft="true" 
         onSelectChange={handleFruitSelection}
         initialValue="Apple" // You can set any label as initial

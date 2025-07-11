@@ -4,8 +4,16 @@ import {bootstrapGrid} from '../comp.properties.js';
 import {inputTypo} from '../comp.properties.js';
 import {inputColor} from '../comp.properties.js';
 import ROption from './roption'; // Import the new ROption component
-const CustomSelect = ({labelOnLeft,col,options, onSelectChange, initialValue,children  }) => {
-
+const CustomSelect = ({label,labelOnLeft,col,options, onSelectChange, initialValue,children ,required }) => {
+  let selectedValue;
+  const [validationMessage, setValidationMessage] = useState("");
+  const validate = () => {
+    if(!selectedValue && required) {
+      setValidationMessage(label + " should be selected");
+        return false;
+    }
+    return true;
+}
   const createStyledField = (labelOnLeft,col)=>{
     if(labelOnLeft && labelOnLeft == "true"){
       if(col && col == "12"){
@@ -77,6 +85,7 @@ const CustomSelect = ({labelOnLeft,col,options, onSelectChange, initialValue,chi
   const handleOptionClick = (option) => {
     setSelectedOption(option.label);
     setIsOpen(false);
+    selectedValue=option.value;
     if (onSelectChange) {
       onSelectChange(option.value);
     }
@@ -85,7 +94,7 @@ const CustomSelect = ({labelOnLeft,col,options, onSelectChange, initialValue,chi
     // Use the imported 'styles' object to apply classes
     return[
       <div  className={ bootstrapGrid['col-md-' + colsForLabel] + " " + bootstrapGrid['col-sm-12']+ " " + styles.container+ " " + styles.lableContainer}>
-                    Lable
+                    {label}
                 </div>,
     <div className={bootstrapGrid['col-md-'+ col] +" " + bootstrapGrid['col-sm-12']+" "+styles.customSelect}  ref={selectRef}>
       <div className={styles.dropdownParent} >
@@ -108,7 +117,7 @@ const CustomSelect = ({labelOnLeft,col,options, onSelectChange, initialValue,chi
         ))}
       </div>
       </div>
-      <div className={inputTypo.validationMessage + " " + inputColor.validationMessage}>sadasd cccc fafafdadfadf &nbsp;</div>
+      <div className={inputTypo.validationMessage + " " + inputColor.validationMessage}>{validationMessage} &nbsp;</div>
     </div>
     ];
   };
@@ -118,7 +127,7 @@ const CustomSelect = ({labelOnLeft,col,options, onSelectChange, initialValue,chi
     return[
     <div className={bootstrapGrid['col-md-'+ col] +" " + bootstrapGrid['col-sm-12']+" "+styles.customSelect}  ref={selectRef}>
       
-      <div className={ styles.topLableContainer}>lable</div>
+      <div className={ styles.topLableContainer}>{label}</div>
       <div className={styles.dropdownParent} >
       <div
         className={`${styles.selectSelected} ${isOpen ? styles.selectArrowActive : ''}`}
@@ -141,7 +150,7 @@ const CustomSelect = ({labelOnLeft,col,options, onSelectChange, initialValue,chi
         ))}
       </div>
     </div>
-    <div className={inputTypo.validationMessage + " " + inputColor.validationMessage}>sadasd cccc fafafdadfadf &nbsp;</div>
+    <div className={inputTypo.validationMessage + " " + inputColor.validationMessage}>{validationMessage} &nbsp;</div>
     </div>
     ];
   };
