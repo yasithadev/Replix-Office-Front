@@ -139,7 +139,10 @@ useImperativeHandle(ref, () => ({
       } else {
         handleSelectClick(); // toggle dropdown
       }
-    }      
+    }else if (e.key === "Escape") {
+      setIsOpen(false);
+      setHighlightedIndex(-1);
+    }        
   }
 }
 >
@@ -199,6 +202,9 @@ useImperativeHandle(ref, () => ({
         } else {
           handleSelectClick(); // toggle dropdown
         }
+      }else if (e.key === "Escape") {
+        setIsOpen(false);
+        setHighlightedIndex(-1);
       }      
     }
   }
