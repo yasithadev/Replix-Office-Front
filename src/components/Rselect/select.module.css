@@ -154,3 +154,6 @@
 .dropdownParent{
   position: relative;
 }
+.highlighted{
+  background-color: rgb(129, 191, 252);
+}

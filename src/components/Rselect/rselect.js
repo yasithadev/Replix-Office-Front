@@ -8,6 +8,7 @@ const CustomSelect = React.forwardRef(({label,labelOnLeft,col,options, onSelectC
   //let selectedValue;
   const [validationMessage, setValidationMessage] = useState("");
   const [currentSelectedValue, setCurrentSelectedValue] = useState();
+  const [highlightedIndex, setHighlightedIndex] = useState(-1);
   const validate = () => {
     console.log("validate get called in rselect");
     if(!currentSelectedValue && required) {
@@ -111,18 +112,47 @@ useImperativeHandle(ref, () => ({
     <div className={bootstrapGrid['col-md-'+ col] +" " + bootstrapGrid['col-sm-12']+" "+styles.customSelect}  ref={selectRef}>
       <div className={styles.dropdownParent} >
       <div
-        className={`${styles.lableleftSelectSelected} ${isOpen ? styles.selectArrowActive : ''}`}
-        onClick={handleSelectClick}
-      >
-        {selectedOption}
-      </div>
+  className={`${styles.lableleftSelectSelected} ${isOpen ? styles.selectArrowActive : ''}`}
+  tabIndex={0}
+  onClick={handleSelectClick}
+  onKeyDown={(e) => {
+    if ((e.key === 'ArrowDown'||e.key === 'Enter')&&(!isOpen)) {
+      console.log(" if ((e.key === 'ArrowDown'||e.key === 'Enter')&&(!isOpen)) ");
+      handleSelectClick();
+    }else if (e.key === "ArrowDown") {
+      console.log(" else if (e.key === ArrowDown) ");
+      e.preventDefault();
+      if (!isOpen) {
+        console.log(" else if (e.key === ArrowDown) => if (!isOpen) ");
+        setIsOpen(true);
+        setHighlightedIndex(0);
+      } else {
+        console.log(" else if (e.key === ArrowDown) => else ");
+        setHighlightedIndex((prev) => Math.min(prev + 1, options.length - 1));
+      }
+    } else if (e.key === "ArrowUp") {
+      e.preventDefault();
+      setHighlightedIndex((prev) => Math.max(prev - 1, 0));
+    }else if (e.key === "Enter") {
+      if (isOpen && highlightedIndex >= 0) {
+        handleOptionClick(options[highlightedIndex]);
+      } else {
+        handleSelectClick(); // toggle dropdown
+      }
+    }      
+  }
+}
+>
+  {selectedOption}
+</div>
+
 
       <div className={`${styles.lableOnLeftSelectItems} ${isOpen ? '' : styles.selectHide}`}>
-        {options.map((option) => (
+        {options.map((option,index) => (
           <div
             key={option.value}
             onClick={() => handleOptionClick(option)}
-            className={option.label === selectedOption ? styles.sameAsSelected : ''}
+            className={`${option.label === selectedOption ? styles.sameAsSelected : ''} ${highlightedIndex === index ? styles.highlighted : ''}`}
           >
             {option.label}
           </div>
@@ -142,20 +172,50 @@ useImperativeHandle(ref, () => ({
       <div className={ styles.topLableContainer}>{label}</div>
       <div className={styles.dropdownParent} >
       <div
-        className={`${styles.selectSelected} ${isOpen ? styles.selectArrowActive : ''}`}
-        onClick={handleSelectClick}
-      >
-        {selectedOption}
-      </div>
+  className={`${styles.selectSelected} ${isOpen ? styles.selectArrowActive : ''}`}
+  tabIndex={0}
+  onClick={handleSelectClick}
+  onKeyDown={(e) => {
+      if ((e.key === 'ArrowDown'||e.key === 'Enter')&&(!isOpen)) {
+        console.log(" if ((e.key === 'ArrowDown'||e.key === 'Enter')&&(!isOpen)) ");
+        handleSelectClick();
+      }else if (e.key === "ArrowDown") {
+        console.log(" else if (e.key === ArrowDown) ");
+        e.preventDefault();
+        if (!isOpen) {
+          console.log(" else if (e.key === ArrowDown) => if (!isOpen) ");
+          setIsOpen(true);
+          setHighlightedIndex(0);
+        } else {
+          console.log(" else if (e.key === ArrowDown) => else ");
+          setHighlightedIndex((prev) => Math.min(prev + 1, options.length - 1));
+        }
+      } else if (e.key === "ArrowUp") {
+        e.preventDefault();
+        setHighlightedIndex((prev) => Math.max(prev - 1, 0));
+      }else if (e.key === "Enter") {
+        if (isOpen && highlightedIndex >= 0) {
+          handleOptionClick(options[highlightedIndex]);
+        } else {
+          handleSelectClick(); // toggle dropdown
+        }
+      }      
+    }
+  }
+>
+  {selectedOption}
+</div>
+
       
       <div className={`${styles.selectItems} ${isOpen ? '' : styles.selectHide}`}>
         
         {
-          options.map((option) => (
+          options.map((option,index) => (
           <div
             key={option.value}
             onClick={() => handleOptionClick(option)}
-            className={option.label === selectedOption ? styles.sameAsSelected : ''}
+            className={`${option.label === selectedOption ? styles.sameAsSelected : ''} ${highlightedIndex === index ? styles.highlighted : ''}`}
+
           >
             {option.label}
           </div>
