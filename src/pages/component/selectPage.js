@@ -103,6 +103,7 @@ function SelectPage() {
         col="3"
         onSelectChange={handleCarSelection}
         initialValue="0"
+        label = "label"
       >
         <ROption value="0">Select car:</ROption>
         <ROption value="1">Audi</ROption>

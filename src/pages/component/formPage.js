@@ -39,6 +39,7 @@ const FormPage = (props) => {
             <Name label="Last Name"/>
             <Name label="Last Name"/>
             <CustomSelect
+            label = "Select Lable"
        col="6"
         options={carOptions}           // Pass the array of options
         initialValue="Select rrrrrrrrrrrrrrrrrrrrrrrrrrrr:"    // Optional: Set the initially displayed label

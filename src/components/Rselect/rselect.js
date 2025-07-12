@@ -1,19 +1,31 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef,useImperativeHandle } from 'react';
 import styles from './select.module.css'; // Import the CSS module
 import {bootstrapGrid} from '../comp.properties.js';
 import {inputTypo} from '../comp.properties.js';
 import {inputColor} from '../comp.properties.js';
 import ROption from './roption'; // Import the new ROption component
-const CustomSelect = ({label,labelOnLeft,col,options, onSelectChange, initialValue,children ,required }) => {
-  let selectedValue;
+const CustomSelect = React.forwardRef(({label,labelOnLeft,col,options, onSelectChange, initialValue,children ,required }, ref) => {
+  //let selectedValue;
   const [validationMessage, setValidationMessage] = useState("");
+  const [currentSelectedValue, setCurrentSelectedValue] = useState();
   const validate = () => {
-    if(!selectedValue && required) {
+    console.log("validate get called in rselect");
+    if(!currentSelectedValue && required) {
       setValidationMessage(label + " should be selected");
         return false;
     }
     return true;
 }
+const getValue = () => {
+  console.log("get selectedValue",currentSelectedValue);
+  return currentSelectedValue;
+}
+const getLabel = () => {
+  return label;
+}
+useImperativeHandle(ref, () => ({
+  getValue,validate,getLabel
+}));
   const createStyledField = (labelOnLeft,col)=>{
     if(labelOnLeft && labelOnLeft == "true"){
       if(col && col == "12"){
@@ -85,7 +97,7 @@ const CustomSelect = ({label,labelOnLeft,col,options, onSelectChange, initialVal
   const handleOptionClick = (option) => {
     setSelectedOption(option.label);
     setIsOpen(false);
-    selectedValue=option.value;
+  setCurrentSelectedValue(option.value);
     if (onSelectChange) {
       onSelectChange(option.value);
     }
@@ -155,6 +167,6 @@ const CustomSelect = ({label,labelOnLeft,col,options, onSelectChange, initialVal
     ];
   };
   return createStyledField(labelOnLeft,col);
-};
+});
 
 export default CustomSelect;
