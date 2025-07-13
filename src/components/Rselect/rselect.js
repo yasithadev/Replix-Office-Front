@@ -6,9 +6,12 @@ import {inputColor} from '../comp.properties.js';
 import ROption from './roption'; // Import the new ROption component
 const CustomSelect = React.forwardRef(({label,labelOnLeft,col,options, onSelectChange, initialValue,children ,required }, ref) => {
   //let selectedValue;
+  const [dropUp, setDropUp] = useState(false);
   const [validationMessage, setValidationMessage] = useState("");
   const [currentSelectedValue, setCurrentSelectedValue] = useState();
   const [highlightedIndex, setHighlightedIndex] = useState(-1);
+  const [enableScroll, setEnableScroll] = useState(false);
+
   const validate = () => {
     console.log("validate get called in rselect");
     if(!currentSelectedValue && required) {
@@ -76,6 +79,15 @@ useImperativeHandle(ref, () => ({
     options= extractOptionsFromChildren();
   }
   useEffect(() => {
+    if (isOpen) {
+      setTimeout(() => {
+        setEnableScroll(true);
+      }, 200); // matches CSS transition
+    } else {
+      setEnableScroll(false);
+    }
+  }, [isOpen]);
+  useEffect(() => {
     
 
     const handleClickOutside = (event) => {
@@ -90,11 +102,22 @@ useImperativeHandle(ref, () => ({
       document.removeEventListener('click', handleClickOutside);
     };
   }, []);
-
+/*
   const handleSelectClick = () => {
     setIsOpen(!isOpen);
   };
-
+*/  
+  const handleSelectClick = () => {
+    if (selectRef.current) {
+      const rect = selectRef.current.getBoundingClientRect();
+      const dropdownHeight = 200; // estimated max dropdown height
+      const spaceBelow = window.innerHeight - rect.bottom;
+      // If space below is insufficient, position dropdown above
+      setDropUp(spaceBelow < (rect.top-48));//48 is top menubar height
+    }
+  
+    setIsOpen(!isOpen);
+  };
   const handleOptionClick = (option) => {
     setSelectedOption(option.label);
     setIsOpen(false);
@@ -148,9 +171,7 @@ useImperativeHandle(ref, () => ({
 >
   {selectedOption}
 </div>
-
-
-      <div className={`${styles.lableOnLeftSelectItems} ${isOpen ? '' : styles.selectHide}`}>
+      <div className={`${styles.selectItems} ${dropUp ? styles.dropUp : ''} ${isOpen ? styles.selectShow : styles.selectHide} ${enableScroll ? styles.enableScroll : ''}`}>
         {options.map((option,index) => (
           <div
             key={option.value}
@@ -213,8 +234,7 @@ useImperativeHandle(ref, () => ({
 </div>
 
       
-      <div className={`${styles.selectItems} ${isOpen ? '' : styles.selectHide}`}>
-        
+<div className={`${styles.selectItems} ${dropUp ? styles.dropUp : ''} ${isOpen ? styles.selectShow : styles.selectHide} ${enableScroll ? styles.enableScroll : ''}`}>
         {
           options.map((option,index) => (
           <div

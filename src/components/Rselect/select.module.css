@@ -89,6 +89,9 @@
     left: 0px;
     right: 0px;
     z-index: 99;
+    max-height: 0; /* Limit height */
+    overflow-y: hidden;   /* Enable vertical scroll */
+    transition: max-height 200ms ease;
   }
 
   .lableOnLeftSelectItems {
@@ -98,11 +101,20 @@
     left: 0px;
     right: 0px;
     z-index: 99;
+    max-height: 0; /* Limit height */
+    overflow-y: hidden;  
+    transition: max-height 200ms ease;
   }
-  
+  .selectShow {
+    max-height: 300px; /* or whatever fits your content */
+    /*opacity: 1;*/
+    /* overflow-y: auto;   Enable vertical scroll */
+    visibility: visible;
+  }
   /*hide the items when the select box is closed:*/
   .selectHide {
-    display: none;
+     /* opacity: 0;*/
+    max-height: 0;
   }
   
   .selectItems div:hover, .sameAsSelected {
@@ -156,4 +168,32 @@
 }
 .highlighted{
   background-color: rgb(129, 191, 252);
+}
+
+.dropUp {
+  top: auto;
+  bottom: 100%;
+}
+.enableScroll {
+  overflow-y: auto;/* Enable vertical scroll */
+  overflow-x: auto;
+}
+.selectItems::-webkit-scrollbar {
+  width: 10px; 
+}
+.selectItems::-webkit-scrollbar-track {
+  background-color: rgba(0, 0, 0, 0);
+  box-shadow: inset 0 0 10px 10px rgba(255, 255, 255, 0);
+  border: solid 3px transparent;
+}
+.selectItems::-webkit-scrollbar-thumb {
+  border-radius: 7px;
+  box-shadow: inset 0 0 10px 10px rgba(255, 255, 255, 0.5);
+  border: solid 3px transparent;
+}
+.selectItems::-webkit-scrollbar-thumb:hover {
+  box-shadow: inset 0 0 10px 10px rgba(255, 255, 255, 0.8);
+}
+.selectItems::-webkit-scrollbar-corner {
+  background-color: DodgerBlue; /* or any color you prefer */
 }
