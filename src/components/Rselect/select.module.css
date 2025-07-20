@@ -89,7 +89,7 @@ padding-left: 4px;
 padding-right: 4px;
 
   border: 1px solid transparent;
-  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0) transparent;
   cursor: pointer;
   user-select: none;
 }
@@ -111,7 +111,7 @@ padding-right: 4px;
 /*style items (options):*/
 .selectItems {
   position: absolute;
-  background-color: rgba(255, 255, 255, 0.842);
+  background-color: rgba(255, 255, 255, 0.904);
   top:100%;
   left: 0px;
   right: 0px;
@@ -119,7 +119,7 @@ padding-right: 4px;
   max-height: 0; /* Limit height */
   overflow-y: hidden;   /* Enable vertical scroll */
   transition: max-height 200ms ease;
-
+border-radius: 0px 0px 5px 5px;
 
 }
 
@@ -202,6 +202,7 @@ background-color: rgb(129, 191, 252);
 .dropUp {
 top: auto;
 bottom: 100%;
+border-radius: 5px 5px 0px 0px ;
 }
 .enableScroll {
 overflow-y: auto;/* Enable vertical scroll */

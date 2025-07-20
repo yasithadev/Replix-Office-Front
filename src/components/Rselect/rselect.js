@@ -5,14 +5,45 @@ import {inputTypo} from '../comp.properties.js';
 import {inputColor} from '../comp.properties.js';
 import ROption from './roption'; // Import the new ROption component
 const CustomSelect = React.forwardRef(({label,labelOnLeft,col,options, onSelectChange, initialValue,children ,required }, ref) => {
-  //let selectedValue;
+  //////////start declarations////////////
   const [dropUp, setDropUp] = useState(false);
   const [validationMessage, setValidationMessage] = useState("");
   const [currentSelectedValue, setCurrentSelectedValue] = useState();
   const [highlightedIndex, setHighlightedIndex] = useState(-1);
   const [enableScroll, setEnableScroll] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [selectedOption, setSelectedOption] = useState(
+    initialValue || (options.length > 0 ? options[0].label : 'Select an option')
+  );
+  const selectRef = useRef(null);
 
-  const validate = () => {
+  useImperativeHandle(ref, () => ({
+    getValue,validate,getLabel
+  }));
+
+  useEffect(() => {
+    if (isOpen) {
+      setTimeout(() => {
+        setEnableScroll(true);
+      }, 200); // matches CSS transition
+    } else {
+      setEnableScroll(false);
+    }
+  }, [isOpen]);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (selectRef.current && !selectRef.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener('click', handleClickOutside);
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, []);
+//////////Start Api/////////////
+const validate = () => {
     console.log("validate get called in rselect");
     if(!currentSelectedValue && required) {
       setValidationMessage(label + " should be selected");
@@ -27,9 +58,8 @@ const getValue = () => {
 const getLabel = () => {
   return label;
 }
-useImperativeHandle(ref, () => ({
-  getValue,validate,getLabel
-}));
+////////////End Api///////////////
+
   const createStyledField = (labelOnLeft,col)=>{
     if(labelOnLeft && labelOnLeft == "true"){
       if(col && col == "12"){
@@ -54,11 +84,9 @@ useImperativeHandle(ref, () => ({
 
   }
 
-  const [selectedOption, setSelectedOption] = useState(
-    initialValue || (options.length > 0 ? options[0].label : 'Select an option')
-  );
-  const [isOpen, setIsOpen] = useState(false);
-  const selectRef = useRef(null);
+
+
+  
 
   // Effect for handling clicks outside the component
   const extractOptionsFromChildren = () => {
@@ -73,40 +101,17 @@ useImperativeHandle(ref, () => ({
       return null;
     }).filter(option => option !== null);
   };
-  console.log("useEffect options",options);
   if(!options || options.length== 0){
     console.log("if(!options || options.length== 0)");
     options= extractOptionsFromChildren();
   }
-  useEffect(() => {
-    if (isOpen) {
-      setTimeout(() => {
-        setEnableScroll(true);
-      }, 200); // matches CSS transition
-    } else {
-      setEnableScroll(false);
-    }
-  }, [isOpen]);
-  useEffect(() => {
-    
 
-    const handleClickOutside = (event) => {
-      if (selectRef.current && !selectRef.current.contains(event.target)) {
-        setIsOpen(false);
-      }
-    };
-
-    document.addEventListener('click', handleClickOutside);
-
-    return () => {
-      document.removeEventListener('click', handleClickOutside);
-    };
-  }, []);
 /*
   const handleSelectClick = () => {
     setIsOpen(!isOpen);
   };
 */  
+////////////Start
   const handleSelectClick = () => {
     if (selectRef.current) {
       const rect = selectRef.current.getBoundingClientRect();
