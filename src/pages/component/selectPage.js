@@ -53,7 +53,7 @@ function SelectPage() {
        label = "label"
         options={carOptions}           // Pass the array of options
         onSelectChange={handleCarSelection} // Pass the handler for selection changes
-        initialValue="Select car:"    // Optional: Set the initially displayed label
+        placeHolder="Select car:"    // Optional: Set the initially displayed label
       /> 
       <input type="text"/>
             <CustomSelect
@@ -61,7 +61,7 @@ function SelectPage() {
             label = "label"
         options={carOptions}           // Pass the array of options
         onSelectChange={handleCarSelection} // Pass the handler for selection changes
-        initialValue="Select car:"    // Optional: Set the initially displayed label
+        placeHolder="Select car:"    // Optional: Set the initially displayed label
       />
        </Raw>
       {selectedCarValue && (
@@ -83,7 +83,7 @@ function SelectPage() {
         label = "label"
         labelOnLeft="true" 
         onSelectChange={handleFruitSelection}
-        initialValue="Apple" // You can set any label as initial
+        placeHolder="banana" // You can set any label as initial
       />
       </Raw>
       {selectedFruitValue && (
@@ -102,7 +102,7 @@ function SelectPage() {
       <CustomSelect
         col="3"
         onSelectChange={handleCarSelection}
-        initialValue="0"
+        placeHolder="0"
         label = "label"
       >
         <ROption value="0">Select car:</ROption>

@@ -4,7 +4,7 @@ import {bootstrapGrid} from '../comp.properties.js';
 import {inputTypo} from '../comp.properties.js';
 import {inputColor} from '../comp.properties.js';
 import ROption from './roption'; // Import the new ROption component
-const CustomSelect = React.forwardRef(({label,labelOnLeft,col,options, onSelectChange, initialValue,children ,required }, ref) => {
+const CustomSelect = React.forwardRef(({label,labelOnLeft,col,options, onSelectChange, placeHolder,initialValue,children ,required }, ref) => {
   //////////start declarations////////////
   const [dropUp, setDropUp] = useState(false);
   const [validationMessage, setValidationMessage] = useState("");
@@ -12,8 +12,10 @@ const CustomSelect = React.forwardRef(({label,labelOnLeft,col,options, onSelectC
   const [highlightedIndex, setHighlightedIndex] = useState(-1);
   const [enableScroll, setEnableScroll] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState(
-    initialValue || (options.length > 0 ? options[0].label : 'Select an option')
+  const [selectedOptionLable, setselectedOptionLable] = useState(
+    /////start replace with ai code////////
+    placeHolder || (options.length > 0 ? options[0].label : 'Select an option')
+    /////end replace with ai code////////
   );
   const selectRef = useRef(null);
 
@@ -124,7 +126,7 @@ const getLabel = () => {
     setIsOpen(!isOpen);
   };
   const handleOptionClick = (option) => {
-    setSelectedOption(option.label);
+    selectedOptionLable(option.label);
     setIsOpen(false);
   setCurrentSelectedValue(option.value);
     if (onSelectChange) {
@@ -174,14 +176,14 @@ const getLabel = () => {
   }
 }
 >
-  {selectedOption}
+  {selectedOptionLable}
 </div>
       <div className={`${styles.selectItems} ${dropUp ? styles.dropUp : ''} ${isOpen ? styles.selectShow : styles.selectHide} ${enableScroll ? styles.enableScroll : ''}`}>
         {options.map((option,index) => (
           <div
             key={option.value}
             onClick={() => handleOptionClick(option)}
-            className={`${option.label === selectedOption ? styles.sameAsSelected : ''} ${highlightedIndex === index ? styles.highlighted : ''}`}
+            className={`${option.label === selectedOptionLable ? styles.sameAsSelected : ''} ${highlightedIndex === index ? styles.highlighted : ''}`}
           >
             {option.label}
           </div>
@@ -235,7 +237,7 @@ const getLabel = () => {
     }
   }
 >
-  {selectedOption}
+  {selectedOptionLable}
 </div>
 
       
@@ -245,7 +247,7 @@ const getLabel = () => {
           <div
             key={option.value}
             onClick={() => handleOptionClick(option)}
-            className={`${option.label === selectedOption ? styles.sameAsSelected : ''} ${highlightedIndex === index ? styles.highlighted : ''}`}
+            className={`${option.label === selectedOptionLable ? styles.sameAsSelected : ''} ${highlightedIndex === index ? styles.highlighted : ''}`}
 
           >
             {option.label}
