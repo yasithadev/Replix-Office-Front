@@ -8,15 +8,31 @@ const CustomSelect = React.forwardRef(({label,labelOnLeft,col,options, onSelectC
   //////////start declarations////////////
   const [dropUp, setDropUp] = useState(false);
   const [validationMessage, setValidationMessage] = useState("");
-  const [currentSelectedValue, setCurrentSelectedValue] = useState();
   const [highlightedIndex, setHighlightedIndex] = useState(-1);
   const [enableScroll, setEnableScroll] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedOptionLable, setselectedOptionLable] = useState(
-    /////start replace with ai code////////
-    placeHolder || (options.length > 0 ? options[0].label : 'Select an option')
-    /////end replace with ai code////////
-  );
+  const [selectedOptionLable, setselectedOptionLable] = useState(() => {
+    if (placeHolder) return placeHolder;
+  
+    if (initialValue && options && options.length > 0) {
+      const matchedOption = options.find(opt => opt.value === initialValue);
+      return matchedOption ? matchedOption.label : "";
+    }
+  
+    return "";
+  });
+  
+  const [currentSelectedValue, setCurrentSelectedValue] = useState(() => {
+    if (placeHolder) return null;
+  
+    if (initialValue && options && options.length > 0) {
+      const matchedOption = options.find(opt => opt.value === initialValue);
+      return matchedOption ? matchedOption.value : null;
+    }
+  
+    return null;
+  });
+  
   const selectRef = useRef(null);
 
   useImperativeHandle(ref, () => ({
@@ -126,9 +142,9 @@ const getLabel = () => {
     setIsOpen(!isOpen);
   };
   const handleOptionClick = (option) => {
-    selectedOptionLable(option.label);
+    setselectedOptionLable(option.label); 
+    setCurrentSelectedValue(option.value); 
     setIsOpen(false);
-  setCurrentSelectedValue(option.value);
     if (onSelectChange) {
       onSelectChange(option.value);
     }
