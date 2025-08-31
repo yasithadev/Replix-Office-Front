@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState ,useRef} from 'react';
 import CustomSelect from '../../components/Rselect/rselect'; // Adjust the path if your component is in a different folder
 import Raw from '../../components/raw/raw';
 import Sheet from '../../components/sheet/sheet';
@@ -7,7 +7,7 @@ import ROption from '../../components/Rselect/roption'; // Import the new ROptio
 function SelectPage() {
   // Define the options for your custom select dropdown
   const carOptions = [
-    { value: '0', label: 'Select car:' }, // A default or placeholder option
+    { value: '0', label: 'BYD' }, // A default or placeholder option
     { value: '1', label: 'Audi' },
     { value: '2', label: 'BMW' },
     { value: '3', label: 'Citroen' },
@@ -39,6 +39,23 @@ function SelectPage() {
     setSelectedFruitValue(selectedValue);
   };
 
+  const placeHolderFieldRef = useRef();
+
+  const getValueFromFieldWithPlaceHolder = () => {
+    if (placeHolderFieldRef.current) {
+      const value = placeHolderFieldRef.current.getValue();
+      alert(`Selected value from placeholder field: ${value}`);
+    }
+  };
+
+  const initialValueFieldRef = useRef();
+
+  const getValueFromFieldWithInitialValue= () => {
+    if (initialValueFieldRef.current) {
+      const value = initialValueFieldRef.current.getValue();
+      alert(`Selected value from placeholder field: ${value}`);
+    }
+  };
   return (<Sheet>
     <div style={{ padding: '20px' }}>
       <h1>Using the Custom Select Component</h1>
@@ -46,30 +63,32 @@ function SelectPage() {
       <p>Choose your favorite car:</p>
       {/* First instance of CustomSelect */}
       <Raw>
-
-       
-      <CustomSelect
-       col="3"
-       label = "label"
-        options={carOptions}           // Pass the array of options
-        onSelectChange={handleCarSelection} // Pass the handler for selection changes
-        placeHolder="Select car:"    // Optional: Set the initially displayed label
-      /> 
-      <input type="text"/>
-            <CustomSelect
-            col="3" 
-            label = "label"
-        options={carOptions}           // Pass the array of options
-        onSelectChange={handleCarSelection} // Pass the handler for selection changes
-        placeHolder="Select car:"    // Optional: Set the initially displayed label
-      />
-       </Raw>
+        <CustomSelect
+          ref={placeHolderFieldRef}
+          col="3"
+          label = "Select field with placeHolder"
+          options={carOptions}           // Pass the array of options
+          onSelectChange={handleCarSelection} // Pass the handler for selection changes
+          placeHolder="Select car:"    // Optional: Set the initially displayed label
+        /> 
+        <input type="text"/>
+        <CustomSelect
+          ref={initialValueFieldRef}
+          col="3" 
+          label = "Select field with initialValue"
+          options={carOptions}           // Pass the array of options
+          onSelectChange={handleCarSelection} // Pass the handler for selection changes
+          initialValue="0"    // Optional: Set the initially displayed label
+        />
+      </Raw>
+      
       {selectedCarValue && (
         <p>
           You have selected: <strong>{selectedCarValue}</strong>
         </p>
       )}
-
+      <button onClick={getValueFromFieldWithPlaceHolder}>Get value of field with placeHolder</button>
+      <button onClick={getValueFromFieldWithInitialValue}>Get value of field with InitialValue</button>
       <br />
       <hr />
       <br />
@@ -105,7 +124,7 @@ function SelectPage() {
         placeHolder="0"
         label = "label"
       >
-        <ROption value="0">Select car:</ROption>
+        <ROption value="0">BYD</ROption>
         <ROption value="1">Audi</ROption>
         <ROption value="2">BMW</ROption>
       </CustomSelect>
