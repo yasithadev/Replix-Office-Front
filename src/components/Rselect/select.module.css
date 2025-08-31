@@ -25,6 +25,9 @@
 
 .selectSelected {
   background-color: rgba(252, 252, 252, 0);
+  height: 21px;
+    white-space: nowrap;
+    overflow-x: clip;
 
 }
 
