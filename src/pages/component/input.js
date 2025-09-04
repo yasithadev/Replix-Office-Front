@@ -127,11 +127,12 @@ const InputPage = (props) => {
             <Input labelOnLeft="true" col="4" type="tel" label="Email"/> 
             <Input labelOnLeft="true" col="4" type="tel" label="No. of children "/>
             <CustomSelect
+            label = "label"
         options={fruitOptions}
         col="4"
         labelOnLeft="true" 
         onSelectChange={handleFruitSelection}
-        initialValue="Apple" // You can set any label as initial
+        initialValue="dpple" // You can set any label as initial
       />
         </Raw>
         <Raw>

@@ -93,7 +93,7 @@ function SelectPage() {
       <hr />
       <br />
 
-      <p>Choose your favorite fruit:</p>
+      <p>initial value that not exist in optipn list:</p>
       {/* Second instance of CustomSelect to show reusability */}
       <Raw>
       <CustomSelect
@@ -102,9 +102,10 @@ function SelectPage() {
         label = "label"
         labelOnLeft="true" 
         onSelectChange={handleFruitSelection}
-        placeHolder="banana" // You can set any label as initial
+        initialValue="mango"
       />
       </Raw>
+      <button onClick={getValueFromFieldWithPlaceHolder}>Get value of field with wrong initial value</button>
       {selectedFruitValue && (
         <p>
           You have selected: <strong>{selectedFruitValue}</strong>
