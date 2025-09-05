@@ -9,5 +9,11 @@
 ## If placeholder and initialValue both provided -
 #### placeholder get ignored.intial value is the defauld value.✓
 ## If placeholder and initialValue both "not" provided -
-selectedOptionLable shouldbe empty string("").currentSelectedValue shouldbe null. update selectedOptionLable and currentSelectedValue both should update in handleOptionClick method.
+#### selectedOptionLable shouldbe empty string("").currentSelectedValue shouldbe null. ✓
+#### update selectedOptionLable and currentSelectedValue both should update in handleOptionClick method. ??
 
+## summery: 
+
+#### placeholder override by initial value
+
+#### tag based options(options as childern) override by json optins

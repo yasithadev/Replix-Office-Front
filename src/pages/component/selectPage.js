@@ -65,6 +65,24 @@ function SelectPage() {
       alert(`Selected value from initialValueCanNotFind field: ${value}`);
     }
   };
+
+  const initialValueAndPlaceHolderFieldRefFieldRef = useRef();
+
+  const getValueFromFieldinitialValueAndPlaceHolder= () => {
+    if (initialValueAndPlaceHolderFieldRefFieldRef.current) {
+      const value = initialValueAndPlaceHolderFieldRefFieldRef.current.getValue();
+      alert(`Selected value from both InitialValue And PlaceHolder exsists field: ${value}`);
+    }
+  };
+
+  const noInitialValueAndPlaceHolderFieldRefFieldRef = useRef();
+
+  const getValueFromFieldNoInitialValueAndPlaceHolder= () => {
+    if (noInitialValueAndPlaceHolderFieldRefFieldRef.current) {
+      const value = noInitialValueAndPlaceHolderFieldRefFieldRef.current.getValue();
+      alert(`Selected value from noInitialValueAndPlaceHolder field: ${value}`);
+    }
+  };
   return (<Sheet>
     <div style={{ padding: '20px' }}>
       <h1>Using the Custom Select Component</h1>
@@ -127,9 +145,10 @@ function SelectPage() {
         <label htmlFor="someInput">Test Input:</label>
         <input type="text" id="someInput" placeholder="Click here to close select" />
       </div>
-
+      <p>placeholder and initialValue both provided</p>
       <Raw>
       <CustomSelect
+      ref={initialValueAndPlaceHolderFieldRefFieldRef}
         col="3"
         onSelectChange={handleCarSelection}
         placeHolder="select a car"
@@ -141,7 +160,19 @@ function SelectPage() {
         <ROption value="2">BMW</ROption>
       </CustomSelect>
       </Raw>
-      
+      <button onClick={getValueFromFieldinitialValueAndPlaceHolder}>Get value of field with placeholder and initialValue both provided</button>
+      <p>placeholder and initialValue both "not" provided</p>
+      <Raw>
+            <CustomSelect
+            ref={noInitialValueAndPlaceHolderFieldRefFieldRef}
+            label = "label"
+        options={fruitOptions}
+        col="4"
+        labelOnLeft="true" 
+        onSelectChange={handleFruitSelection}
+      />
+        </Raw>
+        <button onClick={getValueFromFieldNoInitialValueAndPlaceHolder}>Get value of field with placeholder and initialValue both not provided</button>
     </div>
 
 
