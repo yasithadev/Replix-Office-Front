@@ -53,7 +53,16 @@ function SelectPage() {
   const getValueFromFieldWithInitialValue= () => {
     if (initialValueFieldRef.current) {
       const value = initialValueFieldRef.current.getValue();
-      alert(`Selected value from placeholder field: ${value}`);
+      alert(`Selected value from initialValue field: ${value}`);
+    }
+  };
+
+  const initialValueCanNotFindFieldRef = useRef();
+
+  const getValueFromFieldWithInitialValueCanNotFind= () => {
+    if (initialValueCanNotFindFieldRef.current) {
+      const value = initialValueCanNotFindFieldRef.current.getValue();
+      alert(`Selected value from initialValueCanNotFind field: ${value}`);
     }
   };
   return (<Sheet>
@@ -97,6 +106,7 @@ function SelectPage() {
       {/* Second instance of CustomSelect to show reusability */}
       <Raw>
       <CustomSelect
+        ref={initialValueCanNotFindFieldRef}
         options={fruitOptions}
         col="6"
         label = "label"
@@ -105,7 +115,7 @@ function SelectPage() {
         initialValue="mango"
       />
       </Raw>
-      <button onClick={getValueFromFieldWithPlaceHolder}>Get value of field with wrong initial value</button>
+      <button onClick={getValueFromFieldWithInitialValueCanNotFind}>Get value of field with wrong initial value</button>
       {selectedFruitValue && (
         <p>
           You have selected: <strong>{selectedFruitValue}</strong>
