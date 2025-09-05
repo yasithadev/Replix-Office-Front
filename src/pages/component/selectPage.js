@@ -132,7 +132,8 @@ function SelectPage() {
       <CustomSelect
         col="3"
         onSelectChange={handleCarSelection}
-        placeHolder="0"
+        placeHolder="select a car"
+        initialValue="0"
         label = "label"
       >
         <ROption value="0">BYD</ROption>

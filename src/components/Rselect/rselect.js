@@ -5,6 +5,24 @@ import {inputTypo} from '../comp.properties.js';
 import {inputColor} from '../comp.properties.js';
 import ROption from './roption'; // Import the new ROption component
 const CustomSelect = React.forwardRef(({label,labelOnLeft,col,options, onSelectChange, placeHolder,initialValue,children ,required }, ref) => {
+    // Effect for handling clicks outside the component
+    const extractOptionsFromChildren = () => {
+
+      return React.Children.map(children, child => {
+        if (React.isValidElement(child) && child.type === ROption) {
+          return {
+            value: child.props.value,
+            label: child.props.children, // The text content of ROption is its label
+          };
+        }
+        return null;
+      }).filter(option => option !== null);
+    };
+    if(!options || options.length== 0){
+      console.log("if(!options || options.length== 0)");
+      options= extractOptionsFromChildren();
+    }
+  
   //////////start declarations////////////
   const [dropUp, setDropUp] = useState(false);
   const [validationMessage, setValidationMessage] = useState("");
@@ -12,18 +30,15 @@ const CustomSelect = React.forwardRef(({label,labelOnLeft,col,options, onSelectC
   const [enableScroll, setEnableScroll] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOptionLable, setselectedOptionLable] = useState(() => {
-    if (placeHolder) return placeHolder;
-  
     if (initialValue && options && options.length > 0) {
       const matchedOption = options.find(opt => opt.value === initialValue);
       return matchedOption ? matchedOption.label : "";
     }
-  
+    if (placeHolder) return placeHolder;
     return "";
   });
   
   const [currentSelectedValue, setCurrentSelectedValue] = useState(() => {
-    if (placeHolder) return null;
   
     if (initialValue && options && options.length > 0) {
       const matchedOption = options.find(opt => opt.value === initialValue);
@@ -106,23 +121,7 @@ const getLabel = () => {
 
   
 
-  // Effect for handling clicks outside the component
-  const extractOptionsFromChildren = () => {
 
-    return React.Children.map(children, child => {
-      if (React.isValidElement(child) && child.type === ROption) {
-        return {
-          value: child.props.value,
-          label: child.props.children, // The text content of ROption is its label
-        };
-      }
-      return null;
-    }).filter(option => option !== null);
-  };
-  if(!options || options.length== 0){
-    console.log("if(!options || options.length== 0)");
-    options= extractOptionsFromChildren();
-  }
 
 /*
   const handleSelectClick = () => {
