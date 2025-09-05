@@ -35,6 +35,7 @@
   background-color: rgba(255, 255, 255, 0);
   padding-bottom: 2px;
   margin-top: 2px;
+
 }
 
 /*style the arrow inside the select element:*/
@@ -60,12 +61,12 @@
   and commented
       top: 16px;
   right: 10px;*/
-  right: 25px;
-  top: 15px;
+  right: 15px;
+  top: 8px;
   width: 0;
   height: 0;
   border: 6px solid transparent;
-  border-color: #fff transparent transparent transparent;
+  border-color: rgb(5, 5, 5) transparent transparent transparent;
   
 }
 
@@ -75,13 +76,13 @@
   top: 5px;
 }
 .lableleftSelectSelected.selectArrowActive:after {
-  border-color: transparent transparent #fff transparent;
+  border-color: transparent transparent rgb(0, 0, 0) transparent;
  
       /*bootstrap grid column class add additional padding 15 px to field.
   inorder to keep arrow icon in correct place added flowing line   top: 30px;
   and commented
   top: 7px;*/
-   top: 7px;
+   top: 3px;
 }
 
 /*style the items (options), including the selected item:*/
@@ -105,10 +106,10 @@ padding-right: 4px;
 }
 
 .lableOnLeftSelectItems div, .lableleftSelectSelected {
-  color: #ffffff;
+  color: #111111;
   /*padding: 8px 16px;*/
   border: 1px solid transparent;
-  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.938) transparent;
   cursor: pointer;
   user-select: none;
 }
