@@ -40,13 +40,17 @@ function SelectPage() {
   };
 
   const placeHolderFieldRef = useRef();
-
   const getValueFromFieldWithPlaceHolder = () => {
     if (placeHolderFieldRef.current) {
       const value = placeHolderFieldRef.current.getValue();
       alert(`Selected value from placeholder field: ${value}`);
     }
   };
+  const validateFieldWithPlaceHolder= () => {
+    if (placeHolderFieldRef.current) {
+      let isValid = placeHolderFieldRef.current.validate("custom validation message");
+    }
+  }
 
   const initialValueFieldRef = useRef();
 
@@ -58,13 +62,13 @@ function SelectPage() {
   };
 
   const initialValueCanNotFindFieldRef = useRef();
-
   const getValueFromFieldWithInitialValueCanNotFind= () => {
     if (initialValueCanNotFindFieldRef.current) {
       const value = initialValueCanNotFindFieldRef.current.getValue();
       alert(`Selected value from initialValueCanNotFind field: ${value}`);
     }
   };
+
 
   const initialValueAndPlaceHolderFieldRefFieldRef = useRef();
 
@@ -83,6 +87,12 @@ function SelectPage() {
       alert(`Selected value from noInitialValueAndPlaceHolder field: ${value}`);
     }
   };
+  const validateNoInitialValueAndPlaceHolder= () => {
+    if (noInitialValueAndPlaceHolderFieldRefFieldRef.current) {
+      let isValid = noInitialValueAndPlaceHolderFieldRefFieldRef.current.validate();
+    }
+  }
+
   return (<Sheet>
     <div style={{ padding: '20px' }}>
       <h1>Using the Custom Select Component</h1>
@@ -115,7 +125,7 @@ function SelectPage() {
           You have selected: <strong>{selectedCarValue}</strong>
         </p>
       )}
-      <button onClick={getValueFromFieldWithPlaceHolder}>Get value of field with placeHolder</button>
+      <button onClick={getValueFromFieldWithPlaceHolder}>Get value of field with placeHolder</button><button onClick={validateFieldWithPlaceHolder}>validate field with placeHolder</button>
       <button onClick={getValueFromFieldWithInitialValue}>Get value of field with InitialValue</button>
       <br />
       <hr />
@@ -174,7 +184,7 @@ function SelectPage() {
         onSelectChange={handleFruitSelection}
       />
         </Raw>
-        <button onClick={getValueFromFieldNoInitialValueAndPlaceHolder}>Get value of field with placeholder and initialValue both not provided</button>
+        <button onClick={getValueFromFieldNoInitialValueAndPlaceHolder}>Get value of field with placeholder and initialValue both not provided</button><button onClick={validateNoInitialValueAndPlaceHolder}>validate</button>
     </div>
 
 

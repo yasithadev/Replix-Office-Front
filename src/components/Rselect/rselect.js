@@ -76,11 +76,22 @@ const CustomSelect = React.forwardRef(({label,labelOnLeft,col,options, onSelectC
     };
   }, []);
 //////////Start Api/////////////
-const validate = () => {
+const validate = (customMessage) => {
     console.log("validate get called in rselect");
+    console.log("currentSelectedValue",currentSelectedValue);
+    console.log("required",required);
     if(!currentSelectedValue && required) {
-      setValidationMessage(label + " should be selected");
-        return false;
+      console.log("currentSelectedValue",currentSelectedValue);
+      if(customMessage){
+        setValidationMessage(customMessage);
+      }
+      else{
+        setValidationMessage(label + " should be selected");
+      }
+      return false;
+    }
+    else{
+      setValidationMessage("");
     }
     return true;
 }
