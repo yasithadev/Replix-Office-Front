@@ -152,7 +152,7 @@ const getLabel = () => {
     // Use the imported 'styles' object to apply classes
     return[
       <div  className={ bootstrapGrid['col-md-' + colsForLabel] + " " + bootstrapGrid['col-sm-12']+ " " + styles.container+ " " + styles.lableContainer}>
-                    {label}
+                    {label}{required ?(<span className={ inputColor.validationMessage}>&nbsp;*</span>) : (<span></span>)}
                 </div>,
     <div className={bootstrapGrid['col-md-'+ col] +" " + bootstrapGrid['col-sm-12']+" "+styles.customSelect}  ref={selectRef}>
       <div className={styles.dropdownParent} >
@@ -215,7 +215,7 @@ const getLabel = () => {
     return[
     <div className={bootstrapGrid['col-md-'+ col] +" " + bootstrapGrid['col-sm-12']+" "+styles.customSelect}  ref={selectRef}>
       
-      <div className={ styles.topLableContainer}>{label}</div>
+      <div className={ styles.topLableContainer}>{label}{required ?(<span className={ inputColor.validationMessage}>&nbsp;*</span>) : (<span></span>)}</div>
       <div className={styles.dropdownParent} >
       <div
   className={`${styles.selectSelected} ${isOpen ? styles.selectArrowActive : ''}`}

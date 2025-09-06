@@ -91,6 +91,7 @@ function SelectPage() {
       {/* First instance of CustomSelect */}
       <Raw>
         <CustomSelect
+          required={true} 
           ref={placeHolderFieldRef}
           col="3"
           label = "Select field with placeHolder"
@@ -164,6 +165,7 @@ function SelectPage() {
       <p>placeholder and initialValue both "not" provided</p>
       <Raw>
             <CustomSelect
+            required={true} 
             ref={noInitialValueAndPlaceHolderFieldRefFieldRef}
             label = "label"
         options={fruitOptions}
