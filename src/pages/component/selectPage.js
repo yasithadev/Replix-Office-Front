@@ -156,7 +156,7 @@ function SelectPage() {
         <label htmlFor="someInput">Test Input:</label>
         <input type="text" id="someInput" placeholder="Click here to close select" />
       </div>
-      <p>placeholder and initialValue both provided</p>
+      <p>placeholder and initialValue both provided,options given as tags</p>
       <Raw>
       <CustomSelect
       ref={initialValueAndPlaceHolderFieldRefFieldRef}
@@ -172,7 +172,7 @@ function SelectPage() {
       </CustomSelect>
       </Raw>
       <button onClick={getValueFromFieldinitialValueAndPlaceHolder}>Get value of field with placeholder and initialValue both provided</button>
-      <p>placeholder and initialValue both "not" provided</p>
+      <p>placeholder and initialValue both "not" provided,Custom validatin message</p>
       <Raw>
             <CustomSelect
             required={true} 

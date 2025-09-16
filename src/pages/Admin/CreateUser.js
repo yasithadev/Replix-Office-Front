@@ -14,7 +14,9 @@ import Code from '../../components/code/Code';
 import Name from '../../components/formfield/Name';
 import Email from '../../components/formfield/email';
 import Form from '../../components/form/Form';
-import Pagination from '../../components/pagination/pagination'
+import Pagination from '../../components/pagination/pagination';
+import CustomSelect from '../../components/Rselect/rselect';
+import ROption from '../../components/Rselect/roption';
 
 const CreateUser = () => {
     return <Sheet>
@@ -24,6 +26,13 @@ const CreateUser = () => {
         <Email required={true} label="Email"/>
         <Name label="First Name"/>
         <Name label="Second Name"/>
+        <CustomSelect
+        initialValue="0"
+        label = "Active / Inactive"
+      >
+        <ROption value="0">Active</ROption>
+        <ROption value="1">Inactive</ROption>
+      </CustomSelect>
         </Form>
         <Pagination totalPages="20" currentPage="10"></Pagination>
       <Stack spacing={2} direction="row"></Stack>
