@@ -19,9 +19,30 @@ import CustomSelect from '../../components/Rselect/rselect';
 import ROption from '../../components/Rselect/roption';
 
 const CreateUser = () => {
+  const submit = async (formData) => {
+    console.log("----------------submit-----------------")//TODO
+    console.log("create user formData ",formData);
+    //secondController.setLoginStatus(true);
+    try{
+        //await authService.doBasicAuthentication(username,password)
+        //navigate("/");
+    }
+    catch(e){
+      /*
+      if (e instanceof UnauthorizedException) {
+        throw new InvalidCredentialException();
+      }
+      
+      if (e instanceof NetworkErrorException) {
+        Notifier.notify("Error","W503 : "+ msg.W503);
+      }
+      */
+    }
+  }
+
     return <Sheet>
         <H4>Create User</H4>
-        <Form lan="2">
+        <Form onSubmitButtonClicked={submit} lan="2">
         <Name required={true} label="User Name"/>
         <Email required={true} label="Email"/>
         <Name label="First Name"/>

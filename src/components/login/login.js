@@ -15,7 +15,7 @@ const BasicLogin = (props) => {
     }
     catch(e){
       if (e instanceof InvalidCredentialException) {
-        console.log("----------------Invalid Username or Password-----------------");
+        console.log("----------------Invalid Username or Password-----------------");//TODO use logging framework
         setValidationMessage('Invalid Username or Password');
       }
     }

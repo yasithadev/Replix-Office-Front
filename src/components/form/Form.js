@@ -13,7 +13,7 @@ const Form = (props) => {
   ]);
   console.log("excecuting secuentially ");
   let defaultCols = colsForLane.get(props.lan);
-  const callChildMethods = () => {
+  const callChildMethods = async() => {
     let valid =true;
     let formData={};
 
@@ -41,6 +41,18 @@ const Form = (props) => {
         }
       });
       console.log("formData ",formData);
+      console.log("----------------submitting -----------------")//TODO use logging framework
+      try{
+        await props.onSubmitButtonClicked(formData);
+      }
+      catch(e){
+        /*
+        if (e instanceof InvalidCredentialException) {
+          console.log("----------------Invalid Username or Password-----------------");//TODO use logging framework
+          setValidationMessage('Invalid Username or Password');
+        }
+        */
+      }
     }
   };
   const groupChildren=()=>{
