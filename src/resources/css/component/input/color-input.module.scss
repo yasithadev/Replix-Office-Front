@@ -1,3 +1,26 @@
+@import "../../color-palette.scss";
+.formField{
+    background-color: rgba(255, 255, 255, 0);
+    border-top-color: rgba(255, 255, 255, 0);
+    border-left-color: rgba(255, 255, 255, 0);
+    border-right-color: rgba(255, 255, 255, 0);
+    border-bottom-color: rgba(0, 0, 0, 0.8);
+    border-bottom-width: 1px;
+}
+.formField:focus-visible {
+
+    outline: 0px solid blue;
+  
+  }
+.formField:focus{
+    background-color: rgba(255, 255, 255, 0);
+    border-top-color: rgba(255, 255, 255, 0);
+    border-left-color: rgba(255, 255, 255, 0);
+    border-right-color: rgba(255, 255, 255, 0);
+    border-bottom-color: $primary-lt;
+    border-bottom-width: 2px;  
+    padding-bottom: 0px;
+}
 .validationMessage{
     color:rgb(255, 0, 0);
 }

@@ -5,7 +5,7 @@ import {secondController} from "../controllers/secondController";
 import { useNavigate } from "react-router-dom";
 import React, {useState,useRef, useEffect } from 'react';
 import Authentication from '../models/Authentication';
-import logger from '../util/log/logger';
+import logger from '../components/util/log/logger';
 
 //import console = require("console");
 const AppLayout = () => {

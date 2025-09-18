@@ -2,7 +2,7 @@ import axios from 'axios';
 import { AxiosError } from "axios";
 import UnauthorizedException from '../exception/UnauthorizedException';
 import NetworkErrorException from '../exception/NetworkErrorException';
-import logger from '../util/log/logger';
+import logger from '../components/util/log/logger';
 import msg from '../resources/msg';
 
 class AuthRepository{

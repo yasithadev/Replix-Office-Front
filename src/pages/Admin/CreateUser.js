@@ -19,7 +19,7 @@ import CustomSelect from '../../components/Rselect/rselect';
 import ROption from '../../components/Rselect/roption';
 
 const CreateUser = () => {
-  const submit = async (formData) => {
+  const submitCallBack = async (formData) => {
     console.log("----------------submit-----------------")//TODO
     console.log("create user formData ",formData);
     //secondController.setLoginStatus(true);
@@ -42,7 +42,7 @@ const CreateUser = () => {
 
     return <Sheet>
         <H4>Create User</H4>
-        <Form onSubmitButtonClicked={submit} lan="2">
+        <Form onSubmitButtonClicked={submitCallBack} lan="2">
         <Name required={true} label="User Name"/>
         <Email required={true} label="Email"/>
         <Name label="First Name"/>
