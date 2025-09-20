@@ -3,12 +3,17 @@ import { AxiosError } from "axios";
 import msg from '../resources/msg';
 import UnauthorizedException from '../exception/UnauthorizedException';
 import NetworkErrorException from '../exception/NetworkErrorException';
-
+import Authentication from '../models/Authentication';
 class UserRepository{
     async makeCreateUserApiCall(user){
         let url = 'http://localhost:8080/user/create';
+       let token = Authentication.getInstance().getJwt();
         try{
-            const response = await axios.post(url,user);
+            const response = await axios.post(url,user,{
+                headers: {
+                  Authorization: `Bearer ${Authentication.getInstance().getJwt()}`
+                }
+              });
             //console.log("----------------",response,"-----------");//TODO:add debug log
             return response;
         }
