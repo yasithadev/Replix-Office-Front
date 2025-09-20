@@ -3,7 +3,7 @@ class Authentication {
     #permissions;
   
     constructor(jwt, permissions) {
-      if (!Authentication.instance) {
+      if (!Authentication.instance) {//make the class singleton
         this.#jwt = jwt;
         this.#permissions = permissions;
         Authentication.instance = this;

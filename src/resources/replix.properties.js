@@ -12,5 +12,6 @@ export { default as codeColor} from './css/component/code/color-code.module.scss
 export { default as inputShape} from './css/component/input/shape-input.module.scss';
 export { default as inputTypo} from './css/component/input/typo-input.module.scss';
 export { default as inputColor} from './css/component/input/color-input.module.scss';
+export { default as rselectColor} from './css/component/rselect/color-rselect.module.scss';
 export const clientLogo = railwaylogo;
 export const manufacturerLogo = dmsLogo;

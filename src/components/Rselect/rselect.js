@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef,useImperativeHandle } from 'react';
 import styles from './select.module.css'; // Import the CSS module
 import {bootstrapGrid} from '../comp.properties.js';
+import {rselectColor} from '../comp.properties.js';
 import {inputTypo} from '../comp.properties.js';
 import {inputColor} from '../comp.properties.js';
 import ROption from './roption'; // Import the new ROption component
@@ -227,9 +228,9 @@ const getLabel = () => {
     <div className={bootstrapGrid['col-md-'+ col] +" " + bootstrapGrid['col-sm-12']+" "+styles.customSelect}  ref={selectRef}>
       
       <div className={ styles.topLableContainer}>{label}{required ?(<span className={ inputColor.validationMessage}>&nbsp;*</span>) : (<span></span>)}</div>
-      <div className={styles.dropdownParent} >
+      <div className={rselectColor.dropdownParent + " " + styles.dropdownParent}>
       <div
-  className={`${styles.selectSelected} ${isOpen ? styles.selectArrowActive : ''}`}
+  className={`${rselectColor.selectSelected} ${styles.selectSelected} ${isOpen ? styles.selectArrowActive : ''}`}
   tabIndex={0}
   onClick={handleSelectClick}
   onKeyDown={(e) => {
@@ -267,7 +268,7 @@ const getLabel = () => {
 </div>
 
       
-<div className={`${styles.selectItems} ${dropUp ? styles.dropUp : ''} ${isOpen ? styles.selectShow : styles.selectHide} ${enableScroll ? styles.enableScroll : ''}`}>
+<div className={` ${styles.selectItems} ${dropUp ? styles.dropUp : ''} ${isOpen ? styles.selectShow : styles.selectHide} ${enableScroll ? styles.enableScroll : ''}`}>
         {
           options.map((option,index) => (
           <div

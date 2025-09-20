@@ -17,15 +17,17 @@ import Form from '../../components/form/Form';
 import Pagination from '../../components/pagination/pagination';
 import CustomSelect from '../../components/Rselect/rselect';
 import ROption from '../../components/Rselect/roption';
+import {userService} from '../../service/userService';
 
 const CreateUser = () => {
   const submitCallBack = async (formData) => {
     console.log("----------------submit-----------------")//TODO
-    console.log("create user formData ",formData);
+    console.log("formData ",formData);//TODO
     //secondController.setLoginStatus(true);
     try{
         //await authService.doBasicAuthentication(username,password)
         //navigate("/");
+        userService.createUserManager(formData);
     }
     catch(e){
       /*
@@ -48,11 +50,11 @@ const CreateUser = () => {
         <Name label="First Name"/>
         <Name label="Second Name"/>
         <CustomSelect
-        initialValue="0"
+        initialValue="1"
         label = "Active / Inactive"
       >
-        <ROption value="0">Active</ROption>
-        <ROption value="1">Inactive</ROption>
+        <ROption value="0">Inactive</ROption>
+        <ROption value="1">Active</ROption>
       </CustomSelect>
         </Form>
         <Pagination totalPages="20" currentPage="10"></Pagination>

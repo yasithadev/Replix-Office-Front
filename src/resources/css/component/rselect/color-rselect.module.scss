@@ -1,0 +1,11 @@
+@import "../../color-palette.scss";
+/*this class defined because .selectSelected accessthrough its parent*/
+.dropdownParent{
+    position: relative;//this line not adding any styles but ensure class is not empty
+}
+.dropdownParent .selectSelected:focus {
+    border-top-color: rgba(255, 255, 255, 0);
+    border-left-color: rgba(255, 255, 255, 0);
+    border-right-color: rgba(255, 255, 255, 0);
+    border-bottom-color: $primary-lt;
+}
