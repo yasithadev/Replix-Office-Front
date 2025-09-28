@@ -18,7 +18,12 @@ const Notification = (props) => {
         }, 300);
     }
     const icon = () => {  
-        return (<span style={{color: "#dc3545",fontWeight: 'bold'}}> 🛈 </span>);
+        if(props.type=="Error"){
+            return (<span style={{color: "#dc3545",fontWeight: 'bold'}}> 🛈 </span>);
+        }
+        else if(props.type=="Success"){
+            return (<span style={{color: "#00FF00",fontWeight: 'bold'}}> ✔ </span>);
+        }
     }
     return (<div className={NotificationStyle.notification} style={{opacity: opacity}}>
         <span className={NotificationStyle.closebtn} onClick={selfRemove}>&times;</span> 

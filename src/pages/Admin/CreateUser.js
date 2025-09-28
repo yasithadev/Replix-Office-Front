@@ -18,6 +18,12 @@ import Pagination from '../../components/pagination/pagination';
 import CustomSelect from '../../components/Rselect/rselect';
 import ROption from '../../components/Rselect/roption';
 import {userService} from '../../service/userService';
+import Notifier from '../../components/notification/Notifier';
+import NetworkErrorException from '../../exception/NetworkErrorException';
+import UnauthorizedException from '../../exception/UnauthorizedException';
+import EmailRegisteredException from '../../exception/EmailRegisteredException';
+import UserNameTakenException from '../../exception/UserNameTakenException';
+import msg from '../../resources/msg';
 
 const CreateUser = () => {
   const submitCallBack = async (formData) => {
@@ -27,18 +33,23 @@ const CreateUser = () => {
     try{
         //await authService.doBasicAuthentication(username,password)
         //navigate("/");
-        userService.createUserManager(formData);
+        await userService.createUserManager(formData);
+        Notifier.notify("Success","Successfully created.");
     }
     catch(e){
-      /*
-      if (e instanceof UnauthorizedException) {
-        throw new InvalidCredentialException();
-      }
-      
+      console.log("error catch in create user page");
       if (e instanceof NetworkErrorException) {
         Notifier.notify("Error","W503 : "+ msg.W503);
       }
-      */
+      else if (e instanceof UnauthorizedException) {
+        Notifier.notify("Error","You do not have permission to complete this action ");
+      }
+      else if (e instanceof EmailRegisteredException) {
+        Notifier.notify("Error","Email is already registered.");
+      }
+      else if (e instanceof UserNameTakenException) {
+        Notifier.notify("Error","W503 : Username is already taken.Try with different username");
+      }
     }
   }
 

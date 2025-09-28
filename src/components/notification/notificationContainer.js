@@ -50,7 +50,7 @@ const NotificationContainer = (props) => {
     }
 
     return(<div className={NotificationContainerStyle.notificationContainer} {...{"renderId":`${setRenderId}`}}>
-    {Array.from(notifications.entries()).reverse().map(([key, value]) =>(<Notification key={value.id} remove={removeLast} id={value.id}>{value.message}</Notification>))}
+    {Array.from(notifications.entries()).reverse().map(([key, value]) =>(<Notification key={value.id} remove={removeLast} id={value.id} type={value.type}>{value.message}</Notification>))}
     </div>);
 }
 export default NotificationContainer;

@@ -4,9 +4,16 @@ import {userRepository} from "../repositry/userRepository";
 class UserService{
     constructor(){}
     async createUserManager(userDetails){
-        const user = this.mapdata(userDetails);
-        console.log("user ",user);
-        userRepository.makeCreateUserApiCall(user);
+        try{
+            const user = this.mapdata(userDetails);
+            console.log("user ",user);
+            await userRepository.makeCreateUserApiCall(user);
+        }
+        catch(ex){
+            console.log("error catch in create user service");
+            throw ex;
+        }
+
     }
     mapdata(userDetails){
         // Convert to boolean

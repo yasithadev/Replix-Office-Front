@@ -3,6 +3,8 @@ import { AxiosError } from "axios";
 import msg from '../resources/msg';
 import UnauthorizedException from '../exception/UnauthorizedException';
 import NetworkErrorException from '../exception/NetworkErrorException';
+import EmailRegisteredException from '../exception/EmailRegisteredException';
+import UserNameTakenException from '../exception/UserNameTakenException';
 import Authentication from '../models/Authentication';
 class UserRepository{
     async makeCreateUserApiCall(user){
@@ -20,17 +22,31 @@ class UserRepository{
         catch(e)
         {
             if (e instanceof AxiosError) {
-                console.log(e.code);
-                if(e.code == "ERR_NETWORK"){
+                console.log(e);
+                if(e.code == "ERR_NETWORK"){//handling Axios error code
                     console.error("W503:",msg.W503);
                     throw new NetworkErrorException();
                 }
-                else if(e.code == "ERR_BAD_REQUEST"){
+                else if(e.status == "401" && e.response.data.error==="Unauthorized"){//handling spring security response
                     console.error("S401:",msg.S401);
                     throw new UnauthorizedException();
                 }
-                console.log(e);
-                throw e;
+                else if(e.status == "409" && e.response.data.errorCode==="EMAIL_REGISTERED"){//handling Replix error code
+                    console.error("S409:",e);
+                    throw new EmailRegisteredException();
+                }
+                else if(e.status == "409" && e.response.data.errorCode==="USERNAME_TAKEN"){//handling Replix error code
+                    console.error("S409:",e);
+                    throw new UserNameTakenException();
+                }
+                else if(e.status == "409"){//handling Replix error code
+                    console.error("S409:",e);
+                    throw new UserNameTakenException();
+                }
+                else{
+                    console.log(e);
+                    throw e;
+                }
             }
         }
     }
