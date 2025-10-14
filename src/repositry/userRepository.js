@@ -31,11 +31,11 @@ class UserRepository{
                     console.error("S401:",msg.S401);
                     throw new UnauthorizedException();
                 }
-                else if(e.status == "409" && e.response.data.errorCode==="EMAIL_REGISTERED"){//handling Replix error code
+                else if(e.status == "409" && e.response.data.errorCode==="EMAIL_REGISTERED"){//handling Replix error code//TODO use dataConflictException Delete EmailRegisteredException
                     console.error("S409:",e);
                     throw new EmailRegisteredException();
                 }
-                else if(e.status == "409" && e.response.data.errorCode==="USERNAME_TAKEN"){//handling Replix error code
+                else if(e.status == "409" && e.response.data.errorCode==="USERNAME_TAKEN"){//handling Replix error code//TODO use dataConflictException Delete UserNameTakenException
                     console.error("S409:",e);
                     throw new UserNameTakenException();
                 }

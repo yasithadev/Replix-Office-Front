@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Blogs from "./pages/Blogs";
 import CreateUser from "./pages/Admin/CreateUser";
+import ManageUser from "./pages/Admin/ManageUser";
 import TypoPage from "./pages/component/typoPage";
 import NotificatoinPage from "./pages/component/notificatoinPage";
 import InputPage from "./pages/component/input";
@@ -34,7 +35,7 @@ function App() {
           <Route path="contact" element={<Contact />} />
           <Route path="*" element={<NoPage />} />
           <Route path="CreateUser" element={<CreateUser />} />
-
+          <Route path="ManageUser" element={<ManageUser />} />
           <Route path="typo" element={<TypoPage/>} />
           <Route path="input" element={<InputPage/>} />
           <Route path="formSection" element={<FormSectionPage/>} />

@@ -16,7 +16,7 @@ const Form = (props) => {
   const callChildMethods = async() => {
     let valid =true;
     let formData={};
-
+    if(props.validation == null || props.validation === true){
     childRefs.current.forEach((ref, index) => {
       if (ref && ref.validate) {
       // console.log("if (ref && ref.validate) ");
@@ -25,6 +25,7 @@ const Form = (props) => {
         }
       }
     });
+  }
     if(!valid){
       Notifier.notify("Error","Form contain Invalid Data.Please correct them before Submit");//TODO make a mechanism get error codes frm msg file in resurce folder.msg file canchange from project to project so errr code and message should pass as props.
     }
@@ -94,7 +95,10 @@ const Form = (props) => {
             ))}
         </div>
       <Raw aligne = "left">
-        <Button onClick={callChildMethods} lable="Save"></Button>
+        <Button 
+          onClick={callChildMethods} 
+          lable={props.btnLable != null ? props.btnLable : "Submit"}
+        />
       </Raw>
     </>
   );

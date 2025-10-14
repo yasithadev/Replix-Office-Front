@@ -45,6 +45,7 @@ export const sideMenuContent = [
 </CollapsibleMenu>,
 <CollapsibleMenu name="🔑 Admin" >
     <Link to="/createUser"><MenuItem>👥 Create User</MenuItem></Link>
+    <Link to="/manageUser"><MenuItem>👥 Manage User </MenuItem></Link>
     <CollapsibleMenu name="Sample Collapsible Menu" >
         <CollapsibleMenu>
             <CollapsibleMenu>
